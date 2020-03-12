@@ -11,4 +11,4 @@ Por seguridad y rendimiento;
 Los archivos; conectar.php y config.php contienen información con la dirección de servidor, usuario y contraseña de bases
 de datos, por lo cual deberá generarlos de forma local.
 
-SE IGNORA LA CARGA DE LA CARPETA ArchivosSidoju Y DE LOS ARCHIVOS; conectar.php Y config.php
+SE IGNORA EL COMMIT DE LA CARPETA ArchivosSidoju Y DE LOS ARCHIVOS; conectar.php Y config.php
