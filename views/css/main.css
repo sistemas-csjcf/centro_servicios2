@@ -12,7 +12,7 @@ q:before,q:after{content:'';}
 
 /*----------------------------------------------------------------*/
 /************************** Documento *****************************/
-body 
+body
 {
 	margin: 0px;
 	background: #FFF url(../images/crm_fondopg.png) repeat-x;
@@ -22,7 +22,7 @@ body
 	color: #000000;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	
+
 }
 
 strong
@@ -70,7 +70,7 @@ strong
 #btn_close{
 	background-color: #4CAF50;
 }
-a:focus 
+a:focus
 {
 	outline: none;
 }
@@ -86,12 +86,12 @@ a:focus
 /*----------------------------------------------------------------*/
 /*********************** Panel Desplegable *************************/
 
-#sliderWrap 
+#sliderWrap
 {
 	margin: 0 auto;
 	width: 300px;
 }
-#sliderm 
+#sliderm
 {
 	position: absolute;
 	background-image:url(../images/slider.png);
@@ -101,11 +101,11 @@ a:focus
 	height: 322px;
 	margin-top: -238px;
 }
-#sliderm img 
+#sliderm img
 {
 	border: 0;
 }
-#sliderContent 
+#sliderContent
 {
 	margin: 70px 0 0 10px;
 	position: absolute;
@@ -114,7 +114,7 @@ a:focus
 	font-weight:bold;
 	padding: 10px;
 }
-#contenido 
+#contenido
 {
 	margin: 0 auto;
 	width: 860px;
@@ -122,7 +122,7 @@ a:focus
 	padding: 10px;
 	text-align: center;
 }
-#contenido1  
+#contenido1
 {
 	margin: 0 auto;
 	width: 1250px;
@@ -134,7 +134,7 @@ a:focus
 	margin: 0 auto;
 	text-align: center;
 }
-#openCloseWrap 
+#openCloseWrap
 {
 	position:absolute;
 	margin: 300px 0 0 108px;
@@ -143,8 +143,8 @@ a:focus
 }
 /*----------------------------------------------------------------*/
 /************************ Slider Opciones *************************/
-img{border:none;}	
-			
+img{border:none;}
+
 .graphic, #prevBtn, #nextBtn
 {
 	margin:0;
@@ -152,22 +152,22 @@ img{border:none;}
 	display:block;
 	overflow:hidden;
 	text-indent:-8000px;
-}	
+}
 #container
-{	
+{
 	margin:0 auto;
 	position:relative;
 	text-align:left;
-	width:696px; 
-	background:#fff;		
+	width:696px;
+	background:#fff;
 	margin-bottom:2em;
-}				
+}
 #content
 {
 	position:relative;
-}			
+}
 
-#sliderop{}	
+#sliderop{}
 #sliderop ul, #sliderop li
 {
 	margin:0;
@@ -175,35 +175,35 @@ img{border:none;}
 	list-style:none;
 }
 #sliderop li
-{ 
+{
 	width:260px;
 	height:140px;
-	overflow:hidden; 
-}	
+	overflow:hidden;
+}
 #prevBtn, #nextBtn
-{ 
+{
 	display:block;
 	width:28px;
 	height:25px;
 	position:absolute;
 	left:-30px;
 	top: 92px;
-}	
+}
 #nextBtn
-{ 
+{
 	left:286px;
-}														
+}
 #prevBtn a, #nextBtn a
-{  
+{
 	display:block;
 	width:28px;
 	height:25px;
 	/*background:url(../images/btn_prev.png) no-repeat 0 0;	*/
-}	
+}
 #nextBtn a
-{ 
+{
 	/*background:url(../images/btn_next.png) no-repeat 0 0;	*/
-}												
+}
 
 /*----------------------------------------------------------------*/
 /************************ Contenido Seccion ************************/
@@ -213,57 +213,57 @@ img{border:none;}
 	margin: 2px auto 6px auto;
 	width: 821px;
 	height: 91px;
-	background: url(../images/crm_secc_recepcion.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_recepcion.png) no-repeat 0 0;
 }
 #contentSecc_ventas
 {
 	margin: 2px auto 6px auto;
 	width: 825px;
 	height: 92px;
-	background: url(../images/crm_secc_ventas.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_ventas.png) no-repeat 0 0;
 }
 #contentSecc_clientes
 {
 	margin: 2px auto 6px auto;
 	width: 825px;
 	height: 92px;
-	background: url(../images/crm_secc_clientes.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_clientes.png) no-repeat 0 0;
 }
 #contentSecc_correspondencia
 {
 	margin: 2px auto 6px auto;
 	width: 825px;
 	height: 92px;
-	background: url(../images/crm_secc_correspondencia.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_correspondencia.png) no-repeat 0 0;
 }
 #contentSecc_eventos
 {
 	margin: 2px auto 6px auto;
 	width: 800px;
 	height: 92px;
-	background: url(../images/crm_secc_habitaciones.png) no-repeat 0 0;	
-}		
+	background: url(../images/crm_secc_habitaciones.png) no-repeat 0 0;
+}
 #contentSecc_archivo
 {
 	margin: 2px auto 6px auto;
 	width: 800px;
 	height: 92px;
-	background: url(../images/crm_secc_archivo.png) no-repeat 0 0;	
-}	
+	background: url(../images/crm_secc_archivo.png) no-repeat 0 0;
+}
 #contentSecc_rrhh
 {
 	margin: 2px auto 6px auto;
 	width: 800px;
 	height: 92px;
-	background: url(../images/crm_secc_rrhh.png) no-repeat 0 0;	
-}	
+	background: url(../images/crm_secc_rrhh.png) no-repeat 0 0;
+}
 
 #contentSecc_qrs
 {
 	margin: 2px auto 6px auto;
 	width: 800px;
 	height: 92px;
-	background: url(../images/crm_secc_qrs.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_qrs.png) no-repeat 0 0;
 }
 
 #contentSecc_reportes
@@ -271,7 +271,7 @@ img{border:none;}
 	margin: 2px auto 6px auto;
 	width: 800px;
 	height: 92px;
-	background: url(../images/crm_secc_reportes.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_reportes.png) no-repeat 0 0;
 }
 
 #contentSecc_conf
@@ -279,7 +279,7 @@ img{border:none;}
 	margin: 2px auto 6px auto;
 	width: 800px;
 	height: 92px;
-	background: url(../images/crm_secc_configuracion.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_configuracion.png) no-repeat 0 0;
 }
 
 #contentSecc_controlInterno
@@ -287,7 +287,7 @@ img{border:none;}
 	margin: 2px auto 6px auto;
 	width: 800px;
 	height: 92px;
-	background: url(../images/crm_secc_controlinterno.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_controlinterno.png) no-repeat 0 0;
 }
 
 #contentSecc_habitaciones
@@ -295,7 +295,7 @@ img{border:none;}
 	margin: 2px auto 6px auto;
 	width: 800px;
 	height: 92px;
-	background: url(../images/crm_secc_habitaciones1.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_habitaciones1.png) no-repeat 0 0;
 }
 
 #contentSecc_calendario
@@ -303,7 +303,7 @@ img{border:none;}
 	margin: 2px auto 6px auto;
 	width: 800px;
 	height: 92px;
-	background: url(../images/crm_secc_calendario.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_calendario.png) no-repeat 0 0;
 }
 
 #contentSecc_almacen
@@ -311,7 +311,7 @@ img{border:none;}
 	margin: 2px auto 6px auto;
 	width: 800px;
 	height: 92px;
-	background: url(../images/crm_secc_almacen.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_almacen.png) no-repeat 0 0;
 }
 
 #contentSecc_contabilidad
@@ -319,9 +319,9 @@ img{border:none;}
 	margin: 2px auto 6px auto;
 	width: 800px;
 	height: 92px;
-	background: url(../images/crm_secc_contabilidad.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_contabilidad.png) no-repeat 0 0;
 }
-	
+
 #menusec
 {
 	margin: 0px 0px 0px 240px;
@@ -331,23 +331,23 @@ img{border:none;}
 	color: #000000;
 }
 #menusec #sep
-{ 
+{
 	float: left;
 	color: #FFF;
 	margin-top: 3px;
 }
-#menusec li 
-{ 
-	float:left; 
+#menusec li
+{
+	float:left;
 }
 #menusec li a:link, #menusec li a:visited
 {
 	color:#FFF;
 	display:block;
 	font-size: 11px;
-	padding: 4px 10px; 
+	padding: 4px 10px;
 	text-decoration: none;
-}	
+}
 #menusec li a:hover
 {
 	color:#84CEFF;
@@ -356,23 +356,23 @@ img{border:none;}
 }
 
 /* Submenu */
-#menusec ul.submenu 
-{ 
+#menusec ul.submenu
+{
 	padding: 5px;
-	position: absolute; 
-	list-style: none; 
+	position: absolute;
+	list-style: none;
 	width: 160px;
 	height:auto;
 	background-color:#107697;
 }
 #menusec ul.submenu li
-{ 
-	float:none; 
-	background-image:none; 
+{
+	float:none;
+	background-image:none;
 }
 #menusec ul.submenu li a:hover
-{ 
-	float: none; 
+{
+	float: none;
 	background-image: none;
 	border-left: 1px solid #FFF;
 	border-right: 1px solid #FFF;
@@ -387,7 +387,7 @@ img{border:none;}
 	width: 800px;
 	border-collapse: collapse;
 	text-align: left; border-width: thin; border-color:#107697;
-	
+
 }
 #frm_editargrande
 {
@@ -396,7 +396,7 @@ img{border:none;}
 	width: 800px;
 	border-collapse: collapse;
 	text-align: left; border-width: thin; border-color:#107697;
-	
+
 }
 
 #frm_editar1
@@ -406,7 +406,7 @@ img{border:none;}
 	width: 500px;
 	border-collapse: collapse;
 	text-align: left; border-width: thin; border-color:#107697;
-	
+
 }
 #frm_editar th
 {
@@ -415,7 +415,7 @@ img{border:none;}
 	padding: 12px 8px;
 	border-bottom: 2px solid #107697;
 	border-top: 2px solid #107697;
-	
+
 }
 #frm_editar1 th
 {
@@ -432,8 +432,8 @@ img{border:none;}
 	padding: 12px 8px;
 	border-bottom: 2px solid #107697;
 	border-top: 2px solid #107697;
-}	
-	
+}
+
 #frm_editar td
 {
 	border-bottom: 1px solid #ccc;
@@ -495,10 +495,10 @@ img{border:none;}
 #numero_oficio_telegrama_f5,#numero_oficio_telegrama_f6,#numero_oficio_telegrama_f7,#numero_oficio_telegrama_f8,#numero_oficio_telegrama_f9,
 #numero_oficio_telegrama_f10,#numero_oficio_telegrama_f11,#numero_oficio_telegrama_f12,#numero_oficio_telegrama_f13,#numero_oficio_telegrama_f14,
 #numero_oficio_telegrama_f15,#direccion_f1,#direccion_f2,#direccion_f3,#direccion_f4,#direccion_f5,#direccion_f6,#direccion_f7,#direccion_f8,
-#direccion_f9,#direccion_f10,#direccion_f11,#direccion_f12,#direccion_f13,#direccion_f14,#direccion_f15,#direccion_f16,#fecha_f1,#fecha_f2,#fecha_f3, 
-#fecha_f4, #fecha_f5, #fecha_f6, #fecha_f7, #fecha_f8, #fecha_f9, #fecha_f10, #fecha_f11,#fecha_f12,#fecha_f13,#fecha_f14,#fecha_f15,#fecha_f16,#vinculado1, 
-#vinculado2, #vinculado3, #vinculado4, #vinculado5, #vinculado6, #vinculado7, #vinculado8, #vinculado9, #vinculado10, #vinculado11, #vinculado12, #vinculado13, 
-#vinculado14, #vinculado15, #vinculado16, #vinculado17, #vinculado18, #vinculado19, #vinculado20, #vinculado21, #vinculado22, #vinculado23, #vinculado24, 
+#direccion_f9,#direccion_f10,#direccion_f11,#direccion_f12,#direccion_f13,#direccion_f14,#direccion_f15,#direccion_f16,#fecha_f1,#fecha_f2,#fecha_f3,
+#fecha_f4, #fecha_f5, #fecha_f6, #fecha_f7, #fecha_f8, #fecha_f9, #fecha_f10, #fecha_f11,#fecha_f12,#fecha_f13,#fecha_f14,#fecha_f15,#fecha_f16,#vinculado1,
+#vinculado2, #vinculado3, #vinculado4, #vinculado5, #vinculado6, #vinculado7, #vinculado8, #vinculado9, #vinculado10, #vinculado11, #vinculado12, #vinculado13,
+#vinculado14, #vinculado15, #vinculado16, #vinculado17, #vinculado18, #vinculado19, #vinculado20, #vinculado21, #vinculado22, #vinculado23, #vinculado24,
 #vinculado25, #vinculado26, #vinculado27,
 /*AGREGADOS POR JORGE ANDRES VALENCIA OROZCO EL 15 DE MAYO DEL 2015*/
 #ndocumento,#cargo,#dependencia,#fechag,#asunto,#nombre,#fechai,#fechaf,#fechae,#remitente,#numerodoce,#idde,#idds,
@@ -507,7 +507,7 @@ img{border:none;}
 #radicadox2,#juzgadox,#claseprocesox,#fechaxd,#fechaxad,#radicadox3,#radicadox4,#documentox,#documento2x,#nombrex,#fechaxau1,#fechaxau2,#correccionx,#correccion2x,
 #observacionx,#documento,#ciudad,#radicado4,#idr,#jo,#fechaauto,#docidentidad,#fechaxau3,#fechaxau4,#nombreparte,
 #parte0,#parte1,#parte2,#parte3,#parte4,#parte5,#parte6,#parte7,#parte8,#parte9,#parte10,#partesx,#nombre2x,#cedulareg,#nombrereg,#datosadicionalesreg,
-#ruta_documento,#despacho,#fecha_interrogatorio, #direccionParte,#telefonoParte,#destinatario, 
+#ruta_documento,#despacho,#fecha_interrogatorio, #direccionParte,#telefonoParte,#destinatario,
 #fecha_admision, #tipo_envio,#claseproceso2,#claseproceso2x,#entidadcomisiona,#asunto,
 #despacholibra,#txt_radicado,#radisalud,
 	width: 250px;
@@ -556,16 +556,16 @@ img{border:none;}
 {
 	width: 80px;
 	padding: 4px;
-	border: 1px solid #CCC; 
+	border: 1px solid #CCC;
 }
 
 #frm_editar #totalaranceles,#totalaranceles,#msgtotal
 {
 	width: 80px;
 	padding: 4px;
-	border: 3px solid #000000; 
-	color:#FF0000; 
-	font-size:18px; 
+	border: 3px solid #000000;
+	color:#FF0000;
+	font-size:18px;
 	text-align:right;
 }
 
@@ -599,7 +599,7 @@ img{border:none;}
 	width: 150px;
 	padding: 4px;
 	border: 0px solid #CCC;
-	
+
 }
 #frm_editar #txt_input79
 {
@@ -611,14 +611,14 @@ img{border:none;}
 {
 	width: 250px;
 	padding: 4px;
-	
+
 }
 #frm_editar #estilo_medio
 {
 	width: 150;
 	padding: 4px;
 	border: 0px solid #CCC;
-	
+
 }
 #frm_editar #estilo_radio
 {
@@ -626,7 +626,7 @@ img{border:none;}
 	width: 5;
 	padding: 2px;
 	border: 0px solid #CCC;
-	
+
 }
 
 #frm_editar #txt_input1
@@ -660,7 +660,7 @@ img{border:none;}
 	border: 1px solid #CCC;
 }
 
-#frm_editar #departamento_f1, #departamento_f2,  #departamento_f3, #departamento_f4, #departamento_f5, #departamento_f6, #departamento_f7, #departamento_f8, #departamento_f9, #departamento_f10, #departamento_f11, #departamento_f12, #departamento_f13, #departamento_f14, #departamento_f15, #departamento_f16, #departamento_f17, #ciudad_f1, #ciudad_f2, #ciudad_f3, #ciudad_f4, #ciudad_f5, #ciudad_f6, #ciudad_f7, #ciudad_f8, #ciudad_f9, #ciudad_f10, #ciudad_f11, #ciudad_f12, #ciudad_f13, #ciudad_f14, #ciudad_f15, #ciudad_f16, #ciudad_f17, #ciudad1,#ciudad2,#ciudad3,#ciudad4,#ciudad5,#ciudad6,#ciudad7,#ciudad8,#ciudad9,#ciudad10,#ciudad11,#ciudad12,#ciudad13,#ciudad14,#ciudad15,#ciudad16, #departamento1, #departamento2, #departamento3, #departamento4, #departamento5, #departamento6, #departamento7, #departamento8, #departamento9, #departamento10, #departamento11, #departamento12, #departamento13, #departamento14, #departamento15, #departamento16,#medio1, #medio2, #medio3, #medio4, #medio5, #medio6, #medio7, #medio8, #medio9, #medio10, #medio11, #medio12, #medio13, #medio14, #medio15, #medio16, #actuacion_f1, #actuacion_f2, #actuacion_f3, #actuacion_f4, #actuacion_f5, #actuacion_f6, #actuacion_f7, #actuacion_f8, #actuacion_f9, #actuacion_f10, #actuacion_f11, #actuacion_f12, #actuacion_f13, #actuacion_f14, #actuacion_f15, #actuacion_f16, #actuacion_f17, #actuacion_f18, #actuacion_f19,#medio_f1, #medio_f2, #medio_f3, #medio_f4, #medio_f5, #medio_f6, #medio_f7, #medio_f8, #medio_f9, #medio_f10, #medio_f11, #medio_f12, #medio_f13, #medio_f14, #medio_f15, #medio_f16, #tipo_actuacion-1, #tipo_actuacion-2 , #tipo_actuacion-3 , #tipo_actuacion-4, #tipo_actuacion-5, #tipo_actuacion-6, #tipo_actuacion-7, #tipo_actuacion-8, #tipo_actuacion-9, #tipo_actuacion-10, #tipo_actuacion-11, #tipo_actuacion-12, #tipo_actuacion-13, #tipo_actuacion-14, #tipo_actuacion-15, #tipo_actuacion-16, #idactuacion1, #idactuacion2 , #idactuacion3 , #idactuacion4, #idactuacion5, #idactuacion6, #idactuacion7, #idactuacion8, #idactuacion9, #idactuacion10, #idactuacion11, #idactuacion12, #idactuacion13, #idactuacion14, #idactuacion15, #idactuacion16, #departamento-1, #departamento-2, #departamento-3, #departamento-4, #departamento-5, #departamento-6, #departamento-7, #departamento-8, #departamento-9, #departamento-10, #departamento-11, #departamento-12, #departamento-13, #departamento-14, #departamento-15, #departamento-16, #tipo_actuacion1, #tipo_actuacion2 , #tipo_actuacion3 , #tipo_actuacion4, #tipo_actuacion5, #tipo_actuacion6, #tipo_actuacion7, #tipo_actuacion8, #tipo_actuacion9, #tipo_actuacion10, #tipo_actuacion11, #tipo_actuacion12, #tipo_actuacion13, #tipo_actuacion14, #tipo_actuacion15, #tipo_actuacion16  
+#frm_editar #departamento_f1, #departamento_f2,  #departamento_f3, #departamento_f4, #departamento_f5, #departamento_f6, #departamento_f7, #departamento_f8, #departamento_f9, #departamento_f10, #departamento_f11, #departamento_f12, #departamento_f13, #departamento_f14, #departamento_f15, #departamento_f16, #departamento_f17, #ciudad_f1, #ciudad_f2, #ciudad_f3, #ciudad_f4, #ciudad_f5, #ciudad_f6, #ciudad_f7, #ciudad_f8, #ciudad_f9, #ciudad_f10, #ciudad_f11, #ciudad_f12, #ciudad_f13, #ciudad_f14, #ciudad_f15, #ciudad_f16, #ciudad_f17, #ciudad1,#ciudad2,#ciudad3,#ciudad4,#ciudad5,#ciudad6,#ciudad7,#ciudad8,#ciudad9,#ciudad10,#ciudad11,#ciudad12,#ciudad13,#ciudad14,#ciudad15,#ciudad16, #departamento1, #departamento2, #departamento3, #departamento4, #departamento5, #departamento6, #departamento7, #departamento8, #departamento9, #departamento10, #departamento11, #departamento12, #departamento13, #departamento14, #departamento15, #departamento16,#medio1, #medio2, #medio3, #medio4, #medio5, #medio6, #medio7, #medio8, #medio9, #medio10, #medio11, #medio12, #medio13, #medio14, #medio15, #medio16, #actuacion_f1, #actuacion_f2, #actuacion_f3, #actuacion_f4, #actuacion_f5, #actuacion_f6, #actuacion_f7, #actuacion_f8, #actuacion_f9, #actuacion_f10, #actuacion_f11, #actuacion_f12, #actuacion_f13, #actuacion_f14, #actuacion_f15, #actuacion_f16, #actuacion_f17, #actuacion_f18, #actuacion_f19,#medio_f1, #medio_f2, #medio_f3, #medio_f4, #medio_f5, #medio_f6, #medio_f7, #medio_f8, #medio_f9, #medio_f10, #medio_f11, #medio_f12, #medio_f13, #medio_f14, #medio_f15, #medio_f16, #tipo_actuacion-1, #tipo_actuacion-2 , #tipo_actuacion-3 , #tipo_actuacion-4, #tipo_actuacion-5, #tipo_actuacion-6, #tipo_actuacion-7, #tipo_actuacion-8, #tipo_actuacion-9, #tipo_actuacion-10, #tipo_actuacion-11, #tipo_actuacion-12, #tipo_actuacion-13, #tipo_actuacion-14, #tipo_actuacion-15, #tipo_actuacion-16, #idactuacion1, #idactuacion2 , #idactuacion3 , #idactuacion4, #idactuacion5, #idactuacion6, #idactuacion7, #idactuacion8, #idactuacion9, #idactuacion10, #idactuacion11, #idactuacion12, #idactuacion13, #idactuacion14, #idactuacion15, #idactuacion16, #departamento-1, #departamento-2, #departamento-3, #departamento-4, #departamento-5, #departamento-6, #departamento-7, #departamento-8, #departamento-9, #departamento-10, #departamento-11, #departamento-12, #departamento-13, #departamento-14, #departamento-15, #departamento-16, #tipo_actuacion1, #tipo_actuacion2 , #tipo_actuacion3 , #tipo_actuacion4, #tipo_actuacion5, #tipo_actuacion6, #tipo_actuacion7, #tipo_actuacion8, #tipo_actuacion9, #tipo_actuacion10, #tipo_actuacion11, #tipo_actuacion12, #tipo_actuacion13, #tipo_actuacion14, #tipo_actuacion15, #tipo_actuacion16
 {
 	width: 259px;
 	padding: 4px;
@@ -812,12 +812,12 @@ img{border:none;}
 #frm_editar2
 {
 	background: #fff;
-	
+
 	margin: 0px auto 0px auto;
 	width: 500px;
 	border-collapse: collapse;
 	text-align: left; border-width: thin; border-color:#107697;
-	
+
 }
 #frm_editar2 th
 {
@@ -1013,53 +1013,53 @@ img{border:none;}
 }
 /*----------------------------------------------------------------*/
 /******************** Validar Formularios **************************/
-input.error 
-{ 
-	border-bottom: 1px solid #CC0000 !important; 
+input.error
+{
+	border-bottom: 1px solid #CC0000 !important;
 	background-image: url(../images/crm_cancel.png);
 	background-position: center right;
 	background-repeat:no-repeat;
 }
 
-textarea.error 
-{ 
-	border-bottom: 1px solid #CC0000 !important; 
+textarea.error
+{
+	border-bottom: 1px solid #CC0000 !important;
 	background-image: url(../images/crm_cancel.png);
 	background-position: center right;
 	background-repeat:no-repeat;
 }
 
-select.error 
-{ 
-	border-bottom: 1px solid #CC0000 !important; 
+select.error
+{
+	border-bottom: 1px solid #CC0000 !important;
 }
 
 /*----------------------------------------------------------------*/
 /****************** Ventana JQuery Avisos ************************/
-#modalOverlay 
+#modalOverlay
 {
-	background-color:#000; 
+	background-color:#000;
 }
-#modalContainer 
+#modalContainer
 {
-	height: 160px; 
-	width: 400px; 
-	left: 50%; 
-	top: 30%; 
-	margin-left:-200px; 
-	background-color: #670D17; 
+	height: 160px;
+	width: 400px;
+	left: 50%;
+	top: 30%;
+	margin-left:-200px;
+	background-color: #670D17;
 	background: url(../images/crm_msjexito.png) no-repeat;
 }
-#modalContainer a.modalCloseImg 
+#modalContainer a.modalCloseImg
 {
 	background:url(../images/crm_salir.png) no-repeat;
-	width:18px; 
-	height:18px; 
-	display:inline; 
-	z-index:3200; 
-	position:absolute; 
-	top:2px; 
-	right:2px; 
+	width:18px;
+	height:18px;
+	display:inline;
+	z-index:3200;
+	position:absolute;
+	top:2px;
+	right:2px;
 	cursor:pointer;
 }
 form.quicksearch
@@ -1193,9 +1193,9 @@ table.display {
 	clear: both;
 	width: 100%;
         color:#084B8A;
-	
+
 	/* Note Firefox 3.5 and before have a bug with border-collapse
-	 * ( https://bugzilla.mozilla.org/show%5Fbug.cgi?id=155955 ) 
+	 * ( https://bugzilla.mozilla.org/show%5Fbug.cgi?id=155955 )
 	 * border-spacing: 0; is one possible option. Conditional-css.com is
 	 * useful for this kind of thing
 	 *
@@ -1203,7 +1203,7 @@ table.display {
 	 * It subtracts one px relative to the other browsers from the first column, and
 	 * adds one to the end...
 	 *
-	 * If you want that effect I'd suggest setting a border-top/left on th/td's and 
+	 * If you want that effect I'd suggest setting a border-top/left on th/td's and
 	 * then filling in the gaps with other borders.
 	 */
 }
@@ -1631,7 +1631,7 @@ div.box {
 	margin: 2px auto 6px auto;
 	width: 825px;
 	height: 92px;
-	background: url(../images/crm_secc_reps.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_reps.png) no-repeat 0 0;
 }
 
 #contentSecc_sigdoc
@@ -1639,42 +1639,42 @@ div.box {
 	margin: 2px auto 6px auto;
 	width: 825px;
 	height: 92px;
-	background: url(../images/crm_secc_sigdoc.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_sigdoc.png) no-repeat 0 0;
 }
 #contentSecc_sidoju
 {
 	margin: 2px auto 6px auto;
 	width: 825px;
 	height: 92px;
-	background: url(../images/crm_secc_sidoju.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_sidoju.png) no-repeat 0 0;
 }
 #contentSecc_signot
 {
 	margin: 2px auto 6px auto;
 	width: 825px;
 	height: 92px;
-	background: url(../images/crm_secc_signot.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_signot.png) no-repeat 0 0;
 }
 #contentSecc_estadistica
 {
 	margin: 2px auto 6px auto;
 	width: 825px;
 	height: 92px;
-	background: url(../images/crm_secc_estadistica.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_estadistica.png) no-repeat 0 0;
 }
 #contentSecc_caratula
 {
 	margin: 2px auto 6px auto;
 	width: 825px;
 	height: 92px;
-	background: url(../images/crm_secc_caratula.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_caratula.png) no-repeat 0 0;
 }
 #contentSecc_arancel
 {
 	margin: 2px auto 6px auto;
 	width: 825px;
 	height: 92px;
-	background: url(../images/crm_secc_arancel.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_arancel.png) no-repeat 0 0;
 }
 
 /*------------------------------------------------------------------------------------------------------------------
@@ -1686,11 +1686,26 @@ div.box {
 	margin: 2px auto 6px auto;
 	width: 825px;
 	height: 92px;
-	background: url(../images/crm_secc_trabajo_social.png) no-repeat 0 0;	
+	background: url(../images/crm_secc_trabajo_social.png) no-repeat 0 0;
 }
 #contentSecc_segme{
     margin: 2px auto 6px auto;
     width: 825px;
     height: 92px;
-    background: url(../images/crm_secc_segme.png) no-repeat 0 0;	
+    background: url(../images/crm_secc_segme.png) no-repeat 0 0;
+}
+
+/*------------------------------------------------------------------------------------------------------------------
+	CODIGO ADICIONADO POR SEBASTIÀN MARTÌNEZ VALENCIA, CARGA DE EVENTO LOADING PARA EVITAR MULTIPLE PETICION HTTP
+/------------------------------------------------------------------------------------------------------------------*/
+.loadContent{
+	display: none;
+}
+.load{
+	background-image:url('../../assets/imagenes/loading.gif');
+	background-repeat:no-repeat; background-position:center center;
+	background-size: 150px 110px;
+	width: 150px;
+	margin-left: calc((100% - 150px) / 2);
+	height: 75px;
 }
