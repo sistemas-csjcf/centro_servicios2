@@ -1,0 +1,4 @@
+# Ignorar el contenido de la carpeta ArchivosSidoju y los archivos conectar y config
+ArchivosSidoju/
+conectar.php
+config.php
