@@ -10,7 +10,7 @@ class frontController
 		require 'libs/modelBase.php';
 		require 'libs/view.php';
 		require 'config.php';
-		
+
 		/*----------------------- ( User Registered ) ---------------------*/
 		if (isset($_SESSION['id']) && isset($_SESSION['rol']))
 		{
@@ -19,40 +19,40 @@ class frontController
 		      		$controllerName = $_GET['controller'] . 'Controller';
 				else
 		      		$controllerName = "menuController";
-		
+
 				//action ---> menu_user
 				if(! empty($_GET['action']))
 		      		$actionName = $_GET['action'];
 				else
 		     		 $actionName = "menu_user";
 		}
-		
+
 		/*----------------------- ( User Unregistered ) ---------------------*/
 		else
-		{	
+		{
 				//Controller ---> indexController
 				if(! empty($_GET['controller']))
 		      			$controllerName = $_GET['controller'] . 'Controller';
 				else
 		    		  $controllerName = "indexController";
-		
+
 				//action ---> login_user
 				if(! empty($_GET['action']))
 		      		$actionName = $_GET['action'];
 				else
 		     		 $actionName = "login_user";
 		}
-		
+
 		//Path ---> controllers/fileController.php
 		$controllerPath = $config->get('controllersFolder') . $controllerName . '.php';
-			
+
 		if(is_file($controllerPath))
 		      require $controllerPath;
 		else
 		      //die('El Controlador no existe - 404 not found');
 			  echo '<script languaje="Javascript">location.href="views/errors/error_controller.php"</script>';
-		
-		if (is_callable(array($controllerName, $actionName)) == false) 
+
+		if (is_callable(array($controllerName, $actionName)) == false)
 		{
 			trigger_error ($controllerName . '->' . $actionName . '` no existe', E_USER_NOTICE);
 			return false;
@@ -60,7 +60,7 @@ class frontController
 
 		$controller = new $controllerName();
 		$controller->$actionName();
-		
+
 	}
 }
 ?>

@@ -1700,9 +1700,9 @@ div.box {
 /------------------------------------------------------------------------------------------------------------------*/
 .loadContent{
 	display: none;
+	margin-top: 250px;
 }
 .load{
-	background-image:url('../../assets/imagenes/loading.gif');
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 80px 80px;

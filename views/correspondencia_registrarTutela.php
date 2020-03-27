@@ -1392,9 +1392,21 @@
 		var rdx = document.getElementsByName("juzgado")[0].value;
 		var rex = document.getElementsByName("radicado")[0].value;
 		var rfx = document.getElementsByName("accionante")[0].value;
+		var check = false;
+
+		// Si se va a ingresar un radicado manual
+		if($("#manual").is(':checked')) {
+			if (rdx != "" && rex != "" && rfx != ""){
+					check = true;
+			}
+		} else {
+			if (rax != "" && rbx != "" && rcx != "" && rdx != "" && rex != "" && rfx != ""){
+					check = true;
+			}
+		}
 
 		//Si todos los campos obligatorios principales estan diligenciados, entonces proceda a validar accionado y vinculado
-		if (rax != "" && rbx != "" && rcx != "" && rdx != "" && rex != "" && rfx != ""){
+		if (check){
 
 			var validateFormLd = 0;
 			var nu = cnt('B');
@@ -1448,6 +1460,7 @@
 			if ( validateFormLd == (nu+ac+vn) ){
 				$(".non").css({display: "none"});
 				document.getElementById("loadContent").style.display = "block";
+				$(".load").css("background-image", 'url(../centro_servicios2/assets/imagenes/loading.gif)'); 
 				$("#frm").submit();
 			}
 
