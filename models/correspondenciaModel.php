@@ -656,11 +656,26 @@ $cant_insert_vinculados = count($vector_vinculados);
 		   $idaccionado_vinculado_accionante_tut = $id_otro;
 		 }
     $insert_time = date("Y-m-d H:i:s");
-		$registrar4 = $this->db->prepare("
-    INSERT INTO actuacion_tutela (id_usuario,idaccionado_vinculado_accionante_tut,esoficio_telegrama,oficio_telegrama,direccion,idmunicipio,idmedionotificacion,notificado,fecha_envio,idactuacion,tipo_actuacion,insert_time)
-    values ('$id_usuario','$idaccionado_vinculado_accionante_tut','$esoficio_telegrama','$oficio_telegrama','$direccion','$idmunicipio','$idmedionotificacion','$notificado','$fecha_envio','$idactuacion','$tipo_actuacion','$insert_time')
+
+    // Evitar regitros duplicados en actuaciones
+    $status = true;
+    $validarDup = $this->db->prepare("
+    SELECT * FROM actuacion_tutela ORDER BY id DESC LIMIT 1;
     ");
-		$registrar4->execute();
+		$validarDup->execute();
+    while($fieldDup = $validarDup->fetch()) {
+		  if ($id_usuario == $fieldDup['id_usuario'] && $idaccionado_vinculado_accionante_tut == $fieldDup['idaccionado_vinculado_accionante_tut'] && $direccion == $fieldDup['direccion'] && $insert_time == $fieldDup['insert_time']){
+        $status = false;
+      }
+    }
+    // Fin registros duplicados
+      if ($status){
+  		    $registrar4 = $this->db->prepare("
+            INSERT INTO actuacion_tutela (id_usuario,idaccionado_vinculado_accionante_tut,esoficio_telegrama,oficio_telegrama,direccion,idmunicipio,idmedionotificacion,notificado,fecha_envio,idactuacion,tipo_actuacion,insert_time)
+            values ('$id_usuario','$idaccionado_vinculado_accionante_tut','$esoficio_telegrama','$oficio_telegrama','$direccion','$idmunicipio','$idmedionotificacion','$notificado','$fecha_envio','$idactuacion','$tipo_actuacion','$insert_time')
+          ");
+  		    $registrar4->execute();
+      }
 	  }
 	  $j = $j+1;
     }
