@@ -25,7 +25,7 @@
                 $_SESSION['elemento'] = "El registro ha sido Actualizado correctamente";
             $_SESSION['elem_conscontrato'] = true;
                 if($_SESSION['id']!=""){
-                    /*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mod_empleados"</script>';*/   
+                    /*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mod_empleados"</script>';*/
                     print'<script languaje="Javascript">location.href="index.php?controller=reps&action=repsListaPermisos"</script>';
                 }
             }
@@ -33,26 +33,26 @@
                 $_SESSION['elemento'] = "Error al Realizar la Actualizacion del Registro";
             $_SESSION['elem_error_transaccion'] = true;
                 if($_SESSION['id']!=""){
-                    /*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mod_empleados"</script>';*/   
+                    /*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mod_empleados"</script>';*/
                     print'<script languaje="Javascript">location.href="index.php?controller=reps&action=repsListaPermisos"</script>';
                 }
-            }   
+            }
             if($condicion == 4){
                 $_SESSION['elemento'] = "El registro ha sido ingresado correctamente";
             $_SESSION['elem_conscontrato'] = true;
                 if($_SESSION['id']!=""){
-                    /*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mod_empleados"</script>';*/   
+                    /*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mod_empleados"</script>';*/
                     print'<script languaje="Javascript">location.href="index.php?controller=signot&action=Registro_Proceso_Unico"</script>';
                 }
-            }    
+            }
             if($condicion == "4b"){
                 $_SESSION['elemento'] = "Error al Realizar el registro";
             $_SESSION['elem_error_transaccion'] = true;
                 if($_SESSION['id']!=""){
-                    /*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mod_empleados"</script>';*/   
+                    /*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mod_empleados"</script>';*/
                     print'<script languaje="Javascript">location.href="index.php?controller=signot&action=Registro_Proceso"</script>';
                 }
-            }   
+            }
             if($condicion == 5){
                 $_SESSION['elemento'] = "El registro ha sido ingresado correctamente";
             $_SESSION['elem_conscontrato'] = true;
@@ -60,15 +60,15 @@
                     /*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mod_empleados"</script>';*/
                     print'<script languaje="Javascript">location.href="index.php?controller=signot&action=Modificar_Proceso_2"</script>';
                 }
-            }    
+            }
             if($condicion == "5b"){
                 $_SESSION['elemento'] = "Error al Realizar el registro";
             $_SESSION['elem_error_transaccion'] = true;
                 if($_SESSION['id']!=""){
-                    /*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mod_empleados"</script>';*/   
+                    /*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mod_empleados"</script>';*/
                     print'<script languaje="Javascript">location.href="index.php?controller=signot&action=Modificar_Proceso_2"</script>';
                 }
-            }   
+            }
             if($condicion == 6){
                 $_SESSION['elemento'] = "El registro ha sido ingresado correctamente";
             $_SESSION['elem_conscontrato'] = true;
@@ -76,7 +76,7 @@
                     /*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mod_empleados"</script>';*/
                     print'<script languaje="Javascript">location.href="index.php?controller=signot&action=Modificar_Proceso"</script>';
                 }
-            }    
+            }
             if($condicion == "6b"){
                 $_SESSION['elemento'] = "Error al Realizar el registro";
                 $_SESSION['elem_error_transaccion'] = true;
@@ -100,7 +100,7 @@
                     /*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mod_empleados"</script>';*/
                     print'<script languaje="Javascript">location.href="index.php?controller=signot&action=Modificar_Proceso"</script>';
                 }
-            }       
+            }
             if($condicion == 7){
                 $_SESSION['elemento'] = "El registro ha sido ingresado correctamente";
                 $_SESSION['elem_conscontrato'] = true;
@@ -157,7 +157,7 @@
                     print'<script languaje="Javascript">location.href="index.php?controller=signot&action=Registro_Migracion"</script>';
                 }
             }
-    }   
+    }
     /***********************************************************************************/
         /*------------------------------ Listar Log ---------------------------------------*/
         /***********************************************************************************/
@@ -170,79 +170,79 @@
                                             LIMIT 15");
             $listar->execute();
             return $listar;
-    }   
-    
+    }
+
     public function get_fecha_actual(){
-            //FORMA WIN 7 Y 8, YA QUE DE LA FORMA ANTERIOR TOMA EL AM O PM Y DA CONFLICTOS PARA 
-            //GUARDAR EN LA BASE DE DATOS EN ESTE CASO LA TABLA detalle_correspondencia 
-            //CAMPO fecha QUE ES DATETIME 
-            date_default_timezone_set('America/Bogota'); 
+            //FORMA WIN 7 Y 8, YA QUE DE LA FORMA ANTERIOR TOMA EL AM O PM Y DA CONFLICTOS PARA
+            //GUARDAR EN LA BASE DE DATOS EN ESTE CASO LA TABLA detalle_correspondencia
+            //CAMPO fecha QUE ES DATETIME
+            date_default_timezone_set('America/Bogota');
             $fecharegistro=date('Y-m-d g:ia'); //FORMA PARA XP
-            //$fecharegistro = date('Y-m-d g:i'); 
-            return $fecharegistro; 
-    }
-    
-    public function get_fecha_actual_amd(){
-            //FORMA WIN 7 Y 8, YA QUE DE LA FORMA ANTERIOR TOMA EL AM O PM Y DA CONFLICTOS PARA 
-            //GUARDAR EN LA BASE DE DATOS EN ESTE CASO LA TABLA detalle_correspondencia 
-            //CAMPO fecha QUE ES DATETIME 
-            date_default_timezone_set('America/Bogota'); 
-            $fecharegistro=date('Y-m-d'); //FORMA PARA XP
-            //$fecharegistro = date('Y-m-d g:i'); 
-            return $fecharegistro; 
-    }
-    
-    public function get_ano(){
-            date_default_timezone_set('America/Bogota'); 
-            $fecharegistro=date('y'); 
+            //$fecharegistro = date('Y-m-d g:i');
             return $fecharegistro;
     }
-    
+
+    public function get_fecha_actual_amd(){
+            //FORMA WIN 7 Y 8, YA QUE DE LA FORMA ANTERIOR TOMA EL AM O PM Y DA CONFLICTOS PARA
+            //GUARDAR EN LA BASE DE DATOS EN ESTE CASO LA TABLA detalle_correspondencia
+            //CAMPO fecha QUE ES DATETIME
+            date_default_timezone_set('America/Bogota');
+            $fecharegistro=date('Y-m-d'); //FORMA PARA XP
+            //$fecharegistro = date('Y-m-d g:i');
+            return $fecharegistro;
+    }
+
+    public function get_ano(){
+            date_default_timezone_set('America/Bogota');
+            $fecharegistro=date('y');
+            return $fecharegistro;
+    }
+
     public function get_hora_actual(){
-            date_default_timezone_set('America/Bogota'); 
-            //$horaregistro=date('H:i:s'); 
+            date_default_timezone_set('America/Bogota');
+            //$horaregistro=date('H:i:s');
             $horaregistro=date('g:i:s A');
             return $horaregistro;
     }
-    
+
     public function get_datos_usuario_sistema(){
             $idusuario  = $_SESSION['idUsuario'];
             $listar     = $this->db->prepare("SELECT ingreso,foto,empleado FROM pa_usuario WHERE id = '$idusuario'");
             $listar->execute();
             return $listar;
     }
-    
+
     public function get_datos_usuarios(){
             $listar     = $this->db->prepare("SELECT * FROM pa_usuario ORDER BY empleado");
             $listar->execute();
             return $listar;
     }
-    
+
     public function get_datos_usuario_recibe(){
             $listar     = $this->db->prepare("SELECT * FROM sigdoc_recibe ORDER BY nombre_recibe");
             $listar->execute();
             return $listar;
     }
-    
+
     public function get_lista($nombrelista,$campoordenar,$formaordenar){
             $listar     = $this->db->prepare("SELECT * FROM ".$nombrelista." ORDER BY ".$campoordenar." ".$formaordenar);
             $listar->execute();
             return $listar;
     }
-    
+
     public function get_lista_filtro($nombrelista,$campoordenar,$filtro,$formaordenar){
             $listar     = $this->db->prepare("SELECT * FROM ".$nombrelista." ".$filtro." ORDER BY ".$campoordenar." ".$formaordenar);
             $listar->execute();
             return $listar;
     }
     public function get_direcciones($iddireccion){
-            $listar     = $this->db->prepare("SELECT sp.id AS idparte,sd.id,sp.cedula,sp.nombre,sd.telefono,sd.direccion,sd.iddepartamento,sd.idmunicipio   
+            $listar     = $this->db->prepare("SELECT sp.id AS idparte,sd.id,sp.cedula,sp.nombre,sd.telefono,sd.direccion,sd.iddepartamento,sd.idmunicipio
                                             FROM (signot_parte sp INNER JOIN signot_direccion sd ON sp.id = sd.idparte)
                                             WHERE sd.id = '$iddireccion'");
             $listar->execute();
             return $listar;
     }
-    
+
     public function get_auto_correccion($idauto){
             //SE REALIZA ESTE CAMBIO DE SQL YA QUE LOS AUTOS DE LAS PARTES SE VA A MANEJAR EN LA TABLA documentos_internos
             /*$listar     = $this->db->prepare("SELECT sap.id,sp.cedula,sp.nombre,spr.radicado,sap.idauto,sap.fecharegistroauto,sap.fechaauto,sap.descorrecion,
@@ -260,7 +260,7 @@
             $listar->execute();
             return $listar;
     }
-    
+
     public function get_Consecutivo($filtro){
             //$filtro     = $_GET['filtro'];
             $listar     = $this->db->prepare("SELECT * FROM sigdoc_area WHERE id = '$filtro'");
@@ -272,7 +272,7 @@
             return $cadenadatos;
             //return $listar;
     }
-    
+
     public function get_documentos_salientes_usuario($identrada){
             $idusuario  = $_SESSION['idUsuario'];
             if($identrada == 1){
@@ -281,7 +281,7 @@
                                                     FROM ((sigdoc_documentos_internos rds LEFT JOIN sigdoc_pa_tipodocumento td ON rds.idtipodocumento = td.id)
                                                     LEFT JOIN sigdoc_pa_dirigido d ON rds.dirigidoa = d.id)
                                                     ORDER BY rds.id DESC");*/
-                                                    //ORDER BY rds.id DESC LIMIT 5");                     
+                                                    //ORDER BY rds.id DESC LIMIT 5");
                 $listar     = $this->db->prepare("SELECT rds.id,rds.identrada,td.nombre_tipo_documento,rds.numero,d.nombre_dirigido,rds.nombre,rds.cargo,rds.dependencia,
                                                     rds.fechageneracion,rds.asunto,rds.contenido,pu.empleado AS registra,pub.empleado AS modifica,rds.fechaedita
                                                 FROM ((((sigdoc_documentos_internos rds LEFT JOIN sigdoc_pa_tipodocumento td ON rds.idtipodocumento = td.id)
@@ -314,7 +314,7 @@
                 $datox6    = trim($_GET['datox6']);
                 $datox7    = trim($_GET['datox7']);
                 $datox8    = trim($_GET['datox8']);
-            
+
                 if ( !empty($fechad) && !empty($fechah) ) {
                     $filtrof = " AND (rds.fechageneracion >= '$fechad' AND rds.fechageneracion <= '$fechah') ";
                 }
@@ -350,7 +350,7 @@
                                                                                  rds.fechageneracion,rds.asunto,rds.contenido
                                                                                  FROM ((sigdoc_documentos_internos rds LEFT JOIN sigdoc_pa_tipodocumento td ON rds.idtipodocumento = td.id)
                                                                                  LEFT JOIN sigdoc_pa_dirigido d ON rds.dirigidoa = d.id)
-                                                                                 WHERE rds.id >= '1'" .$filtrox. " 
+                                                                                 WHERE rds.id >= '1'" .$filtrox. "
                                                                                  ORDER BY rds.id DESC");*/
                 $listar    = $this->db->prepare("SELECT rds.id,rds.identrada,td.nombre_tipo_documento,rds.numero,d.nombre_dirigido,rds.nombre,rds.cargo,rds.dependencia,
                                                     rds.fechageneracion,rds.asunto,rds.contenido,pu.empleado AS registra,pub.empleado AS modifica,rds.fechaedita
@@ -358,16 +358,16 @@
                                                 LEFT JOIN sigdoc_pa_dirigido d ON rds.dirigidoa = d.id)
                                                 LEFT JOIN pa_usuario pu ON rds.idusuario = pu.id)
                                                 LEFT JOIN pa_usuario pub ON rds.idusuarioedita = pub.id)
-                                                WHERE rds.id >= '1'" .$filtrox. " 
+                                                WHERE rds.id >= '1'" .$filtrox. "
                                                 ORDER BY rds.id DESC");
             }
             $listar->execute();
             return $listar;
         }
     public function get_datos_proceso($identrada){
-            //$idusuario  = $_SESSION['idUsuario']; 
+            //$idusuario  = $_SESSION['idUsuario'];
             if($identrada == 1){
-                /*$listar     = $this->db->prepare("SELECT * FROM signot_proceso 
+                /*$listar     = $this->db->prepare("SELECT * FROM signot_proceso
                                                   ORDER BY id DESC LIMIT 10");*/
                 $listar     = $this->db->prepare("SELECT pro.id,pro.radicado,pro.iddevolucion,td.nombre_tipo_documento
                                                     FROM (signot_proceso pro LEFT JOIN pa_tipodocumento td ON pro.iddevolucion = td.id)
@@ -385,15 +385,15 @@
                 }
                 if ( !empty($datox1) ) {
                     $filtro1 = " AND rds.radicado LIKE '%$datox1%' ";
-                }   
-                $filtrox = $filtro1." ".$filtrof;    
+                }
+                $filtrox = $filtro1." ".$filtrof;
                 /*$listar    = $this->db->prepare("SELECT rds.id,rds.radicado
                                                 FROM signot_proceso rds
-                                                WHERE rds.id >= '1'" .$filtrox. " 
-                                                ORDER BY rds.id");*/                     
+                                                WHERE rds.id >= '1'" .$filtrox. "
+                                                ORDER BY rds.id");*/
                 $listar     = $this->db->prepare("SELECT rds.id,rds.radicado,rds.iddevolucion,td.nombre_tipo_documento
                                                 FROM (signot_proceso rds LEFT JOIN pa_tipodocumento td ON rds.iddevolucion = td.id)
-                                                WHERE rds.id >= '1'" .$filtrox. " 
+                                                WHERE rds.id >= '1'" .$filtrox. "
                                                 ORDER BY rds.id");
             }
             $listar->execute();
@@ -430,7 +430,7 @@
                                   WHERE sp.id = '$id'");
             $listar->execute();
             return $listar;
-    
+
     }
     public function get_datos_proceso_anotacion_2($id){
             $listar = $this->db->prepare("SELECT spa.id,spa.idradicado,pu.empleado,spa.fecha,spa.hora,spa.anotacion,ta.destipo
@@ -441,11 +441,11 @@
             return $listar;
     }
     //FASE (1,2,3,4,5), PARA OBTENER ESTA INFORMACION SE DEBE SACAR UNA COPIA DE
-    //SEGURIDAD DE LAS TABLAS fase1,fase2,fase3,fase4,fase5 
+    //SEGURIDAD DE LAS TABLAS fase1,fase2,fase3,fase4,fase5
     //DE LA BASE DE DATOS NOTIFICACIONESS DEL SIGNOT ANTERIOR
-    public function get_datos_proceso_fase($idfase,$id_proceso,$id_procesosignotanterior){  
+    public function get_datos_proceso_fase($idfase,$id_proceso,$id_procesosignotanterior){
             if($idfase == 1){
-        
+
                 $listar = $this->db->prepare("SELECT r.id_proceso,
                                                 CONCAT('Cedula Parte: ',f1.cedula,'*** Observacion: ',f1.observa,
                                                 '*** fecha retiro citacion: ',f1.fecha_retiro_citacion,
@@ -467,9 +467,9 @@
                                                 '*** fecha_recibido_notificacion: ',f2.fecha_recibido_notificacion) AS FASE2
                                             FROM (radicacion r LEFT JOIN fase2 f2 ON r.id_proceso = f2.id_proceso)
                                             WHERE (r.id_proceso = '$id_proceso' OR r.id_proceso = '$id_proceso')
-                                            GROUP BY FASE2");                 
+                                            GROUP BY FASE2");
             }
-            if($idfase == 3){   
+            if($idfase == 3){
                 $listar = $this->db->prepare("SELECT r.id_proceso,
                                                 CONCAT('Cedula Parte: ',f3.cedula,'*** Quien Retira y/u Observaciones: ',f3.nombre_observaciones_retira,
                                                 '*** Quien Recibe En Juzgado y/u observaciones: ',f3.nombre_observaciones_recibe,
@@ -492,16 +492,16 @@
                                                 '*** fecha_recibido_juzgado: ',f4.fecha_recibido_juzgado) AS FASE4
                                                 FROM (radicacion r LEFT JOIN fase4 f4 ON r.id_proceso = f4.id_proceso)
                                                 WHERE (r.id_proceso = '$id_proceso' OR r.id_proceso = '$id_proceso')
-                                                GROUP BY FASE4");     
+                                                GROUP BY FASE4");
             }
-            if($idfase == 5){   
+            if($idfase == 5){
                 $listar = $this->db->prepare("SELECT r.id_proceso,
                                                 CONCAT('Cedula Parte: ',f5.cedula,'*** Nombre Con Quien Se Hablo Y Fecha De Gestion De Llamada y Comentario: ',f5.detalles_llamada,
                                                 '*** Alerta: ',f5.alerta) AS FASE5
                                             FROM (radicacion r LEFT JOIN fase5 f5 ON r.id_proceso = f5.id_proceso)
                                             WHERE (r.id_proceso = '$id_proceso' OR r.id_proceso = '$id_procesosignotanterior')
                                             GROUP BY FASE5");
-            }   
+            }
             $listar->execute();
             return $listar;
     }
@@ -528,7 +528,7 @@
             $fechalog   = $datosfecha[0];
             $horalog    = $datosfecha[1];
             $tiporegistro = "Salida de Documento";
-        
+
             if( empty($iddocumento) ){
                 $accion  = "Registra una Nueva ".$tiporegistro." En el Sistema (SIGDOC) REGISTRO DE DOCUMENTOS SALIENTES";
             }
@@ -536,8 +536,8 @@
                 $accion  = "Modifica una ".$tiporegistro." En el Sistema (SIGDOC) REGISTRO DE DOCUMENTOS SALIENTES, ID DOCUMENTO: ".$iddocumento;
             }
             $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
-            $tipolog = 4;   
-            try {   
+            $tipolog = 4;
+            try {
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //EMPIEZA LA TRANSACCION
                 $this->db->beginTransaction();
@@ -547,26 +547,26 @@
                 //SALE EN Numero Documento: CSJCF15-005 PARA AMBOS Y AL REGISTRAR CADA UNO
                 //QUEDA EN LA TABLA sigdoc_documentos_internos DOS DOCUMENTOS CON EL MISMO NUMERO
                 //PARA SE RECONSTRUYO EL CONSECUTIVO CON LO MENCIONADO ANTERIORMENTE, ACTUALIZANDO LA VARIABLE $ndocumento
-                //QUE ES LA QUE RECIBE EL CONSECUTIVO INICIAL DE LA VISTA sigdoc_documentos_salientes.php   
+                //QUE ES LA QUE RECIBE EL CONSECUTIVO INICIAL DE LA VISTA sigdoc_documentos_salientes.php
                 //Y ACTUALIZAMOS DE LA TABLA sigdoc_pa_consecutivo LA COLUMNA contador, ESTE DATO TAMBIEN DEBE RECOSTRUIRSE
                 //PASA DE $consecutivodocumento A $consecutivo
                 //SE CAMBIA LA SQL YA QUE SE NECESITABA LAS SIGLAS
                 /*$listar = $this->db->prepare("SELECT MAX(id) AS idmaximo,numero
                                                 FROM sigdoc_documentos_internos
-                                                WHERE id IN(SELECT MAX(id) AS idmaximo FROM sigdoc_documentos_internos WHERE idtipodocumento = '$tipodocumento' ) 
+                                                WHERE id IN(SELECT MAX(id) AS idmaximo FROM sigdoc_documentos_internos WHERE idtipodocumento = '$tipodocumento' )
                                                 AND idtipodocumento = '$tipodocumento'");*/
                 $listar = $this->db->prepare("SELECT MAX(di.id) AS idmaximo,di.numero,dc.sigla
                                                 FROM (sigdoc_documentos_internos di INNER JOIN sigdoc_pa_consecutivo dc ON di.idtipodocumento = dc.idtipodocumento)
                                                 WHERE di.id IN(
                                                     SELECT MAX(di.id) AS idmaximo
-                                                    FROM (sigdoc_documentos_internos di INNER JOIN sigdoc_pa_consecutivo dc ON di.idtipodocumento = dc.idtipodocumento) 
+                                                    FROM (sigdoc_documentos_internos di INNER JOIN sigdoc_pa_consecutivo dc ON di.idtipodocumento = dc.idtipodocumento)
                                                     WHERE di.idtipodocumento = '$tipodocumento'
                                                 )
                                                 AND di.idtipodocumento = '$tipodocumento'");
                 $listar->execute();
                 /*$field = $listar->fetch();
                 $numeroconsecutivo = explode("-",$field[numero]);
-                $consecutivo       = $numeroconsecutivo[1] + 1; 
+                $consecutivo       = $numeroconsecutivo[1] + 1;
                 if($consecutivo >= 0 && $consecutivo <= 9) {$consecutivo = "00".$consecutivo;}
                 if($consecutivo >  9 && $consecutivo <= 99){$consecutivo = "0".$consecutivo;}
                 $ndocumento        = $numeroconsecutivo[0]."-".$consecutivo;*/
@@ -576,18 +576,18 @@
                     $field = $listar->fetch();
 
                     $numeroconsecutivo = explode("-",$field[numero]);
-                    $consecutivo       = $numeroconsecutivo[1] + 1; 
+                    $consecutivo       = $numeroconsecutivo[1] + 1;
 
                     if($consecutivo >= 0 && $consecutivo <= 9) {$consecutivo = "00".$consecutivo;}
                     if($consecutivo >  9 && $consecutivo <= 99){$consecutivo = "0".$consecutivo;}
                     $ndocumento        = $numeroconsecutivo[0]."-".$consecutivo;
                 }else{
                     ////no existe registro, Y SE DEBE CONSTRUIR EL CONSECUTIVO CON LAS SIGLAS Y EL A�O YA QUE LOS DATOS EN LA TABLA
-                    //documentos_internos SON NULL Y EL NUEMRO QUEDARIA DE ESTA FORMA -001,-002 
+                    //documentos_internos SON NULL Y EL NUEMRO QUEDARIA DE ESTA FORMA -001,-002
                     $field = $listar->fetch();
                     $year  = $modelo->get_ano();
                     $numeroconsecutivo = explode("-",$field[numero]);
-                    $consecutivo       = $numeroconsecutivo[1] + 1; 
+                    $consecutivo       = $numeroconsecutivo[1] + 1;
                     if($consecutivo >= 0 && $consecutivo <= 9) {$consecutivo = "00".$consecutivo;}
                     if($consecutivo >  9 && $consecutivo <= 99){$consecutivo = "0".$consecutivo;}
                     $ndocumento        = $field[sigla]."".$year."-".$consecutivo;
@@ -601,7 +601,7 @@
                     //$this->db->exec("UPDATE sigdoc_pa_consecutivo SET contador = '$consecutivodocumento' WHERE idtipodocumento = '$tipodocumento'");
                     $this->db->exec("UPDATE sigdoc_pa_consecutivo SET contador = '$consecutivo' WHERE idtipodocumento = '$tipodocumento'");
                 }else{
-                    $this->db->exec("UPDATE sigdoc_documentos_internos 
+                    $this->db->exec("UPDATE sigdoc_documentos_internos
                                     SET dirigidoa = '$dirigidoa',nombre = '$nombre',cargo = '$cargo',
                                         dependencia = '$dependencia',asunto = '$asunto',contenido = '$detalleds',
                                         idusuarioedita = '$idusuario',fechaedita = '$fechalog'
@@ -609,17 +609,17 @@
                 }
                 //$this->db->exec("UPDATE sigdoc_pa_consecutivo SET contador = '$consecutivodocumento' WHERE idtipodocumento = '$tipodocumento'");
                 $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                //SE TERMINA LA TRANSACCION  
-                $this->db->commit();    
-                print'<script languaje="Javascript">location.href="index.php?controller=sigdoc&action=mensajes&nombre=2"</script>';  
-            } catch (Exception $e) {    
+                //SE TERMINA LA TRANSACCION
+                $this->db->commit();
+                print'<script languaje="Javascript">location.href="index.php?controller=sigdoc&action=mensajes&nombre=2"</script>';
+            } catch (Exception $e) {
                 //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
                 $this->db->rollBack();
                 //echo "Fallo: " . $e->getMessage();
                 print'<script languaje="Javascript">location.href="index.php?controller=sigdoc&action=mensajes&nombre=2b"</script>';
             }
     }
-    
+
     public function registrar_respuesta_documento(){
             //SE OBTIENEN LOS DATOS
             $idusuario     = $_SESSION['idUsuario'];
@@ -654,7 +654,7 @@
 
             $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
             $tipolog = 4;
-            try {  
+            try {
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //EMPIEZA LA TRANSACCION
                 $this->db->beginTransaction();
@@ -667,18 +667,18 @@
                 $this->db->exec("UPDATE sigdoc_documentos_entrantes SET fecharespuesta = '$fechalog',idusuarioedita = '$idusuario',fechaedita = '$fechalog'
                                 WHERE id = '$idrespuesta'");
                 $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                //SE TERMINA LA TRANSACCION  
-                $this->db->commit();    
+                //SE TERMINA LA TRANSACCION
+                $this->db->commit();
                 print'<script languaje="Javascript">location.href="index.php?controller=sigdoc&action=mensajes&nombre=2"</script>';
             } catch (Exception $e) {
                 //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
                 $this->db->rollBack();
                 //echo "Fallo: " . $e->getMessage();
                 print'<script languaje="Javascript">location.href="index.php?controller=sigdoc&action=mensajes&nombre=2b"</script>';
-            }   
+            }
     }
     public function get_datos_documentos(){
-    
+
             $id     = trim($_GET['id']);
             $listar = $this->db->prepare("SELECT * FROM sigdoc_documentos_internos WHERE id = '$id'");
             $listar->execute();
@@ -703,9 +703,9 @@
                                                     FROM (((sigdoc_documentos_entrantes rds LEFT JOIN sigdoc_pa_tipodocumento td ON rds.idtipodocumento = td.id)
                                                     LEFT JOIN pa_usuario pu ON rds.idusuario = pu.id)
                                                     LEFT JOIN pa_usuario pub ON rds.idusuarioedita = pub.id)
-                                                    ORDER BY rds.id DESC");         
+                                                    ORDER BY rds.id DESC");
             }
-            if($identrada == 2){        
+            if($identrada == 2){
                 $filtrox;
 
                 $filtrof;
@@ -722,38 +722,38 @@
                 $datox2    = trim($_GET['datox2']);
                 $datox3    = trim($_GET['datox3']);
                 $datox4    = trim($_GET['datox4']);
-                $datox5    = trim($_GET['datox5']); 
-                if ( !empty($fechad) && !empty($fechah) ) {     
-                    $filtrof = " AND (rds.fecha >= '$fechad' AND rds.fecha <= '$fechah') "; 
+                $datox5    = trim($_GET['datox5']);
+                if ( !empty($fechad) && !empty($fechah) ) {
+                    $filtrof = " AND (rds.fecha >= '$fechad' AND rds.fecha <= '$fechah') ";
                 }
-                if ( !empty($datox1) ) {    
-                    $filtro1 = " AND rds.idtipodocumento = '$datox1' "; 
+                if ( !empty($datox1) ) {
+                    $filtro1 = " AND rds.idtipodocumento = '$datox1' ";
                 }
                 if ( !empty($datox2) ) {
-                    $filtro2 = " AND rds.numero = '$datox2' ";  
+                    $filtro2 = " AND rds.numero = '$datox2' ";
                 }
-                if ( !empty($datox3) ) {    
-                    $filtro3 = " AND rds.remitente LIKE '%$datox3%' ";  
+                if ( !empty($datox3) ) {
+                    $filtro3 = " AND rds.remitente LIKE '%$datox3%' ";
                 }
-                if ( !empty($datox4) ) {    
-                    $filtro4 = " AND rds.asunto LIKE '%$datox4%' "; 
+                if ( !empty($datox4) ) {
+                    $filtro4 = " AND rds.asunto LIKE '%$datox4%' ";
                 }
-                if ( !empty($datox5) ) {    
-                    $filtro5 = " AND rds.id = '$datox5' ";  
+                if ( !empty($datox5) ) {
+                    $filtro5 = " AND rds.id = '$datox5' ";
                 }
                 $filtrox = $filtro1." ".$filtro2." ".$filtro3." ".$filtro4." ".$filtro5." ".$filtrof;
                 //echo $filtrox;
                 /*$listar    = $this->db->prepare("SELECT rds.id,rds.fecha,rds.fecharespuesta,rds.hora,rds.remitente,td.nombre_tipo_documento,rds.numero,rds.asunto
                                                     FROM (sigdoc_documentos_entrantes rds LEFT JOIN sigdoc_pa_tipodocumento td ON rds.idtipodocumento = td.id)
-                                                    WHERE rds.id >= '1'" .$filtrox. " 
+                                                    WHERE rds.id >= '1'" .$filtrox. "
                                                     ORDER BY rds.id DESC");*/
-                                             
+
                 $listar    = $this->db->prepare("SELECT rds.id,rds.fecha,rds.fecharespuesta,rds.hora,rds.remitente,td.nombre_tipo_documento,rds.numero,rds.asunto,
                                                     pu.empleado AS registra,pub.empleado AS modifica,rds.fechaedita
                                                     FROM (((sigdoc_documentos_entrantes rds LEFT JOIN sigdoc_pa_tipodocumento td ON rds.idtipodocumento = td.id)
                                                     LEFT JOIN pa_usuario pu ON rds.idusuario = pu.id)
                                                     LEFT JOIN pa_usuario pub ON rds.idusuarioedita = pub.id)
-                                                    WHERE rds.id >= '1'" .$filtrox. " 
+                                                    WHERE rds.id >= '1'" .$filtrox. "
                                                     ORDER BY rds.id DESC");
             }
             $listar->execute();
@@ -777,19 +777,19 @@
             $fechalog   = $datosfecha[0];
             $horalog    = $datosfecha[1];
 
-            $tiporegistro = "Entrada de Documento"; 
+            $tiporegistro = "Entrada de Documento";
             if( empty($iddocumento) ){
                 $accion  = "Registra una Nueva ".$tiporegistro." En el Sistema (SIGDOC) REGISTRO DE DOCUMENTOS ENTRANTES";
             }else{
                 $accion  = "Modifica una ".$tiporegistro." En el Sistema (SIGDOC) REGISTRO DE DOCUMENTOS ENTRANTES, ID DOCUMENTO: ".$iddocumento;
             }
             $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
-            $tipolog = 4;   
-            try {  
+            $tipolog = 4;
+            try {
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 //EMPIEZA LA TRANSACCION
-                $this->db->beginTransaction();      
+                $this->db->beginTransaction();
                 if( empty($iddocumento) ){
                     $this->db->exec("INSERT INTO sigdoc_documentos_entrantes (idusuario,idusuarioedita,fecha,fecharespuesta,fechaedita,hora,remitente,idtipodocumento,
                                         numero,asunto)
@@ -800,18 +800,18 @@
                                     WHERE id = '$iddocumento'");
 
                 }
-                $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");  
-                //SE TERMINA LA TRANSACCION  
-                $this->db->commit();    
-                print'<script languaje="Javascript">location.href="index.php?controller=sigdoc&action=mensajes&nombre=4"</script>';  
+                $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
+                //SE TERMINA LA TRANSACCION
+                $this->db->commit();
+                print'<script languaje="Javascript">location.href="index.php?controller=sigdoc&action=mensajes&nombre=4"</script>';
             } catch (Exception $e) {
                 //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
                 $this->db->rollBack();
                 //echo "Fallo: " . $e->getMessage();
                 print'<script languaje="Javascript">location.href="index.php?controller=sigdoc&action=mensajes&nombre=4b"</script>';
-            }   
+            }
     }
-    
+
     public function get_datos_documentos_entrantes(){
             $id     = trim($_GET['id']);
             $listar = $this->db->prepare("SELECT * FROM sigdoc_documentos_entrantes WHERE id = '$id'");
@@ -827,7 +827,7 @@
             if($fecharespuesta != "0000-00-00"){
                 //FECHA INCIAL
                 $inicio    = new DateTime($fecharegistro);
-                //Un d�a es P1D,Dos d�as es P2D, 
+                //Un d�a es P1D,Dos d�as es P2D,
                 //es decir que si la fecha inicial es 2015-05-19 y la final es 2015-05-27
                 //el intervalos iria de 2015-05-19 2015-05-20 2015-05-21 2015-05-22 2015-05-23 2015-05-24 2015-05-25 2015-05-26
                 $intervalo = new DateInterval('P1D');
@@ -851,16 +851,16 @@
                     $esfestivo     = $dias_festivos->esFestivo($d,$m);
                     //SE REALIZA LA PREGUNTA SI ES SABADO, DOMINGO O FESTIVO
                     //PARA NO INCREMENTAR $dias_diferencia
-                    if($date == 'Sat' or $date == 'Sun' or $esfestivo == 1){    
+                    if($date == 'Sat' or $date == 'Sun' or $esfestivo == 1){
                         $bandera = 0;
-                    }else{  
+                    }else{
                         $dias_diferencia = $dias_diferencia + 1;
-                    }       
+                    }
                     //$dias_diferencia = $dias_diferencia." ".$date."\n";
                 }
-            }else{  
-                $dias_diferencia = "-"; 
-            }   
+            }else{
+                $dias_diferencia = "-";
+            }
             return $dias_diferencia;
     }
     public function get_lista_usuario_acciones($campos,$nombrelista,$idaccion,$campoordenar){
@@ -884,8 +884,8 @@
             $entidadcomisiona = trim($_POST["entidadcomisiona"]);
             $asunto           = trim($_POST["asunto"]);
             $despacholibra    = trim($_POST["despacholibra"]);
-            
-            //OBTENEMOS DEL RADICADO 170014003 006 19931018000 
+
+            //OBTENEMOS DEL RADICADO 170014003 006 19931018000
             //CLASE JUZGADO 4003, DEPARTAMENTO 17, MUNICIPIO 17001
             /*$idclasejuzgado = substr($radicadox, 5, 4);
             $iddepartamento = substr($radicadox, 1, 2);
@@ -902,28 +902,28 @@
             $datosmoduloacciones  = $modelo->get_lista_usuario_acciones($campos,$nombrelista,$idaccion,$campoordenar);
             $idacciones           = $datosmoduloacciones->fetch();
             $modulosacciones      = explode("////",$idacciones[idtabla]);
-            //DATOS PARA EL REGISTRO DEL LOG    
+            //DATOS PARA EL REGISTRO DEL LOG
             //$modelo     = new signotModel();
             $fechahora  = $modelo->get_fecha_actual();
             $datosfecha = explode(" ",$fechahora);
             $fechalog   = $datosfecha[0];
-            $horalog    = $datosfecha[1];       
-            $tiporegistro = "Proceso";  
+            $horalog    = $datosfecha[1];
+            $tiporegistro = "Proceso";
             if( empty($iddocumento) ){
                 $accion  = "Registra un Nuevo ".$tiporegistro." En el Sistema (SIGNOT), PROCESO: ".$radicadox;
             }else{
                 //$accion  = "Modifica una ".$tiporegistro." En el Sistema (SIGDOC) REGISTRO DE DOCUMENTOS ENTRANTES, ID PROCESO: ".$iddocumento;
-            }   
+            }
             $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
-            $tipolog = 6;   
-            try {   
-                $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);         
+            $tipolog = 6;
+            try {
+                $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //EMPIEZA LA TRANSACCION
                 $this->db->beginTransaction();
                 /*$this->db->exec("INSERT INTO signot_prueba (cedula,datos)
-                                    VALUES ('$cedula','$datospartes')");*/               
+                                    VALUES ('$cedula','$datospartes')");*/
                 $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                
+
                 $this->db->exec("INSERT INTO signot_proceso (radicado,fecharegistro,idjuzgadoorigen,idclasejuzgado,idclaseproceso,iddepartamento,idmunicipio,idusuarioregistra,idusuarioedita,iddevolucion,claseproceso2,entidadcomisiona,asunto,despacholibra)
                                     VALUES ('$radicadox','$fechalog','$idjuzgadoorigen','$idclasejuzgado','$idclaseproceso','$iddepartamento','$idmunicipio','$idusuario',0,0,'$claseproceso2','$entidadcomisiona','$asunto','$despacholibra')");
                 //OBTENGO EL ULTIMO ID REGISTRADO DEL ULTIMO INSERT EN LA TABLA signot_proceso
@@ -931,7 +931,7 @@
                 //******75088165//////Jorge Andres Valencia//////Cr 21 # 46 A 82//////8855934//////1-DEMANDANTE//////17-Caldas//////17001-MANIZALES******
                 //75095585//////Andres Grajales//////Cr 213 # 748 B 434//////8875632//////1-DEMANDANTE//////13-Bolivar//////13001-CARTAGENA
                 //1 EXPLODE
-                $datospartes_1 = explode("******",$datospartes); 
+                $datospartes_1 = explode("******",$datospartes);
                 $longitud_1    = count($datospartes_1);
                 $i             = 1;
                 $longpartes = $longitud_1 - 1;
@@ -939,8 +939,8 @@
                              " CON NUMERO DE PARTES: ".$longpartes.", ID DEL PROCESO: ".$lastIdProceso;
 
                 $this->db->exec("INSERT INTO signot_proceso_anotacion (idradicado,idusuario,fecha,hora,anotacion)
-                                    VALUES ('$lastIdProceso','$idusuario','$fechalog','$horalog','$anotacion')"); 
-                while($i < $longitud_1){            
+                                    VALUES ('$lastIdProceso','$idusuario','$fechalog','$horalog','$anotacion')");
+                while($i < $longitud_1){
                     //2 EXPLODE
                     $datospartes_2 = explode("//////",$datospartes_1[$i]);
 
@@ -951,7 +951,7 @@
                     $telefono     = $datospartes_2[3];
 
                     $idclaseparte   = explode("-",$datospartes_2[4]);
-                    $idclaseparte_2 = $idclaseparte[0];                 
+                    $idclaseparte_2 = $idclaseparte[0];
                     //SE PREGUNTA SI LA CLASE PARTE ESTA DENTRO DEL VECTOR DE PARTES PARA GENERAR CITACION Y ASIGNAR
                     //LA FECHA REGISTRO, FECHA AUTO Y AUTO ANOTIFICAR
                     //PARA CREAR UN REGISTRO EN LA TABLA signot_auto_parte
@@ -962,19 +962,19 @@
 
                         $idauto             = explode("-",$datospartes_2[9]);
                         $idauto_2           = $idauto[0];
-                    }*/         
+                    }*/
                     $iddepartamento   = explode("-",$datospartes_2[5]);
                     $iddepartamento_2 = $iddepartamento[0];
 
                     $idmunicipio      = explode("-",$datospartes_2[6]);
                     $idmunicipio_2    = $idmunicipio[0];
-                    
+
                     //IDENTIFICAMOS QUE UNA PARTE YA EXISTA EN LA TABLA signot_parte
                     //PARA NO VOLVER A REGISTRAR, SI NO ACTUALIZAR SUS DATOS
                     $listar = $this->db->prepare("SELECT * FROM signot_parte WHERE cedula = '$cedulaparte' AND nombre = '$nombreparte'");
                     $listar->execute();
                     $resultado = $listar->rowCount();
-                    if(!$resultado){//NO EXISTE PARTE       
+                    if(!$resultado){//NO EXISTE PARTE
                         //$iddocumento = 0;
                         $this->db->exec("INSERT INTO signot_parte (cedula,nombre,datosadicionales,idusuarioregistra,idusuarioedita)
                                         VALUES ('$cedulaparte','$nombreparte','$datosadicionales','$idusuario',0)");
@@ -983,17 +983,17 @@
                         //IDENTIFICAMOS QUE UNA PARTE YA EXISTA EN LA TABLA signot_parteproceso
                         //EN EL MISMO PROCESO CON IGUAL CLASE DE PARTE (DEMANDANTE, DEMANDADO ETC....)
                         //YA QUE SI EXISTE NO SE ACTUALIZA, SOLO SE REGISTRA SI NO EXISTE
-                        $listar = $this->db->prepare("SELECT * FROM signot_parteproceso 
+                        $listar = $this->db->prepare("SELECT * FROM signot_parteproceso
                                                       WHERE idproceso = '$lastIdProceso' AND idparte = '$lastIdParte' AND idclaseparte = '$idclaseparte_2'");
                         $listar->execute();
                         $resultado = $listar->rowCount();
                         if(!$resultado){//NO EXISTE REGISTRO
                             $this->db->exec("INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
                                             VALUES ('$lastIdProceso','$lastIdParte','$idclaseparte_2','$idusuario')");
-                        }   
+                        }
                         //IDENTIFICAMOS QUE UNA DIRECCION YA EXISTA EN LA TABLA signot_direccion
                         //PARA NO REGISTRARLA NUEVAMENTE
-                        $listar = $this->db->prepare("SELECT * FROM signot_direccion 
+                        $listar = $this->db->prepare("SELECT * FROM signot_direccion
                                                     WHERE idparte = '$lastIdParte' AND idproceso = '$lastIdProceso'
                                                     AND telefono = '$telefono' AND direccion = '$direccion'
                                                     AND iddepartamento = '$iddepartamento_2' AND idmunicipio = '$idmunicipio_2'");
@@ -1011,7 +1011,7 @@
                         //SIMPLEMENTE SE APLICA EL INSERT SIN EL SELECT
                         //if($idclaseparte_2 == 2){
                         /*if ( in_array($idclaseparte_2,$modulosacciones) ) {
-                            $listar = $this->db->prepare("SELECT * FROM signot_auto_parte 
+                            $listar = $this->db->prepare("SELECT * FROM signot_auto_parte
                                                       WHERE idparte = '$lastIdParte' AND idproceso = '$lastIdProceso'");
                             $listar->execute();
                             $resultado = $listar->rowCount();
@@ -1019,27 +1019,27 @@
                                 $this->db->exec("INSERT INTO signot_auto_parte (idparte,idproceso,idauto,fecharegistroauto,fechaauto,idusuarioregistra,idusuarioedita,descorrecion)
                                                 VALUES ('$lastIdParte','$lastIdProceso','$idauto_2','$fecharegistroclase','$fechaautoclase','$idusuario',0,'')");
                             }
-                        }*/         
-                    }else{//EXISTE PARTE            
+                        }*/
+                    }else{//EXISTE PARTE
                         $iddocumento = 1;
                         $fila        = $listar->fetch();
                         $idparte     = $fila[id];
 
-                        $this->db->exec("UPDATE signot_parte SET nombre = '$nombreparte',datosadicionales = '$datosadicionales',idusuarioedita = '$idusuario' WHERE cedula = '$cedulaparte'");      
+                        $this->db->exec("UPDATE signot_parte SET nombre = '$nombreparte',datosadicionales = '$datosadicionales',idusuarioedita = '$idusuario' WHERE cedula = '$cedulaparte'");
                         //IDENTIFICAMOS QUE UNA PARTE YA EXISTA EN LA TABLA signot_parteproceso
                         //EN EL MISMO PROCESO CON IGUAL CLASE DE PARTE (DEMANDANTE, DEMANDADO ETC....)
                         //YA QUE SI EXISTE NO SE ACTUALIZA, SOLO SE REGISTRA SI NO EXISTE
-                        $listar = $this->db->prepare("SELECT * FROM signot_parteproceso 
+                        $listar = $this->db->prepare("SELECT * FROM signot_parteproceso
                                                       WHERE idproceso = '$lastIdProceso' AND idparte = '$idparte' AND idclaseparte = '$idclaseparte_2'");
                         $listar->execute();
                         $resultado = $listar->rowCount();
                         if(!$resultado){//NO EXISTE REGISTRO
                             $this->db->exec("INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
                                             VALUES ('$lastIdProceso','$idparte','$idclaseparte_2','$idusuario')");
-                        }       
+                        }
                         //IDENTIFICAMOS QUE UNA DIRECCION YA EXISTA EN LA TABLA signot_direccion
                         //PARA NO REGISTRARLA NUEVAMENTE
-                        $listar = $this->db->prepare("SELECT * FROM signot_direccion 
+                        $listar = $this->db->prepare("SELECT * FROM signot_direccion
                                                       WHERE idparte = '$idparte' AND idproceso = '$lastIdProceso'
                                                         AND telefono = '$telefono' AND direccion = '$direccion'
                                                         AND iddepartamento = '$iddepartamento_2' AND idmunicipio = '$idmunicipio_2'");
@@ -1049,7 +1049,7 @@
                         if(!$resultado){//NO EXISTE REGISTRO
                             $this->db->exec("INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,idmunicipio,idusuarioregistra,idusuarioedita)
                                             VALUES ('$idparte','$lastIdProceso','$telefono','$direccion','$iddepartamento_2','$idmunicipio_2','$idusuario',0)");
-                        }           
+                        }
                         ////SE PREGUNTA SI LA CLASE PARTE ESTA DENTRO DEL VECTOR DE PARTES PARA GENERAR CITACION Y ASIGNAR
                         //LA FECHA REGISTRO, FECHA AUTO Y AUTO ANOTIFICAR
                         //PARA CREAR UN REGISTRO EN LA TABLA signot_auto_parte PARA CREAR UN AUTO, SI YA TIENE UN AUTO REGISTRADO
@@ -1058,22 +1058,22 @@
                         //SIMPLEMENTE SE APLICA EL INSERT SIN EL SELECT
                         //if($idclaseparte_2 == 2){
                         /*if ( in_array($idclaseparte_2,$modulosacciones) ) {
-                            $listar = $this->db->prepare("SELECT * FROM signot_auto_parte 
+                            $listar = $this->db->prepare("SELECT * FROM signot_auto_parte
                                                       WHERE idparte = '$idparte' AND idproceso = '$lastIdProceso'");
                             $listar->execute();
                             $resultado = $listar->rowCount();
                             if(!$resultado){//NO EXISTE REGISTRO
                                 $this->db->exec("INSERT INTO signot_auto_parte (idparte,idproceso,idauto,fecharegistroauto,fechaauto,idusuarioregistra,idusuarioedita,descorrecion)
                                                 VALUES ('$idparte','$lastIdProceso','$idauto_2','$fecharegistroclase','$fechaautoclase','$idusuario',0,'')");
-                            }           
-                        }*/         
-                    }       
+                            }
+                        }*/
+                    }
                     $i = $i + 1;
                 }
-                //SE TERMINA LA TRANSACCION  
-                $this->db->commit();    
+                //SE TERMINA LA TRANSACCION
+                $this->db->commit();
                 print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=4"</script>';
-        
+
             } catch (Exception $e) {
                 //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
                 $this->db->rollBack();
@@ -1081,7 +1081,7 @@
                 print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=4b"</script>';
             }
     }
-    
+
 
     public function modificar_proceso(){
             //SE OBTIENEN LOS DATOS
@@ -1106,31 +1106,31 @@
             $datosfecha = explode(" ",$fechahora);
             $fechalog   = $datosfecha[0];
             $horalog    = $datosfecha[1];
-            $tiporegistro = "Proceso";  
+            $tiporegistro = "Proceso";
             if( empty($iddocumento) ){
                 $accion  = "Modifica un ".$tiporegistro." En el Sistema (SIGNOT), ID PROCESO: ".$valoridradicado;
             }else{
                 //$accion  = "Modifica una ".$tiporegistro." En el Sistema (SIGDOC) REGISTRO DE DOCUMENTOS ENTRANTES, ID DOCUMENTO: ".$iddocumento;
-            }   
+            }
             $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
-            $tipolog = 6;   
-            try {   
+            $tipolog = 6;
+            try {
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //EMPIEZA LA TRANSACCION
                 $this->db->beginTransaction();
                 /*$this->db->exec("INSERT INTO signot_prueba (cedula,datos)
-                                    VALUES ('$cedula','$datospartes')");*/               
+                                    VALUES ('$cedula','$datospartes')");*/
                 $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                
+
                 /*$this->db->exec("INSERT INTO signot_proceso (radicado,idjuzgadoorigen,idclasejuzgado,idclaseproceso,iddepartamento,idmunicipio)
                                     VALUES ('$radicadox','$idjuzgadoorigen','$idclasejuzgado','$idclaseproceso','$iddepartamento','$idmunicipio')");*/
-                                 
+
                 //OBTENGO EL ULTIMO ID REGISTRADO DEL ULTIMO INSERT EN LA TABLA signot_proceso
                 //$lastIdProceso  = $this->db->lastInsertId();
                 //******75088165//////Jorge Andres Valencia//////Cr 21 # 46 A 82//////8855934//////1-DEMANDANTE//////17-Caldas//////17001-MANIZALES******
                 //75095585//////Andres Grajales//////Cr 213 # 748 B 434//////8875632//////1-DEMANDANTE//////13-Bolivar//////13001-CARTAGENA
                 //1 EXPLODE
-                $datospartes_1 = explode("******",$datospartes); 
+                $datospartes_1 = explode("******",$datospartes);
                 $longitud_1    = count($datospartes_1);
                 $i             = 1;
                 $longpartes = $longitud_1 - 1;
@@ -1139,7 +1139,7 @@
 
                 $this->db->exec("INSERT INTO signot_proceso_anotacion (idradicado,idusuario,fecha,hora,anotacion)
                                 VALUES ('$valoridradicado','$idusuario','$fechalog','$horalog','$anotacion')");
-                while($i < $longitud_1){            
+                while($i < $longitud_1){
                     //2 EXPLODE
                     $datospartes_2 = explode("//////",$datospartes_1[$i]);
 
@@ -1151,7 +1151,7 @@
 
                     $idclaseparte   = explode("-",$datospartes_2[4]);
                     $idclaseparte_2 = $idclaseparte[0];
-                    
+
                     //SE PREGUNTA SI LA CLASE PARTE ESTA DENTRO DEL VECTOR DE PARTES PARA GENERAR CITACION Y ASIGNAR
                     //LA FECHA REGISTRO, FECHA AUTO Y AUTO ANOTIFICAR
                     //PARA CREAR UN REGISTRO EN LA TABLA signot_auto_parte
@@ -1162,7 +1162,7 @@
 
                         $idauto             = explode("-",$datospartes_2[9]);
                         $idauto_2           = $idauto[0];
-                    }*/                 
+                    }*/
                     $iddepartamento   = explode("-",$datospartes_2[5]);
                     $iddepartamento_2 = $iddepartamento[0];
 
@@ -1175,103 +1175,39 @@
                     $listar->execute();
                     $resultado = $listar->rowCount();
                     if(!$resultado){//NO EXISTE PARTE
-                        //$iddocumento = 0;         
+                        //$iddocumento = 0;
                         $this->db->exec("INSERT INTO signot_parte (cedula,nombre,datosadicionales,idusuarioregistra,idusuarioedita)
                                         VALUES ('$cedulaparte','$nombreparte','$datosadicionales','$idusuario',0)");
-                                                                
+
                         //OBTENGO EL ULTIMO ID REGISTRADO DEL ULTIMO INSERT EN LA TABLA signot_proceso
-                        $lastIdParte  = $this->db->lastInsertId();                      
+                        $lastIdParte  = $this->db->lastInsertId();
                         //IDENTIFICAMOS QUE UNA PARTE YA EXISTA EN LA TABLA signot_parteproceso
                         //EN EL MISMO PROCESO CON IGUAL CLASE DE PARTE (DEMANDANTE, DEMANDADO ETC....)
                         //YA QUE SI EXISTE NO SE ACTUALIZA, SOLO SE REGISTRA SI NO EXISTE
-                        $listar = $this->db->prepare("SELECT * FROM signot_parteproceso 
-                                                      WHERE idproceso = '$valoridradicado' 
-                                                    AND idparte = '$lastIdParte' AND idclaseparte = '$idclaseparte_2'");                        
+                        $listar = $this->db->prepare("SELECT * FROM signot_parteproceso
+                                                      WHERE idproceso = '$valoridradicado'
+                                                    AND idparte = '$lastIdParte' AND idclaseparte = '$idclaseparte_2'");
                         $listar->execute();
                         $resultado = $listar->rowCount();
                         if(!$resultado){//NO EXISTE REGISTRO
                             $this->db->exec("INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
                                             VALUES ('$valoridradicado','$lastIdParte','$idclaseparte_2','$idusuario')");
-                        }           
+                        }
                         //IDENTIFICAMOS QUE UNA DIRECCION YA EXISTA EN LA TABLA signot_direccion, CON EL PROCESO ACTUAL
                         //PARA NO REGISTRARLA NUEVAMENTE
-                        $listar = $this->db->prepare("SELECT * FROM signot_direccion 
-                                                      WHERE idparte = '$lastIdParte' AND idproceso = '$valoridradicado' 
+                        $listar = $this->db->prepare("SELECT * FROM signot_direccion
+                                                      WHERE idparte = '$lastIdParte' AND idproceso = '$valoridradicado'
                                                     AND telefono = '$telefono' AND direccion = '$direccion'
                                                     AND iddepartamento = '$iddepartamento_2' AND idmunicipio = '$idmunicipio_2'");
                         $listar->execute();
                         $resultado = $listar->rowCount();
                         if(!$resultado){//NO EXISTE REGISTRO
-                            $this->db->exec("INSERT INTO 
+                            $this->db->exec("INSERT INTO
                                                 signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,idmunicipio,
                                                                 idusuarioregistra,idusuarioedita)
                                             VALUES ('$lastIdParte','$valoridradicado','$telefono','$direccion','$iddepartamento_2',
                                                 '$idmunicipio_2','$idusuario',0)");
-                        }                       
-                        ////SE PREGUNTA SI LA CLASE PARTE ESTA DENTRO DEL VECTOR DE PARTES PARA GENERAR CITACION Y ASIGNAR
-                        //LA FECHA REGISTRO, FECHA AUTO Y AUTO ANOTIFICAR
-                        //PARA CREAR UN REGISTRO EN LA TABLA signot_auto_parte PARA CREAR UN AUTO, SI YA TIENE UN AUTO REGISTRADO
-                        //CON EL PROCESO NO SE CREA OTRO
-                        //NOTA: PARA NO AMARRAR QUE UNA PARTE TENGA UN SOLO TIPO DE AUTO EN UN PROCESO
-                        //SIMPLEMENTE SE APLICA EL INSERT SIN EL SELECT
-                        //if($idclaseparte_2 == 2){
-                        /*if ( in_array($idclaseparte_2,$modulosacciones) ) {       
-                            $listar = $this->db->prepare("SELECT * FROM signot_auto_parte 
-                                                            WHERE idparte = '$lastIdParte' AND idproceso = '$valoridradicado'");
-                            $listar->execute();
-                            $resultado = $listar->rowCount();
-                            if(!$resultado){//NO EXISTE REGISTRO
-                                $this->db->exec("INSERT INTO signot_auto_parte (idparte,idproceso,idauto,fecharegistroauto,fechaauto,idusuarioregistra,idusuarioedita,descorrecion)
-                                                VALUES ('$lastIdParte','$valoridradicado','$idauto_2','$fecharegistroclase','$fechaautoclase','$idusuario',0,'')");
-                            }
-                        }*/
-                    }else{//EXISTE PARTE            
-                        //$iddocumento = 1;
-                        $fila        = $listar->fetch();
-                        $idparte     = $fila[id];
-
-                        $this->db->exec("UPDATE signot_parte 
-                                         SET nombre = '$nombreparte',datosadicionales = '$datosadicionales', 
-                                            idusuarioedita = '$idusuario' WHERE cedula = '$cedulaparte'");
-                        //IDENTIFICAMOS QUE UNA PARTE YA EXISTA EN LA TABLA signot_parteproceso
-                        //EN EL MISMO PROCESO CON IGUAL CLASE DE PARTE (DEMANDANTE, DEMANDADO ETC....)
-                        //YA QUE SI EXISTE NO SE ACTUALIZA, SOLO SE REGISTRA SI NO EXISTE
-                        $listar = $this->db->prepare("SELECT * FROM signot_parteproceso 
-                                                      WHERE idproceso = '$valoridradicado' 
-                                                                                  AND idparte = '$idparte' AND idclaseparte = '$idclaseparte_2'");
-
-                        $listar->execute();
-                        
-                        $resultado = $listar->rowCount();
-                        
-                        if(!$resultado){//NO EXISTE REGISTRO
-                
-                            $this->db->exec("INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
-                                             VALUES ('$valoridradicado','$idparte','$idclaseparte_2','$idusuario')");
                         }
-                        
-                        
-                        
-                        //IDENTIFICAMOS QUE UNA DIRECCION YA EXISTA EN LA TABLA signot_direccion
-                        //PARA NO REGISTRARLA NUEVAMENTE
-                        $listar = $this->db->prepare("SELECT * FROM signot_direccion 
-                                                      WHERE idparte = '$idparte' AND idproceso = '$valoridradicado'
-                                                      AND telefono = '$telefono' AND direccion = '$direccion'
-                                                      AND iddepartamento = '$iddepartamento_2' AND idmunicipio = '$idmunicipio_2'");
-        
-                        $listar->execute();
-                        
-                        $resultado = $listar->rowCount();
-                        
-                        if(!$resultado){//NO EXISTE REGISTRO
-                        
-                            $this->db->exec("INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,
-                                             idmunicipio,idusuarioregistra,idusuarioedita)
-                                             VALUES ('$idparte','$valoridradicado','$telefono','$direccion','$iddepartamento_2',
-                                             '$idmunicipio_2','$idusuario',0)");
-                        }
-                        
-                        
                         ////SE PREGUNTA SI LA CLASE PARTE ESTA DENTRO DEL VECTOR DE PARTES PARA GENERAR CITACION Y ASIGNAR
                         //LA FECHA REGISTRO, FECHA AUTO Y AUTO ANOTIFICAR
                         //PARA CREAR UN REGISTRO EN LA TABLA signot_auto_parte PARA CREAR UN AUTO, SI YA TIENE UN AUTO REGISTRADO
@@ -1280,53 +1216,117 @@
                         //SIMPLEMENTE SE APLICA EL INSERT SIN EL SELECT
                         //if($idclaseparte_2 == 2){
                         /*if ( in_array($idclaseparte_2,$modulosacciones) ) {
-                        
-                            
-                            $listar = $this->db->prepare("SELECT * FROM signot_auto_parte 
-                                                          WHERE idparte = '$idparte' AND idproceso = '$valoridradicado'");
-        
+                            $listar = $this->db->prepare("SELECT * FROM signot_auto_parte
+                                                            WHERE idparte = '$lastIdParte' AND idproceso = '$valoridradicado'");
                             $listar->execute();
-                                
                             $resultado = $listar->rowCount();
-                            
                             if(!$resultado){//NO EXISTE REGISTRO
-                        
+                                $this->db->exec("INSERT INTO signot_auto_parte (idparte,idproceso,idauto,fecharegistroauto,fechaauto,idusuarioregistra,idusuarioedita,descorrecion)
+                                                VALUES ('$lastIdParte','$valoridradicado','$idauto_2','$fecharegistroclase','$fechaautoclase','$idusuario',0,'')");
+                            }
+                        }*/
+                    }else{//EXISTE PARTE
+                        //$iddocumento = 1;
+                        $fila        = $listar->fetch();
+                        $idparte     = $fila[id];
+
+                        $this->db->exec("UPDATE signot_parte
+                                         SET nombre = '$nombreparte',datosadicionales = '$datosadicionales',
+                                            idusuarioedita = '$idusuario' WHERE cedula = '$cedulaparte'");
+                        //IDENTIFICAMOS QUE UNA PARTE YA EXISTA EN LA TABLA signot_parteproceso
+                        //EN EL MISMO PROCESO CON IGUAL CLASE DE PARTE (DEMANDANTE, DEMANDADO ETC....)
+                        //YA QUE SI EXISTE NO SE ACTUALIZA, SOLO SE REGISTRA SI NO EXISTE
+                        $listar = $this->db->prepare("SELECT * FROM signot_parteproceso
+                                                      WHERE idproceso = '$valoridradicado'
+                                                                                  AND idparte = '$idparte' AND idclaseparte = '$idclaseparte_2'");
+
+                        $listar->execute();
+
+                        $resultado = $listar->rowCount();
+
+                        if(!$resultado){//NO EXISTE REGISTRO
+
+                            $this->db->exec("INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
+                                             VALUES ('$valoridradicado','$idparte','$idclaseparte_2','$idusuario')");
+                        }
+
+
+
+                        //IDENTIFICAMOS QUE UNA DIRECCION YA EXISTA EN LA TABLA signot_direccion
+                        //PARA NO REGISTRARLA NUEVAMENTE
+                        $listar = $this->db->prepare("SELECT * FROM signot_direccion
+                                                      WHERE idparte = '$idparte' AND idproceso = '$valoridradicado'
+                                                      AND telefono = '$telefono' AND direccion = '$direccion'
+                                                      AND iddepartamento = '$iddepartamento_2' AND idmunicipio = '$idmunicipio_2'");
+
+                        $listar->execute();
+
+                        $resultado = $listar->rowCount();
+
+                        if(!$resultado){//NO EXISTE REGISTRO
+
+                            $this->db->exec("INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,
+                                             idmunicipio,idusuarioregistra,idusuarioedita)
+                                             VALUES ('$idparte','$valoridradicado','$telefono','$direccion','$iddepartamento_2',
+                                             '$idmunicipio_2','$idusuario',0)");
+                        }
+
+
+                        ////SE PREGUNTA SI LA CLASE PARTE ESTA DENTRO DEL VECTOR DE PARTES PARA GENERAR CITACION Y ASIGNAR
+                        //LA FECHA REGISTRO, FECHA AUTO Y AUTO ANOTIFICAR
+                        //PARA CREAR UN REGISTRO EN LA TABLA signot_auto_parte PARA CREAR UN AUTO, SI YA TIENE UN AUTO REGISTRADO
+                        //CON EL PROCESO NO SE CREA OTRO
+                        //NOTA: PARA NO AMARRAR QUE UNA PARTE TENGA UN SOLO TIPO DE AUTO EN UN PROCESO
+                        //SIMPLEMENTE SE APLICA EL INSERT SIN EL SELECT
+                        //if($idclaseparte_2 == 2){
+                        /*if ( in_array($idclaseparte_2,$modulosacciones) ) {
+
+
+                            $listar = $this->db->prepare("SELECT * FROM signot_auto_parte
+                                                          WHERE idparte = '$idparte' AND idproceso = '$valoridradicado'");
+
+                            $listar->execute();
+
+                            $resultado = $listar->rowCount();
+
+                            if(!$resultado){//NO EXISTE REGISTRO
+
                                 $this->db->exec("INSERT INTO signot_auto_parte (idparte,idproceso,idauto,fecharegistroauto,fechaauto,idusuarioregistra,idusuarioedita,descorrecion)
                                                  VALUES ('$idparte','$valoridradicado','$idauto_2','$fecharegistroclase','$fechaautoclase','$idusuario',0,'')");
-                                                 
+
                             }
-                        
+
                         }*/
-                        
-                        
-                        
-                        
+
+
+
+
                     }
-                    
-                    
+
+
                     $i = $i + 1;
-                
+
                 }
-                                 
-                                 
-            
-            //SE TERMINA LA TRANSACCION  
+
+
+
+            //SE TERMINA LA TRANSACCION
             $this->db->commit();
-            
+
             print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6"</script>';
-          
-        } 
+
+        }
         catch (Exception $e) {
-        
+
             //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
             $this->db->rollBack();
             //echo $idusuario."-".$valoridradicado." Fallo: " . $e->getMessage();
             print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6b"</script>';
         }
-        
-        
+
+
     }
-    
+
     /*Adicionar Radicado Manual*/
     public function modificar_proceso_2(){
         //SE OBTIENEN LOS DATOS
@@ -1353,8 +1353,8 @@
 
         //SE REALIZA ESTA PREGUNTA YA QUE SI LA LONGITUD ES 23, SE INDENTIFICA QUE SE ESTA CAMBIANDO EL NUMERO DE RADICADO
         if(strlen($radicadox) == 23){
-        
-            //OBTENEMOS DEL RADICADO 170014003 006 19931018000 
+
+            //OBTENEMOS DEL RADICADO 170014003 006 19931018000
             //CLASE JUZGADO 4003, DEPARTAMENTO 17, MUNICIPIO 17001
             $idclasejuzgado = substr($radicadox, 5, 4);
             $iddepartamento = substr($radicadox, 0, 2);
@@ -1365,20 +1365,20 @@
             }
         }
         else{
-            
+
             //CIERRO ESTO YA QUE SIMEPRE VA HACER EL RADICADO DE 23 POR QUE EN LA VISTA SIGNOT_MODIFICAR2_PROCESO.PHP
             //PIDO QUE SE DEFINA EL NUEVO RADICADO
-            
+
             /*$idclasejuzgado = substr($radicadox3, 5, 4);
             $iddepartamento = substr($radicadox3, 0, 2);
             $idmunicipio    = substr($radicadox3, 0, 5);
-            
+
             //SE REALIZA ESTA PREGUNTA YA QUE PUEDE QUE SE ENVIE CLASE DE PROCESO O NO
             if ( !empty($idclaseproceso) ) {
-            
+
                 $filtro1 = "idclaseproceso = '$idclaseproceso',";
-            
-            }*/   
+
+            }*/
         }
         //DATOS PARA EL REGISTRO DEL LOG
         $modelo     = new signotModel();
@@ -1395,7 +1395,7 @@
             else{
                 //CIERRO ESTO YA QUE SIMEPRE VA HACER EL RADICADO DE 23 POR QUE EN LA VISTA SIGNOT_MODIFICAR2_PROCESO.PHP
                 //PIDO QUE SE DEFINA EL NUEVO RADICADO
-                    
+
                 //$accion  = "Modifica ".$tiporegistro." En el Sistema (SIGNOT), ID PROCESO: ".$valoridradicado." PROCESO: ".$radicadox3;
             }
         }
@@ -1404,7 +1404,7 @@
         }
         $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
         $tipolog = 6;
-        try {  
+        try {
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             //EMPIEZA LA TRANSACCION
             $this->db->beginTransaction();
@@ -1413,8 +1413,8 @@
                 $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
                 //SE REALIZA ESTA PREGUNTA YA QUE SI LA LONGITUD ES 23, SE INDENTIFICA QUE SE ESTA CAMBIANDO EL NUMERO DE RADICADO
                 if(strlen($radicadox) == 23){
-                    $this->db->exec("UPDATE signot_proceso SET 
-                                     radicado = '$radicadox',radicadosignotanterior = '$radicadox3', 
+                    $this->db->exec("UPDATE signot_proceso SET
+                                     radicado = '$radicadox',radicadosignotanterior = '$radicadox3',
                                      idjuzgadoorigen = '$idjuzgadoorigen',
                                      idclasejuzgado = '$idclasejuzgado', ".$filtro1 . "
                                      iddepartamento = '$iddepartamento',idmunicipio = '$idmunicipio',
@@ -1426,19 +1426,19 @@
                 else{
                     //CIERRO ESTO YA QUE SIMEPRE VA HACER EL RADICADO DE 23 POR QUE EN LA VISTA SIGNOT_MODIFICAR2_PROCESO.PHP
                     //PIDO QUE SE DEFINA EL NUEVO RADICADO
-                    
-                    /*$this->db->exec("UPDATE signot_proceso SET ". 
-                                     $filtro1. 
+
+                    /*$this->db->exec("UPDATE signot_proceso SET ".
+                                     $filtro1.
                                      " iddepartamento = '$iddepartamento',idmunicipio = '$idmunicipio',
                                      idusuarioedita = '$idusuario'
-                                     WHERE id = '$valoridradicado'");*/  
+                                     WHERE id = '$valoridradicado'");*/
                 }
-                $this->db->exec("INSERT INTO signot_proceso_observacion (idradicado,exradicado,observacion,fechaob,idusuarioregistra) 
+                $this->db->exec("INSERT INTO signot_proceso_observacion (idradicado,exradicado,observacion,fechaob,idusuarioregistra)
                                  VALUES ('$valoridradicado','$radicadox3','$desobservacionx','$fechalog','$idusuario')");
-            //SE TERMINA LA TRANSACCION  
+            //SE TERMINA LA TRANSACCION
             $this->db->commit();
             print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=5"</script>';
-        } 
+        }
         catch (Exception $e) {
             //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
             $this->db->rollBack();
@@ -1446,195 +1446,195 @@
             print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=5b"</script>';
         }
     }
-    
+
     public function modificar_parte(){
-    
-        
+
+
         //SE OBTIENEN LOS DATOS
         $idusuario       = $_SESSION['idUsuario'];
-        
+
         //VALOR DEL ID PROCESO A MODIFICAR
         $idparteproceso   = trim($_POST['idparteproceso']);
         $documentox       = trim($_POST['documento2x']);
-        
+
         $nombrex          = trim($_POST['nombrex']);
         $nombre2x         = trim($_POST['nombre2x']);
-        
+
         $datosadicionales = trim($_POST['datosadicionales']);
-        
+
         //DATOS PARA EL REGISTRO DEL LOG
-        
+
         $modelo     = new signotModel();
         $fechahora  = $modelo->get_fecha_actual();
         $datosfecha = explode(" ",$fechahora);
         $fechalog   = $datosfecha[0];
         $horalog    = $datosfecha[1];
-        
-        
+
+
         $tiporegistro = "Parte";
-        
+
         if( empty($iddocumento) ){
-            
+
             if($documentox == trim($_POST['documentox'])){
-                
+
                 $accion  = "Modifica ".$tiporegistro." En el Sistema (SIGNOT), ID PARTE: ".$idparteproceso." CEDULA: ".$documentox." - NOMBRE PARTE: ".$nombrex;
             }
             else{
-            
+
                 $accion  = "Modifica ".$tiporegistro." En el Sistema (SIGNOT), ID PARTE: ".$idparteproceso." CEDULA: ".trim($_POST['documentox'])." POR ".$documentox." - NOMBRE PARTE: ".$nombrex;
             }
-            
+
         }
         else{
             //$accion  = "Modifica una ".$tiporegistro." En el Sistema (SIGDOC) REGISTRO DE DOCUMENTOS ENTRANTES, ID PROCESO: ".$iddocumento;
         }
-        
+
         $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
         $tipolog = 6;
-        
-        
-        try {  
-        
+
+
+        try {
+
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
+
             //EMPIEZA LA TRANSACCION
             $this->db->beginTransaction();
-            
-                
+
+
                 /*$this->db->exec("INSERT INTO signot_prueba (cedula,datos)
                                  VALUES ('$cedula','$datospartes')");*/
-                                 
+
                 $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                
-                
-                $this->db->exec("UPDATE signot_parte SET 
+
+
+                $this->db->exec("UPDATE signot_parte SET
                                  cedula = '$documentox', nombre = '$nombre2x',datosadicionales = '$datosadicionales',
                                  idusuarioedita = '$idusuario'
                                  WHERE id = '$idparteproceso'");
-                
-                
-                 
-                
-            //SE TERMINA LA TRANSACCION  
+
+
+
+
+            //SE TERMINA LA TRANSACCION
             $this->db->commit();
-            
+
             print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=7"</script>';
-          
-        } 
+
+        }
         catch (Exception $e) {
-        
+
             //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
             $this->db->rollBack();
             //echo "Fallo: " . $e->getMessage();
             print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=7b"</script>';
         }
-        
-        
+
+
     }
-    
+
     public function modificar_direccion(){
-    
-        
+
+
         //SE OBTIENEN LOS DATOS
         $idusuario       = $_SESSION['idUsuario'];
-        
+
         //VALOR DEL ID PROCESO A MODIFICAR
         $iddireccionx = trim($_POST['iddireccionx']);
-            
+
         $documentox   = trim($_POST['documentox']);
         $nombrex      = trim($_POST['nombrex']);
         $telefonox    = utf8_decode( trim($_POST['telefonox']) );
         $direccionx   = utf8_decode( trim($_POST['direccionx']) );
         $departamento = trim($_POST['departamento']);
         $municipio    = trim($_POST['municipio']);
-        
+
         //DATOS PARA EL REGISTRO DEL LOG
-        
+
         $modelo     = new signotModel();
         $fechahora  = $modelo->get_fecha_actual();
         $datosfecha = explode(" ",$fechahora);
         $fechalog   = $datosfecha[0];
         $horalog    = $datosfecha[1];
-        
-        
+
+
         $tiporegistro = "Direccion";
-        
+
         if( empty($iddocumento) ){
-            
+
             $accion  = "Modifica ".$tiporegistro." En el Sistema (SIGNOT), ID DIRECCION: ".$iddireccionx;
-            
+
         }
         else{
             //$accion  = "Modifica una ".$tiporegistro." En el Sistema (SIGDOC) REGISTRO DE DOCUMENTOS ENTRANTES, ID PROCESO: ".$iddocumento;
         }
-        
+
         $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
         $tipolog = 6;
-        
-        
-        try {  
-        
+
+
+        try {
+
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
+
             //EMPIEZA LA TRANSACCION
             $this->db->beginTransaction();
-            
-                
+
+
                 /*$this->db->exec("INSERT INTO signot_prueba (cedula,datos)
                                  VALUES ('$cedula','$datospartes')");*/
-                                 
+
                 $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                
-                
-                $this->db->exec("UPDATE signot_direccion SET 
+
+
+                $this->db->exec("UPDATE signot_direccion SET
                                  telefono = '$telefonox',direccion = '$direccionx',
                                  iddepartamento = '$departamento',idmunicipio = '$municipio',
                                  idusuarioedita = '$idusuario'
                                  WHERE id = '$iddireccionx'");
-                
-                
-                 
-                
-            //SE TERMINA LA TRANSACCION  
+
+
+
+
+            //SE TERMINA LA TRANSACCION
             $this->db->commit();
-            
+
             print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=7"</script>';
-          
-        } 
+
+        }
         catch (Exception $e) {
-        
+
             //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
             $this->db->rollBack();
             //echo "Fallo: " . $e->getMessage();
             print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=7b"</script>';
         }
-        
-        
-    }
-    
-    public function get_ano_completo(){
-    
-        date_default_timezone_set('America/Bogota'); 
-        $fecharegistro=date('Y'); 
-        
-        return $fecharegistro; 
+
 
     }
-    
+
+    public function get_ano_completo(){
+
+        date_default_timezone_set('America/Bogota');
+        $fecharegistro=date('Y');
+
+        return $fecharegistro;
+
+    }
+
     public function corregir_notificacion(){
-    
+
         $modelo     = new signotModel();
-        
+
         $yearcompleto = $modelo->get_ano_completo();
-        
+
         //SE OBTIENEN LOS DATOS
         $idusuario   = $_SESSION['idUsuario'];
-        
+
         //VALOR DEL ID PROCESO A MODIFICAR
         $idautox     = trim($_POST['idautox']);
-            
+
         $autox       = trim($_POST['autox']);
-        
+
         $nombrelista        = 'pa_tipodocumento';
         $campoordenar       = 'nombre_tipo_documento';
         $filtro             = "WHERE id IN(".$autox.")";
@@ -1642,94 +1642,94 @@
         $datostipodocumento = $modelo->get_lista_filtro($nombrelista,$campoordenar,$filtro,$formaordenar);
         $row                = $datostipodocumento->fetch();
         $anotacion          = "SE CORRIGE TIPO DOCUMENTO: ".$row[nombre_tipo_documento];
-        
-        
+
+
         $fechaxau1   = trim($_POST['fechaxau1']);
         $fechaxau2   = trim($_POST['fechaxau2']);
         $fechaxau3   = trim($_POST['fechaxau3']);
         $correccionx = utf8_decode(trim($_POST['correccion2x'])." ".trim($_POST['correccionx']));
-        
+
         $idparte     = trim($_POST['idpartex']);
         $idproceso   = trim($_POST['idprocesox']);
-        
+
         $nombrex     = utf8_decode(trim($_POST['nombrex']));
-        
+
         $dirigidoax  = trim($_POST['dirigidoax']);
         $direccionx  = utf8_decode(trim($_POST['direccionx']));
         $ciudadx     = utf8_decode(trim($_POST['ciudadx']));
         $ndocumentox = trim($_POST['ndocumentox']);
         $asuntox     = utf8_decode(trim($_POST['asuntox']));
         $partesx     = utf8_decode(trim($_POST['partesx']));
-            
+
         //DATOS PARA EL REGISTRO DEL LOG
-        
+
         //$modelo     = new signotModel();
         $fechahora  = $modelo->get_fecha_actual();
         $datosfecha = explode(" ",$fechahora);
         $fechalog   = $datosfecha[0];
         $horalog    = $datosfecha[1];
-        
-        
+
+
         $tiporegistro = "Auto";
-        
+
         if( empty($iddocumento) ){
-            
+
             $accion  = "Modifica ".$tiporegistro." En el Sistema (SIGNOT), ID AUTO: ".$idautox;
-            
+
         }
         else{
             //$accion  = "Modifica una ".$tiporegistro." En el Sistema (SIGDOC) REGISTRO DE DOCUMENTOS ENTRANTES, ID PROCESO: ".$iddocumento;
         }
-        
+
         $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
         $tipolog = 6;
-        
-        
-        try {  
-        
+
+
+        try {
+
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
+
             //EMPIEZA LA TRANSACCION
             $this->db->beginTransaction();
-            
-                
-                
+
+
+
                 $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                
-                 
+
+
                 $this->db->exec("INSERT INTO documentos_internos (idparte,idradicado,idusuario,idusuarioedita,idtipodocumento,numero,dirigidoa,
                                  nombre,direccion,ciudad,
                                  fechageneracion,fechaauto,fechaedita,asunto,contenido,partes,fechaautocorrige,descorrecion,idautocorrige,aniodoc)
                                  VALUES ('$idparte','$idproceso','$idusuario',0,'$autox','$ndocumentox','$dirigidoax','$nombrex','$direccionx',
                                  '$ciudadx','$fechaxau1','$fechaxau2','0000-00-00',
                                  '$asuntox','X','$partesx','$fechaxau3','$correccionx','$idautox','$yearcompleto')");
-                                 
+
                 //OBTENGO EL ULTIMO ID REGISTRADO DEL ULTIMO INSERT EN LA TABLA documentos_internos
                 $lastId    = $this->db->lastInsertId();
                 $anotacion = $anotacion.", ID DOCUMENTO NUEVO: ".$lastId.", CORRIGE ID DOCUMENTO: ".$idautox;
-                                  
+
                 $this->db->exec("INSERT INTO signot_proceso_anotacion (idradicado,idusuario,fecha,hora,anotacion)
                                  VALUES ('$idproceso','$idusuario','$fechalog','$horalog','$anotacion')");
-                
+
                 //$this->db->exec("UPDATE pa_documento SET contador = '$consecutivo' WHERE id = '$documento'");
-                
-            //SE TERMINA LA TRANSACCION  
+
+            //SE TERMINA LA TRANSACCION
             $this->db->commit();
-            
+
             print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=8"</script>';
-          
-        } 
+
+        }
         catch (Exception $e) {
-        
+
             //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
             $this->db->rollBack();
             //echo $idparte."*****"."Fallo: " . $e->getMessage();
             print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=8b"</script>';
         }
-        
-        
+
+
     }
-        // JUAN ESTEBAN MUNERA BETANCUR 30/06/2017 
+        // JUAN ESTEBAN MUNERA BETANCUR 30/06/2017
     public function registrar_anotacion(){
             session_start();
             //---- JUAN ESTEBAN MUNERA B 2017-10-06 ----
@@ -1740,7 +1740,7 @@
             $anotacion              = utf8_decode( trim($_POST['anotacion']).", PARTE DEL PROCESO: ".trim($_POST['parteproceso']) );
             $fechaInterrogatorio    = trim($_POST['fecha_interrogatorio']);
             $fecha_inicial          = trim($_POST['fecha_interrogatorio']);
-            
+
             //BANDERA PARA OCULTAR ALERTA PARA TODAS LAS ANOTACIONES DONDE FLAG_DEVOLUCION = 1 DEL RADICADO 'X'
             $flag_All_devoluciones  = 0;
             $parte = trim($_POST['parteproceso']);
@@ -1753,7 +1753,7 @@
             $fechalog   = $datosfecha[0];
             $horalog    = $datosfecha[1];
             $tiporegistro = "ANOTACION";
-            
+
             if( empty($iddocumento) ){
                 $accion  = "Registra Una Nueva ".$tiporegistro." En el Sistema (SIGNOT), ID PROCESO: ".$idproceso;
             }else{
@@ -1761,7 +1761,7 @@
             }
             $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
             $tipolog = 6;
-            
+
             // JUAN ESTEBAN MUNERA BETANCUR 07 2017
             //************* 2018-02-14 *************************************** //
             if($idtipoanotacion == 11 || $idtipoanotacion == 14){
@@ -1783,7 +1783,7 @@
                 $fechaInterrogatorio ="";
                 $fecha_devolucion='0000-00-00';
                 $flag_All_devoluciones = 0;
-                $arreglo_habiles = (($modelo->calcularFechasHabiles(29, $fechalog))); 
+                $arreglo_habiles = (($modelo->calcularFechasHabiles(29, $fechalog)));
                 $fin = ($modelo->calcularFechasHabiles($arreglo_habiles[1],$arreglo_habiles[3]));
                 $vuelta1 = ($modelo->calcularFechasHabiles($fin[1],$fin[3]));
                 $vuelta2 = ($modelo->calcularFechasHabiles($vuelta1[1],$vuelta1[3]));
@@ -1809,7 +1809,7 @@
                         $dato = array_pop($dato);
                         $bandera=1;
                     }
-                }  
+                }
                 if($cant3 >0){
                     if($vuelta1[1]==0){
                         $dato = $vuelta1[0];
@@ -1848,9 +1848,9 @@
                 // JUAN ESTEBAN MUNERA BETANCUR 2018-02-09
                 if($idtipoanotacion == 9){
                     $flag_devolucion = 1;
-                    $arreglo_habiles = (($modelo->calcular_fecha_habil(5, $fecha_inicial))); 
-                    $fin = ($modelo->calcular_fecha_habil($arreglo_habiles[1],$arreglo_habiles[3]));                 
-                    $vuelta1 = ($modelo->calcular_fecha_habil($fin[1],$fin[3]));             
+                    $arreglo_habiles = (($modelo->calcular_fecha_habil(5, $fecha_inicial)));
+                    $fin = ($modelo->calcular_fecha_habil($arreglo_habiles[1],$arreglo_habiles[3]));
+                    $vuelta1 = ($modelo->calcular_fecha_habil($fin[1],$fin[3]));
                     $vuelta2 = ($modelo->calcular_fecha_habil($vuelta1[1],$vuelta1[3]));
                     $vuelta3 = ($modelo->calcular_fecha_habil($vuelta2[1],$vuelta2[3]));
                     $vuelta4 = ($modelo->calcular_fecha_habil($vuelta3[1],$vuelta3[3]));
@@ -1909,7 +1909,7 @@
                             $bandera=1;
                             //echo "can2";
                         }
-                    }  
+                    }
                     if($cant3 >0){
                         if($vuelta1[1]==0){
                             $dato = $vuelta1[0];
@@ -2088,8 +2088,8 @@
                 //}
                 //**********************************************************************
             }
-            
-            try {  
+
+            try {
                 // ACÁ EMPIEZA COMENTARIO************************************************************
                 // JEST 2017-10-06
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -2103,9 +2103,9 @@
                 if($flag_All_devoluciones == 1){
                     $this->db->exec("UPDATE signot_proceso_anotacion SET flag_devolucion = 0 WHERE idradicado = '$idproceso' AND id_parte = '$id_parteP'");
                 }
-                //SE TERMINA LA TRANSACCION  
+                //SE TERMINA LA TRANSACCION
                 $this->db->commit();
-                
+
                 // ****** ACÀ FIN COMENTARIO*************************************************
                 echo "**********ANOTACION CORRECTA";
                 //header('refresh: 0; URL=/centro_servicios2/index.php?controller=signot&action=Editar_Proceso_Anotacion&id = '.$idproceso.' ');
@@ -2117,9 +2117,9 @@
                 //echo $e->getMessage();
                 echo "**********ERROR ANOTACION";
                 /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=9b"</script>';*/
-            }   
+            }
     }
- 
+
     public function get_siglas($tipodocumento){
             $listar  = $this->db->prepare("SELECT d.sigla AS siglas,d.nombre_documento
                                         FROM (pa_tipodocumento td INNER JOIN pa_documento d ON td.iddocumento = d.id)
@@ -2127,12 +2127,12 @@
             $listar->execute();
             return $listar;
     }
-    
-    
+
+
     //FUNCION PARA CORTAR UNA CADENA Y ESPECIFICAR CON PUNTOS QUE TIENE MAS TEXTO
     //SE CARTASEGUN EL VALOR  $length ASIGNADO
     public function getSubString($string, $length=NULL){
-        
+
         //Si no se especifica la longitud por defecto es 50
         if ($length == NULL)
             $length = 50;
@@ -2141,77 +2141,77 @@
         //Si el texto es mayor que la longitud se agrega puntos suspensivos
         if (strlen(strip_tags($string)) > $length)
             $stringDisplay .= ' ...';
-            
-            
+
+
         return $stringDisplay;
     }
-    
-    
+
+
     //*********************************************************************************************************************************************
                                                             //FUNCIONES PARA LA MIGRACION
     //*********************************************************************************************************************************************
-    
+
     public function registrar_migracion(){
-    
+
         $modelo = new signotModel();
-        
+
         $idusuario = $_SESSION['idUsuario'];
 
         $radix     = trim($_GET['radix']);
-        
+
         $listaprocesos = $modelo->get_datos_proceso_migracion($radix);
-        
+
         //DATOS PARA EL REGISTRO DEL LOG
         $fechahora  = $modelo->get_fecha_actual();
         $datosfecha = explode(" ",$fechahora);
         $fechalog   = $datosfecha[0];
         $horalog    = $datosfecha[1];
-        
+
         $tiporegistro = "REALIZA MIGRACION DE INFORMACION";
-        
+
         if( empty($iddocumento) ){
-            
+
             $accion  = $tiporegistro." En el Sistema (SIGNOT), PROCESO: ".$radix;
-            
+
         }
         else{
             //$accion  = "Modifica una ".$tiporegistro." En el Sistema (SIGDOC) REGISTRO DE DOCUMENTOS ENTRANTES, ID PROCESO: ".$iddocumento;
         }
-        
+
         $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
         $tipolog = 6;
-        
+
         $anotacion = "SE REALIZA MIGRACION DE INFORMACION";
-        
+
         $contadorloganotacion = 0;
-        
+
         while($fila = $listaprocesos->fetch()){//WHILE 1
-            
+
             $idradicadox = trim($fila[id]);
             $radicadox   = trim($fila[radicado]);
             $radicadoxsignotanterior = trim($fila[radicadosignotanterior]);
-            
+
             $listapartesprocesos = $modelo->get_datos_parteproceso_migracion($radicadox,$radicadoxsignotanterior);
             //$fila_2 = $listapartesprocesos->fetch();
             $resultadolista      = $listapartesprocesos->rowCount();
-            
+
             //SE PREGUNTA SI EL PROCESO CUENTA CON PARTES, SI NO, NO EJECUTA LA MIGRACION
             if(!$resultadolista){
-        
+
                 print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6c"</script>';
             }
-            
+
             $listapartesprocesosM = $modelo->get_datos_realizada_migracion($idradicadox);
             $resultadolistaM      = $listapartesprocesosM->rowCount();
-            
+
             //SE PREGUNTA SI YA SE REALIZO LA MIGRACION
             if($resultadolistaM){
-        
+
                 print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6d"</script>';
             }
-            
+
             while($fila_2 = $listapartesprocesos->fetch()){//WHILE 2
-            
+
                 //PARTES PROCESO
                 $cedulax       = trim($fila_2[cedula]);
                 $nombrex       = trim($fila_2[nombre_sujeto]);
@@ -2220,500 +2220,500 @@
                 $clasepartex   = trim($fila_2[id_tipo_sujeto]);
                 $departamentox = trim($fila_2[id_departamento]);
                 $municipiox    = trim($fila_2[id_ciudad]);
-                
+
                 $datospartes .= "******".$cedulax."//////".$nombrex."//////".$direccionx."//////".$telefonox."//////".$clasepartex."//////".$departamentox."//////".$municipiox;
-                
-            
-                try {  
-        
+
+
+                try {
+
                     $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    
+
                     //EMPIEZA LA TRANSACCION
                     $this->db->beginTransaction();
-                    
-                        
+
+
                         //$this->db->exec("INSERT INTO signot_proceso (radicado,fecharegistro,idjuzgadoorigen,idclasejuzgado,idclaseproceso,iddepartamento,idmunicipio,idusuarioregistra,idusuarioedita,iddevolucion)
                                          //VALUES ('$radicadox','$fechalog','$idjuzgadoorigen','$idclasejuzgado','$idclaseproceso','$iddepartamento','$idmunicipio','$idusuario',0,0)");
-                                        
-                        
-                    
+
+
+
                         //OBTENGO EL ULTIMO ID REGISTRADO DEL ULTIMO INSERT EN LA TABLA signot_proceso
                         //$lastIdProceso  = $this->db->lastInsertId();
-                        
-         
+
+
                         //******75088165//////Jorge Andres Valencia//////Cr 21 # 46 A 82//////8855934//////1-DEMANDANTE//////17-Caldas//////17001-MANIZALES******
                         //75095585//////Andres Grajales//////Cr 213 # 748 B 434//////8875632//////1-DEMANDANTE//////13-Bolivar//////13001-CARTAGENA
-                
+
                         //1 EXPLODE
-                        $datospartes_1 = explode("******",$datospartes); 
+                        $datospartes_1 = explode("******",$datospartes);
                         $longitud_1    = count($datospartes_1);
                         $i             = 1;
-                        
+
                         while($i < $longitud_1){
-                            
+
                             //2 EXPLODE
                             $datospartes_2 = explode("//////",$datospartes_1[$i]);
-                            
-                            
+
+
                             $cedulaparte  = $datospartes_2[0];
                             $nombreparte  = $datospartes_2[1];
-                            
+
                             $direccion    = $datospartes_2[2];
                             $telefono     = $datospartes_2[3];
-                            
+
                             //$idclaseparte   = explode("-",$datospartes_2[4]);
                             //$idclaseparte_2 = $idclaseparte[0];
                             $idclaseparte_2 = $datospartes_2[4];
                             //$idclaseparte_2 = 1;
-                            
+
                             //if($idclaseparte_2 == " "){
                                 //$idclaseparte_2 = 17;
                             //}
-                            
+
                             //$iddepartamento   = explode("-",$datospartes_2[5]);
                             //$iddepartamento_2 = $iddepartamento[0];
                             $iddepartamento_2 = $datospartes_2[5];
-                            
+
                             //$idmunicipio      = explode("-",$datospartes_2[6]);
                             //$idmunicipio_2    = $idmunicipio[0];
                             $idmunicipio_2    = $datospartes_2[6];
-                
+
                             //IDENTIFICAMOS QUE UNA PARTE YA EXISTA EN LA TABLA signot_parte
                             //PARA NO VOLVER A REGISTRAR, SI NO ACTUALIZAR SUS DATOS
-                            //SE COMPARA TANTO LA CEDULA COMO EL NOMBRE YA QUE EN EL SIGNOT ANTERIOR 
+                            //SE COMPARA TANTO LA CEDULA COMO EL NOMBRE YA QUE EN EL SIGNOT ANTERIOR
                             //MUCHAS PARTES CONTBAN CON EL DATO CEDULA 1 o 2 o 3 ETC
                             //ENTONCES SI SOLO SE PREGUNTA CON LA CEDULA MIGRARIA PARTES A PROCESOS
                             //QUE NO CORRESPONDE ESA PARTE
-                            $listar = $this->db->prepare("SELECT * FROM signot_parte WHERE cedula = '$cedulaparte' 
+                            $listar = $this->db->prepare("SELECT * FROM signot_parte WHERE cedula = '$cedulaparte'
                                                           AND nombre = '$nombreparte'");
                             //$listar = $this->db->prepare("SELECT * FROM signot_parte WHERE nombre = '$nombreparte'");
-                
+
                             $listar->execute();
-                                
+
                             $resultado = $listar->rowCount();
-                            
+
                             if(!$resultado){//NO EXISTE PARTE
-                                    
+
                                 //$iddocumento = 0;
-                                
+
                                 $this->db->exec("INSERT INTO signot_parte (cedula,nombre,datosadicionales,idusuarioregistra,
                                                  idusuarioedita)
                                                  VALUES ('$cedulaparte','$nombreparte','$datosadicionales','$idusuario',0)");
-                                
+
                                 //OBTENGO EL ULTIMO ID REGISTRADO DEL ULTIMO INSERT EN LA TABLA signot_proceso
                                 $lastIdParte  = $this->db->lastInsertId();
-                        
-                                
+
+
                                 //IDENTIFICAMOS QUE UNA PARTE YA EXISTA EN LA TABLA signot_parteproceso
                                 //EN EL MISMO PROCESO CON IGUAL CLASE DE PARTE (DEMANDANTE, DEMANDADO ETC....)
                                 //YA QUE SI EXISTE NO SE ACTUALIZA, SOLO SE REGISTRA SI NO EXISTE
-                                $listar = $this->db->prepare("SELECT * FROM signot_parteproceso 
-                                                              WHERE idproceso = '$idradicadox' AND idparte = '$lastIdParte' 
+                                $listar = $this->db->prepare("SELECT * FROM signot_parteproceso
+                                                              WHERE idproceso = '$idradicadox' AND idparte = '$lastIdParte'
                                                               AND idclaseparte = '$idclaseparte_2'");
-                
+
                                 $listar->execute();
-                                
+
                                 $resultado = $listar->rowCount();
-                                
+
                                 if(!$resultado){//NO EXISTE REGISTRO
-                        
+
                                     $this->db->exec("INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
                                                      VALUES ('$idradicadox','$lastIdParte','$idclaseparte_2','$idusuario')");
                                 }
-                                
-                            
+
+
                                 //IDENTIFICAMOS QUE UNA DIRECCION YA EXISTA EN LA TABLA signot_direccion
                                 //PARA NO REGISTRARLA NUEVAMENTE
-                                $listar = $this->db->prepare("SELECT * FROM signot_direccion 
+                                $listar = $this->db->prepare("SELECT * FROM signot_direccion
                                                               WHERE idparte = '$lastIdParte' AND idproceso = '$idradicadox'
                                                               AND telefono = '$telefono' AND direccion = '$direccion'
-                                                              AND iddepartamento = '$iddepartamento_2' 
+                                                              AND iddepartamento = '$iddepartamento_2'
                                                               AND idmunicipio = '$idmunicipio_2'");
-                
+
                                 $listar->execute();
-                                
+
                                 $resultado = $listar->rowCount();
-                                
+
                                 if(!$resultado){//NO EXISTE REGISTRO
-                                
+
                                     $this->db->exec("INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,
                                                     idmunicipio,idusuarioregistra,idusuarioedita)
                                                      VALUES ('$lastIdParte','$idradicadox','$telefono','$direccion','$iddepartamento_2',
                                                      '$idmunicipio_2','$idusuario',0)");
                                 }
-            
-                                
+
+
                             }
                             else{//EXISTE PARTE
-                                
+
                                 $iddocumento = 1;
                                 $fila_3      = $listar->fetch();
                                 $idparte     = $fila_3[id];
-                                
-                                
+
+
                                 //$this->db->exec("UPDATE signot_parte SET nombre = '$nombreparte',datosadicionales = '$datosadicionales',idusuarioedita = '$idusuario' WHERE cedula = '$cedulaparte'");
-                                
+
                                 //$this->db->exec("UPDATE signot_parte SET nombre = '$nombreparte',datosadicionales = '$datosadicionales',idusuarioedita = '$idusuario' WHERE nombre = '$nombreparte'");
-                                
-                                
+
+
                                 //IDENTIFICAMOS QUE UNA PARTE YA EXISTA EN LA TABLA signot_parteproceso
                                 //EN EL MISMO PROCESO CON IGUAL CLASE DE PARTE (DEMANDANTE, DEMANDADO ETC....)
                                 //YA QUE SI EXISTE NO SE ACTUALIZA, SOLO SE REGISTRA SI NO EXISTE
-                                $listar = $this->db->prepare("SELECT * FROM signot_parteproceso 
-                                                              WHERE idproceso = '$idradicadox' AND idparte = '$idparte' 
+                                $listar = $this->db->prepare("SELECT * FROM signot_parteproceso
+                                                              WHERE idproceso = '$idradicadox' AND idparte = '$idparte'
                                                               AND idclaseparte = '$idclaseparte_2'");
-                
+
                                 $listar->execute();
-                                
+
                                 $resultado = $listar->rowCount();
-                                
+
                                 if(!$resultado){//NO EXISTE REGISTRO
-                        
+
                                     $this->db->exec("INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
                                                      VALUES ('$idradicadox','$idparte','$idclaseparte_2','$idusuario')");
                                 }
-                                
-                                
-                                
+
+
+
                                 //IDENTIFICAMOS QUE UNA DIRECCION YA EXISTA EN LA TABLA signot_direccion
                                 //PARA NO REGISTRARLA NUEVAMENTE
-                                $listar = $this->db->prepare("SELECT * FROM signot_direccion 
+                                $listar = $this->db->prepare("SELECT * FROM signot_direccion
                                                               WHERE idparte = '$idparte' AND idproceso = '$idradicadox'
                                                               AND telefono = '$telefono' AND direccion = '$direccion'
                                                               AND iddepartamento = '$iddepartamento_2' AND idmunicipio = '$idmunicipio_2'");
-                
+
                                 $listar->execute();
-                                
+
                                 $resultado = $listar->rowCount();
-                                
+
                                 if(!$resultado){//NO EXISTE REGISTRO
-                                
+
                                     $this->db->exec("INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,
                                                      idmunicipio,idusuarioregistra,idusuarioedita)
                                                      VALUES ('$idparte','$idradicadox','$telefono','$direccion','$iddepartamento_2',
                                                      '$idmunicipio_2','$idusuario',0)");
                                 }
-                                
-                                
-                                
+
+
+
                             }
-                            
-                            
+
+
                             $i = $i + 1;
-                        
+
                         }
-                        
-                        //SE REALIZA ESTA PREGUNTA PARA QUE EL SISTEMA SOLO EN LA TABLA signot_proceso_anotacion Y LOG 
+
+                        //SE REALIZA ESTA PREGUNTA PARA QUE EL SISTEMA SOLO EN LA TABLA signot_proceso_anotacion Y LOG
                         //SOLO CREE UN REGISTRO EN CADA UNA, YA QUE SI NO SE HACE ESTA PREGUNTA DEPENDIENTO DE LAS PARTES QUE SE MIGREN
                         //AL PROCESO SE GENERAN MAS REGISTROS Y SOLO SE NECESITA SABER CON UNO LA ACCION REALIZA.
                         if($contadorloganotacion == 0){
-                        
+
                             //ANOTACION (PARA EL SEGUIMIENTO DEL PROCESO)
                             $this->db->exec("INSERT INTO signot_proceso_anotacion (idradicado,idusuario,fecha,hora,anotacion)
-                                             VALUES ('$idradicadox','$idusuario','$fechalog','$horalog','$anotacion')"); 
-                            
-                            //LOG 
-                            $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) 
+                                             VALUES ('$idradicadox','$idusuario','$fechalog','$horalog','$anotacion')");
+
+                            //LOG
+                            $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog)
                                              VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                                             
+
                             $contadorloganotacion = $contadorloganotacion + 1;
                         }
-                        
-                    //SE TERMINA LA TRANSACCION  
+
+                    //SE TERMINA LA TRANSACCION
                     $this->db->commit();
-                    
+
                     print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6"</script>';
-                  
-                } 
+
+                }
                 catch (Exception $e) {
-                
+
                     //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
                     $this->db->rollBack();
                     echo "Fallo: " . $e->getMessage();
                     /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=4b"</script>';*/
                 }
-                        
-                
+
+
             }//FIN WHILE 2
-            
+
         }//FIN WHILE 1
-        
+
         //echo $datospartes;
     }
-    
+
     public function get_datos_proceso_migracion($radix){
-    
-        
+
+
 
         $listar = $this->db->prepare("SELECT * FROM signot_proceso
                                       WHERE radicado = '$radix'
                                       ORDER BY id");
-                                      
+
         //$listar = $this->db->prepare("SELECT * FROM signot_proceso ORDER BY id");
-        
+
         $listar->execute();
-        
+
         $resultado = $listar->rowCount();
-        
+
         //NO EXISTE REGISTRO ENTONCES BUSCAMOS CON radicadosignotanterior YA PUDO PASAR QUE CORRIGIERON EL RADICADO
         //CAMPO radicado TABLA signot_proceso Y ENTONCES SE PREGUNTA CON EL radicadosignotanterior
         //QUE ES EL RADICADO CON QUE SE REALIZO LA CARGA AL MOMENTO DE MIGRAR
         if(!$resultado){
-        
+
             $listar = $this->db->prepare("SELECT * FROM signot_proceso
                                           WHERE radicadosignotanterior = '$radix'
                                           ORDER BY id");
-                                          
+
             $listar->execute();
         }
 
         return $listar;
-    
+
     }
-    
+
     //FUNCION QUE RECIBE AMBOS RADICADOS, PARA DETECTAR PARTES DE UN PROCESO YA QUE PUDO PASAR QUE CORRIGIERON EL RADICADO
     //CAMPO radicado TABLA signot_proceso Y ENTONCES SE PREGUNTA CON EL radicadosignotanterior
     //QUE ES EL RADICADO CON QUE SE REALIZO LA CARGA AL MOMENTO DE MIGRAR
     public function get_datos_parteproceso_migracion($radicadox,$radicadoxsignotanterior){
-    
-        $listar = $this->db->prepare("SELECT * FROM parte WHERE (id_proceso = '$radicadox' OR id_proceso = '$radicadoxsignotanterior') 
+
+        $listar = $this->db->prepare("SELECT * FROM parte WHERE (id_proceso = '$radicadox' OR id_proceso = '$radicadoxsignotanterior')
                                       ORDER BY nombre_sujeto");
-                                     
+
                                       /*GROUP BY nombre_sujeto*/
-        
+
         $listar->execute();
-        
+
         return $listar;
-            
+
     }
-    
+
     //ME PERMITE CONOCER SI YA SE MIGRO INFORMACION DE UN PROCESO
     public function get_datos_realizada_migracion($idradicadox){
-    
+
         $listar = $this->db->prepare("SELECT * FROM signot_proceso_anotacion WHERE idradicado = '$idradicadox'
                                       AND anotacion = 'SE REALIZA MIGRACION DE INFORMACION'");
-                                     
-                                      
-        
+
+
+
         $listar->execute();
-        
+
         return $listar;
-            
+
     }
-    
+
     //*********************************************************************************************************************************************
                                                             //FUNCIONES PARA PROCESOS MASIVOS
     //*********************************************************************************************************************************************
-    
+
     public function asignar_id_parte(){
-    
-    
+
+
         $modelo = new signotModel();
-        
+
         $idusuario = $_SESSION['idUsuario'];
-        
+
         $contadorlog = 0;
 
-        
+
         //DATOS PARA EL REGISTRO DEL LOG
         $fechahora  = $modelo->get_fecha_actual();
         $datosfecha = explode(" ",$fechahora);
         $fechalog   = $datosfecha[0];
         $horalog    = $datosfecha[1];
-        
+
         $tiporegistro = "REALIZA PROCESO MASIVO";
-        
+
         if( empty($iddocumento) ){
-            
+
             $accion  = $tiporegistro." En el Sistema (SIGNOT), PROCESO: ASIGNAR ID PARTE";
-            
+
         }
-        
+
         $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
         $tipolog = 6;
-        
-        
+
+
         $listaprocesos = $modelo->get_datos_id_parte();
-        
+
         while($fila = $listaprocesos->fetch()){//WHILE 1
-            
+
             $id     = trim($fila[id]);
             $nombre = trim($fila[nombre]);
-            
-            
+
+
             if($nombre != "-"){
-            
-                try {  
-            
+
+                try {
+
                         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                        
+
                         //EMPIEZA LA TRANSACCION
                         $this->db->beginTransaction();
-                        
-                        
+
+
                         $listar = $this->db->prepare("SELECT * FROM signot_parte WHERE nombre = '$nombre' ");
-                                
-                    
+
+
                         $listar->execute();
-                                    
+
                         $resultado = $listar->rowCount();
-                        
+
                         $fila_3  = $listar->fetch();
                         $idparte = $fila_3[id];
-                        
+
                         //if(empty($idparte)){
-                        
+
                         if($resultado){
-                        
-                        $this->db->exec("UPDATE documentos_internos SET idparte = '$idparte' 
+
+                        $this->db->exec("UPDATE documentos_internos SET idparte = '$idparte'
                                          WHERE id = '$id'");
-                                         
+
                         }
-                        
-                
-                        //SE REALIZA ESTA PREGUNTA PARA QUE EL SISTEMA SOLO EN LA TABLA LOG 
+
+
+                        //SE REALIZA ESTA PREGUNTA PARA QUE EL SISTEMA SOLO EN LA TABLA LOG
                         //SOLO CREE UN REGISTRO.
                         if($contadorlog == 0){
-                        
-                            
-                            //LOG 
-                            $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) 
+
+
+                            //LOG
+                            $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog)
                                              VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                                             
+
                             $contadorlog = $contadorlog + 1;
                         }
-                        
-                                                 
-                                
-                            
-                        //SE TERMINA LA TRANSACCION  
+
+
+
+
+                        //SE TERMINA LA TRANSACCION
                         $this->db->commit();
-                        
+
                         print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6"</script>';
-                      
-                    } 
+
+                    }
                     catch (Exception $e) {
-                    
+
                         //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
                         $this->db->rollBack();
                         echo "Fallo: " . $e->getMessage();
                         /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=4b"</script>';*/
                     }
-                            
-                    
+
+
             }
-                    
-                        
+
+
         }//FIN WHILE 1
-        
-        
+
+
     }
-    
+
     public function get_datos_id_parte(){
-    
+
         $listar = $this->db->prepare("SELECT di.id,di.idparte,di.idradicado,di.numero,di.nombre
                                       FROM documentos_internos di
                                       WHERE di.idparte = 0
                                       ORDER BY di.id");
-                                     
-                                      
+
+
         $listar->execute();
-        
+
         return $listar;
-    
+
     }
-    
+
     //*********************************************************************************************************************************************
                                                             //FUNCIONES PARA ACTIVAR PARTES EN UN PROCESO
     //*********************************************************************************************************************************************
-    
+
     public function activar_parte(){
 
             $modelo     = new signotModel();
-            
+
             //SE OBTIENEN LOS DATOS
             $idusuario     = $_SESSION['idUsuario'];
-            
+
             //VARIABLE QUE MANEJA EL INSERT O UPDATE DE UN NUEVO DOCUMENTO
             $iddocumento   = trim($_POST['iddocumento']);
-            
+
             $idparte = trim($_POST['id']);
-            
+
             $datosdocumento = $modelo->get_datos_idradicado( trim($_POST['radicadox']) );
             $row            = $datosdocumento->fetch();
-            
+
             $idr            = $row[id];
-            
+
             $idclaseparte   = trim($_POST['idclaseparte']);;
-            
-            
+
+
             $idtipoanotacion = trim($_POST['destipoanotacion']);
-            
+
             //$anotacion      = "SE ACTIVA NUEVAMENTE EL PROCESO PARA SU MANEJO";
             $anotacion       = trim($_POST['anotacion']).", PARTE DEL PROCESO: ".trim($_POST['parteproceso']);
-        
+
             //DATOS PARA EL REGISTRO DEL LOG
-            
+
             //$modelo     = new documentosModel();
             $fechahora  = $modelo->get_fecha_actual();
             $datosfecha = explode(" ",$fechahora);
             $fechalog   = $datosfecha[0];
             $horalog    = $datosfecha[1];
-            
-            
+
+
             //$tiporegistro = "Genera un Nuevo Documento";
-            
+
             if( empty($iddocumento) ){
-        
+
                 $accion  = "Activa Parte, Sistema SIGNOT, ID PROCESO: ".$idr.", ID PARTE: ".$idparte;
             }
             else{
-            
+
                 $accion  = "Activa Parte, Sistema SIGNOT, ID PROCESO: ".$idr.", ID PARTE: ".$idparte;
             }
             $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
             $tipolog = 6;
-            
-            try {  
-            
+
+            try {
+
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                
+
                 //EMPIEZA LA TRANSACCION
                 $this->db->beginTransaction();
-                    
-                    
+
+
                     $this->db->exec("UPDATE signot_parteproceso SET endevolucion = 'NO'
                                      WHERE idproceso = '$idr' AND idparte = '$idparte' AND idclaseparte = '$idclaseparte'");
-                                     
-                    
+
+
                     $this->db->exec("INSERT INTO signot_proceso_anotacion (idradicado,idusuario,fecha,hora,idtipoanotacion,anotacion)
                                      VALUES ('$idr','$idusuario','$fechalog','$horalog','$idtipoanotacion','$anotacion')");
-                                    
-                
+
+
                     $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                    
-                
-                //SE TERMINA LA TRANSACCION  
+
+
+                //SE TERMINA LA TRANSACCION
                 $this->db->commit();
-                
+
                 //echo "DATO: ".$tipodocumento;
                 print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=9"</script>';
-              
-            } 
+
+            }
             catch (Exception $e) {
-            
+
                 //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
                 $this->db->rollBack();
                 echo "Fallo: " . $e->getMessage();
                 /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=9b"</script>';*/
             }
-        
+
     }
-    
+
     //*********************************************************************************************************************************************
                                                             //FUNCIONES PARA REGISTRAR PROCESO UNICO
     //*********************************************************************************************************************************************
-    
+
     /*Adicionar Radicado Manual*/
     public function registrar_proceso_unico(){
             //SE OBTIENEN LOS DATOS idjuzgadoorigen
@@ -2727,7 +2727,7 @@
             $asunto           = trim($_POST["asunto"]);
             $despacholibra    = trim($_POST["despacholibra"]);
             $datospartes     = trim($_POST['datospartes']);
-            //OBTENEMOS DEL RADICADO 170014003 006 19931018000 
+            //OBTENEMOS DEL RADICADO 170014003 006 19931018000
             //CLASE JUZGADO 4003, DEPARTAMENTO 17, MUNICIPIO 17001
             $idclasejuzgado = substr($radicadox, 5, 4);
             $iddepartamento = substr($radicadox, 0, 2);
@@ -2744,25 +2744,47 @@
             $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
             $tipolog = 6;
             $anotacion = "SE REALIZA EL REGISTRO DEL PROCESO EN EL SISTEMA, FECHA: ".$fechalog." "."a las: ".$horalog;
-            try {  
+            try {
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
                 //EMPIEZA LA TRANSACCION
                 $this->db->beginTransaction();
-                $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) 
-                                 VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                $this->db->exec("INSERT INTO signot_proceso (radicado,fecharegistro,idjuzgadoorigen,idclasejuzgado,idclaseproceso,iddepartamento,idmunicipio,
-                                idusuarioregistra,idusuarioedita,iddevolucion,claseproceso2,entidadcomisiona,asunto,despacholibra)
-                                VALUES ('$radicadox','$fechalog','$idjuzgadoorigen','$idclasejuzgado','$idclaseproceso','$iddepartamento','$idmunicipio','$idusuario',0,0,'$claseproceso2','$entidadcomisiona','$asunto','$despacholibra')");
-                //OBTENGO EL ULTIMO ID REGISTRADO DEL ULTIMO INSERT EN LA TABLA signot_parte
-                $lastIdProceso  = $this->db->lastInsertId(); 
 
-                $this->db->exec("INSERT INTO signot_proceso_anotacion (idradicado,idusuario,fecha,hora,anotacion)
-                                VALUES ('$lastIdProceso','$idusuario','$fechalog','$horalog','$anotacion')"); 
-                //PARTES 
+                $this->db->exec("
+                  INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog)
+                  VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')
+                ");
+
+                $this->db->exec("
+                  INSERT INTO signot_proceso (radicado,fecharegistro,idjuzgadoorigen,idclasejuzgado,idclaseproceso,iddepartamento,idmunicipio,
+                  idusuarioregistra,idusuarioedita,iddevolucion,claseproceso2,entidadcomisiona,asunto,despacholibra)
+                  VALUES ('$radicadox','$fechalog','$idjuzgadoorigen','$idclasejuzgado','$idclaseproceso','$iddepartamento','$idmunicipio','$idusuario',0,0,'$claseproceso2','$entidadcomisiona','$asunto','$despacholibra')
+                ");
+
+                //OBTENGO EL ULTIMO ID REGISTRADO DEL ULTIMO INSERT EN LA TABLA signot_proceso (Se omite la función lastId debido a que por simultaneidad en transacciones se están trocando procesos y partes)
+                $lastIdProceso = "";
+                $lastIdP = $this->db->prepare("
+                  SELECT id
+                  FROM signot_proceso
+                  WHERE radicado = '$radicadox'
+                  AND fecharegistro LIKE '$fechalog'
+                  AND idusuarioregistra = '$idusuario'
+                ");
+                $lastIdP->execute();
+
+                while($field = $lastIdP->fetch()) {
+                  $lastIdProceso = $field['id'];
+                }
+
+                $this->db->exec("
+                  INSERT INTO signot_proceso_anotacion (idradicado,idusuario,fecha,hora,anotacion)
+                  VALUES ('$lastIdProceso','$idusuario','$fechalog','$horalog','$anotacion')
+                ");
+                //PARTES
                 //******75088165//////Jorge Andres Valencia//////Cr 21 # 46 A 82//////8855934//////1-DEMANDANTE//////17-Caldas//////17001-MANIZALES******
                 //75095585//////Andres Grajales//////Cr 213 # 748 B 434//////8875632//////1-DEMANDANTE//////13-Bolivar//////13001-CARTAGENA
                 //1 EXPLODE
-                $datospartes_1 = explode("******",$datospartes); 
+                $datospartes_1 = explode("******",$datospartes);
                 $longitud_1    = count($datospartes_1);
                 $i             = 1;
                 $longpartes = $longitud_1 - 1;
@@ -2781,33 +2803,52 @@
                     $telefono           = utf8_decode( trim($datospartes_2[7]) );
                     $idDepartamento_2   = utf8_decode( trim($datospartes_2[8]) );
                     $idMunicipio_2      = utf8_decode( trim($datospartes_2[9]) );
-                    //SI EL PROCESO NO ES VACIO Y LA PARTE SI 
+                    //SI EL PROCESO NO ES VACIO Y LA PARTE SI
                      //if(is_numeric($idprocesox) && $idpartex == "VACIO") {
                      if($idpartex == "VACIO") {
-                        $this->db->exec("INSERT INTO signot_parte (cedula,nombre,datosadicionales,idusuarioregistra,idusuarioedita)
-                                        VALUES ('$cedulaparte','$nombreparte','$datosadicionales','$idusuario',0)");
-                        //OBTENGO EL ULTIMO ID REGISTRADO DEL ULTIMO INSERT EN LA TABLA signot_parte
-                        $lastIdParte  = $this->db->lastInsertId();
-                        $this->db->exec("INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
-                                        VALUES ('$lastIdProceso','$lastIdParte','$idclaseparte_2','$idusuario')");
-                        $this->db->exec("INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,
-                                        idmunicipio,idusuarioregistra,idusuarioedita)
-                                        VALUES ('$lastIdParte','$lastIdProceso','$telefono','$direccion','$idDepartamento_2',
-                                                '$idMunicipio_2','$idusuario',0)");
+                        $this->db->exec("
+                          INSERT INTO signot_parte (cedula,nombre,datosadicionales,idusuarioregistra,idusuarioedita)
+                          VALUES ('$cedulaparte','$nombreparte','$datosadicionales','$idusuario',0)
+                        ");
+                        //OBTENGO EL ULTIMO ID REGISTRADO DEL ULTIMO INSERT EN LA TABLA signot_parte (Se omite la función lastId debido a que por simultaneidad en transacciones se están trocando procesos y partes)
+                        $lastIdParte = "";
+                        $lastIdPart = $this->db->prepare("
+                          SELECT id
+                          FROM signot_parte
+                          WHERE cedula = '$cedulaparte'
+                          AND idusuarioregistra = '$idusuario'
+                        ");
+                        $lastIdPart->execute();
+
+                        while($field = $lastIdPart->fetch()) {
+                          $lastIdParte = $field['id'];
+                        }
+
+                        $this->db->exec("
+                          INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
+                          VALUES ('$lastIdProceso','$lastIdParte','$idclaseparte_2','$idusuario')
+                        ");
+
+                        $this->db->exec("
+                          INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,idmunicipio,idusuarioregistra,idusuarioedita)
+                          VALUES ('$lastIdParte','$lastIdProceso','$telefono','$direccion','$idDepartamento_2','$idMunicipio_2','$idusuario',0)
+                        ");
                     }
                     //SI NI EL PROCESO Y LA PARTE SON VACIAS
                     if($idpartex != "VACIO") {
-                        $this->db->exec("INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
-                                        VALUES ('$lastIdProceso','$idpartex','$idclaseparte_2','$idusuario')");
-                        
-                        $this->db->exec("INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,
-                                        idmunicipio,idusuarioregistra,idusuarioedita)
-                                        VALUES ('$idpartex','$lastIdProceso','$telefono','$direccion','$idDepartamento_2',
-                                                '$idMunicipio_2','$idusuario',0)");
+                        $this->db->exec("
+                          INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
+                          VALUES ('$lastIdProceso','$idpartex','$idclaseparte_2','$idusuario')
+                        ");
+
+                        $this->db->exec("
+                          INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,idmunicipio,idusuarioregistra,idusuarioedita)
+                          VALUES ('$idpartex','$lastIdProceso','$telefono','$direccion','$idDepartamento_2','$idMunicipio_2','$idusuario',0)
+                        ");
                     }
                     $i = $i + 1;
-                }   
-                //SE TERMINA LA TRANSACCION  
+                }
+                //SE TERMINA LA TRANSACCION
                 $this->db->commit();
                 print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=4"</script>';
             } catch (Exception $e) {
@@ -2818,9 +2859,9 @@
                 /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=4b"</script>';*/
                 echo '<script>alert("RADICADO YA EXISTE, NO ES POSIBLE SU REGISTRO.");</script>';
                 echo '<script>location.reload();</script>';
-            }   
+            }
     }
-    
+
     //*********************************************************************************************************************************************
                                                             //FUNCIONES PARA MODIFICAR PROCESO PARTE
     //*********************************************************************************************************************************************
@@ -2840,22 +2881,26 @@
             $accion  = "Modifica un ".$tiporegistro." En el Sistema (SIGNOT), ID PROCESO: ".$valoridradicado;
         }        $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
         $tipolog = 6;
-        try {  
+        try {
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             //EMPIEZA LA TRANSACCION
             $this->db->beginTransaction();
-                $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) 
-                                 VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
+                $this->db->exec("
+                  INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog)
+                  VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')
+                ");
                 //******75088165//////Jorge Andres Valencia//////Cr 21 # 46 A 82//////8855934//////1-DEMANDANTE//////17-Caldas//////17001-MANIZALES******
                 //75095585//////Andres Grajales//////Cr 213 # 748 B 434//////8875632//////1-DEMANDANTE//////13-Bolivar//////13001-CARTAGENA
                 //1 EXPLODE
-                $datospartes_1 = explode("******",$datospartes); 
+                $datospartes_1 = explode("******",$datospartes);
                 $longitud_1    = count($datospartes_1);
                 $i             = 1;
                 $longpartes = $longitud_1 - 1;
                 $anotacion  = "SE REALIZA LA MODIFICACION DEL PROCESO EN EL SISTEMA, FECHA: ".$fechalog." "."a las: ".$horalog. " CON NUMERO DE PARTES: ".$longpartes.", ID DEL PROCESO: ".$valoridradicado;
-                $this->db->exec("INSERT INTO signot_proceso_anotacion (idradicado,idusuario,fecha,hora,anotacion)
-                                 VALUES ('$valoridradicado','$idusuario','$fechalog','$horalog','$anotacion')");
+                $this->db->exec("
+                  INSERT INTO signot_proceso_anotacion (idradicado,idusuario,fecha,hora,anotacion)
+                  VALUES ('$valoridradicado','$idusuario','$fechalog','$horalog','$anotacion')
+                ");
                 while($i < $longitud_1){
                     //2 EXPLODE
                     $datospartes_2 = explode("//////",$datospartes_1[$i]);
@@ -2870,49 +2915,68 @@
                     $direccion          = utf8_decode( trim($datospartes_2[7]) );
                     $departamento       = utf8_decode( trim($datospartes_2[8]) );
                     $municipio          = utf8_decode( trim($datospartes_2[9]) );
-                    //SI EL PROCESO NO ES VACIO Y LA PARTE SI 
+                    //SI EL PROCESO NO ES VACIO Y LA PARTE SI
                      if(is_numeric($idprocesox) && $idpartex == "VACIO") {
-                        $this->db->exec("INSERT INTO signot_parte (cedula,nombre,datosadicionales,idusuarioregistra,idusuarioedita)
-                                         VALUES ('$cedulaparte','$nombreparte','$datosadicionales','$idusuario',0)");            
-                        //OBTENGO EL ULTIMO ID REGISTRADO DEL ULTIMO INSERT EN LA TABLA signot_parte
-                        $lastIdParte  = $this->db->lastInsertId();           
-                        $this->db->exec("INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
-                                         VALUES ('$valoridradicado','$lastIdParte','$idclaseparte_2','$idusuario')");
-                        $this->db->exec("INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,idmunicipio,idusuarioregistra,idusuarioedita)
-                                VALUES ('$lastIdParte','$valoridradicado','$direccion','$telefono','$departamento','$municipio','$idusuario',0)");
+                        $this->db->exec("
+                          INSERT INTO signot_parte (cedula,nombre,datosadicionales,idusuarioregistra,idusuarioedita)
+                          VALUES ('$cedulaparte','$nombreparte','$datosadicionales','$idusuario',0)
+                        ");
+                        //OBTENGO EL ULTIMO ID REGISTRADO DEL ULTIMO INSERT EN LA TABLA signot_parte (Se omite la función lastId debido a que por simultaneidad en transacciones se están trocando procesos y partes)
+                        $lastIdParte = "";
+                        $lastIdPart2 = $this->db->prepare("
+                          SELECT id
+                          FROM signot_parte
+                          WHERE cedula = '$cedulaparte'
+                          AND idusuarioregistra = '$idusuario'
+                        ");
+                        $lastIdPart2->execute();
+
+                        while($field = $lastIdPart2->fetch()) {
+                          $lastIdParte = $field['id'];
+                        }
+                        $this->db->exec("
+                          INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
+                          VALUES ('$valoridradicado','$lastIdParte','$idclaseparte_2','$idusuario')
+                        ");
+                        $this->db->exec("
+                          INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,idmunicipio,idusuarioregistra,idusuarioedita)
+                          VALUES ('$lastIdParte','$valoridradicado','$direccion','$telefono','$departamento','$municipio','$idusuario',0)
+                        ");
                     }
                     //SI NI EL PROCESO Y LA PARTE SON VACIAS
                      if(is_numeric($idprocesox) && $idpartex != "VACIO") {
-                        $this->db->exec("INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
-                                         VALUES ('$valoridradicado','$idpartex','$idclaseparte_2','$idusuario')");
-                        $this->db->exec("INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,
-                                        idmunicipio,idusuarioregistra,idusuarioedita)
-                                        VALUES ('$idpartex','$valoridradicado','$direccion','$telefono','$departamento',
-                                                '$municipio','$idusuario',0)");
+                        $this->db->exec("
+                          INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
+                          VALUES ('$valoridradicado','$idpartex','$idclaseparte_2','$idusuario')
+                        ");
+                        $this->db->exec("
+                          INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,idmunicipio,idusuarioregistra,idusuarioedita)
+                          VALUES ('$idpartex','$valoridradicado','$direccion','$telefono','$departamento','$municipio','$idusuario',0)
+                        ");
                     }
                     $i = $i + 1;
                 }
-            //SE TERMINA LA TRANSACCION  
+            //SE TERMINA LA TRANSACCION
             $this->db->commit();
-        } 
+        }
         catch (Exception $e) {
             //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
             $this->db->rollBack();
             echo $i." Fallo: " . $e->getMessage();
         }
     }
-	
-	
-    
+
+
+
     //*********************************************************************************************************************************************
                                     //FUNCIONES PARA ACTIVAR PARTES EN UN PROCESO
     //*********************************************************************************************************************************************
-    
+
     public function adicionar_direccion(){
             $modelo     = new signotModel();
             //SE OBTIENEN LOS DATOS
             $idusuario        = $_SESSION['idUsuario'];
-            
+
             $idpartex         = trim($_POST['idpartex']);
             $idprocesox       = trim($_POST['idprocesox']);
 
@@ -2925,10 +2989,10 @@
             $datosfecha = explode(" ",$fechahora);
             $fechalog   = $datosfecha[0];
             $horalog    = $datosfecha[1];
-            $accion     = "Adicionar Direccion Parte, Sistema SIGNOT, ID PROCESO: ".$idprocesox.", ID PARTE: ".$idpartex;       
+            $accion     = "Adicionar Direccion Parte, Sistema SIGNOT, ID PROCESO: ".$idprocesox.", ID PARTE: ".$idpartex;
             $detalle    = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
             $tipolog    = 6;
-            try {  
+            try {
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //EMPIEZA LA TRANSACCION
                 $this->db->beginTransaction();
@@ -2937,10 +3001,10 @@
                                 VALUES ('$idpartex','$idprocesox','$telefono','$direccion','$iddepartamento_2',
                                         '$idmunicipio_2','$idusuario',0)");
                 $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                //SE TERMINA LA TRANSACCION  
-                $this->db->commit();        
+                //SE TERMINA LA TRANSACCION
+                $this->db->commit();
                 //echo "DATO: ".$tipodocumento;
-                /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6"</script>';*/             
+                /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6"</script>';*/
             } catch (Exception $e) {
                 //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
                 $this->db->rollBack();
@@ -2948,369 +3012,369 @@
                 /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6b"</script>';*/
             }
     }
-    
+
     public function get_radicado($idradicado){
             $listar = $this->db->prepare("SELECT radicado FROM signot_proceso
                                         WHERE id = '$idradicado'");
             $listar->execute();
             return $listar;
     }
-    
+
     //FORMA JOOMLA
     public function adicionar_direccion_2($datosdir){
         alert("x");
 
             $modelo     = new signotModel();
-            
+
             //SE OBTIENEN LOS DATOS
             $idusuario     = $_SESSION['idUsuario'];
-            
+
             $datosdir_2 = explode("////",datosdir);
-            
+
             $idpartex         = trim($datosdir_2[0]);
             $idprocesox       = trim($datosdir_2[1]);
-            
+
             $direccion        = trim($datosdir_2[2]);
             $telefono         = trim($datosdir_2[3]);
             $iddepartamento_2 = trim($datosdir_2[4]);
             $idmunicipio_2    = trim($datosdir_2[5]);
-            
+
             //DATOS PARA EL REGISTRO DEL LOG
-        
+
             $fechahora  = $modelo->get_fecha_actual();
             $datosfecha = explode(" ",$fechahora);
             $fechalog   = $datosfecha[0];
             $horalog    = $datosfecha[1];
-            
-        
+
+
             $accion  = "Adicionar Direccion Parte, Sistema SIGNOT, ID PROCESO: ".$idprocesox.", ID PARTE: ".$idpartex;
-            
+
             $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
             $tipolog = 6;
-            
-            try {  
-            
+
+            try {
+
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                
+
                 //EMPIEZA LA TRANSACCION
                 $this->db->beginTransaction();
-                    
-                    
+
+
                     $this->db->exec("INSERT INTO signot_direccion (idparte,idproceso,telefono,direccion,iddepartamento,
                                      idmunicipio,idusuarioregistra,idusuarioedita)
                                      VALUES ('$idpartex','$idprocesox','$telefono','$direccion','$iddepartamento_2',
                                      '$idmunicipio_2','$idusuario',0)");
-                                    
-                
+
+
                     $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                    
-                
-                //SE TERMINA LA TRANSACCION  
+
+
+                //SE TERMINA LA TRANSACCION
                 $this->db->commit();
-                
+
                 //echo "DATO: ".$tipodocumento;
                 /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6"</script>';*/
-                
+
                 return 0;
-              
-            } 
+
+            }
             catch (Exception $e) {
-            
+
                 //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
                 $this->db->rollBack();
                 //echo "Fallo: " . $e->getMessage();
                 /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6b"</script>';*/
-                
+
                 return 1;
             }
-        
+
     }
     //*********************************************************************************************************************************************
                                                              //FUNCIONES PARA CLASIFICACION DE LA PARTE
     //*********************************************************************************************************************************************
-    
+
     public function adicionar_cp(){
 
             $modelo     = new signotModel();
-            
+
             //SE OBTIENEN LOS DATOS
             $idusuario     = $_SESSION['idUsuario'];
-            
-            
+
+
             $idpartex         = trim($_POST['idpartex']);
             $idprocesox       = trim($_POST['idprocesox']);
-            
-            
+
+
             $clasificacionpartex = trim($_POST['clasificacionpartex']);
-            
-            
+
+
             //DATOS PARA EL REGISTRO DEL LOG
-        
+
             $fechahora  = $modelo->get_fecha_actual();
             $datosfecha = explode(" ",$fechahora);
             $fechalog   = $datosfecha[0];
             $horalog    = $datosfecha[1];
-            
-        
+
+
             $accion  = "Adicionar Clasificacion Parte, Sistema SIGNOT, ID PROCESO: ".$idprocesox.", ID PARTE: ".$idpartex;
-            
+
             $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
             $tipolog = 6;
-            
-            try {  
-            
+
+            try {
+
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                
+
                 //EMPIEZA LA TRANSACCION
                 $this->db->beginTransaction();
-                    
-                    
+
+
                     $this->db->exec("INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
                                      VALUES ('$idprocesox','$idpartex','$clasificacionpartex','$idusuario')");
-                                     
-                            
-                
+
+
+
                     $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                    
-                
-                //SE TERMINA LA TRANSACCION  
+
+
+                //SE TERMINA LA TRANSACCION
                 $this->db->commit();
-                
+
                 //echo "DATO: ".$tipodocumento;
                 /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6"</script>';*/
-              
-            } 
+
+            }
             catch (Exception $e) {
-            
+
                 //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
                 $this->db->rollBack();
                 echo "Fallo: " . $e->getMessage();
                 /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6b"</script>';*/
             }
-        
+
     }
-    
+
     public function modificar_cp(){
 
             $modelo     = new signotModel();
-            
+
             //SE OBTIENEN LOS DATOS
             $idusuario     = $_SESSION['idUsuario'];
-            
-            
+
+
             $idpartex      = trim($_POST['idpartex']);
             $idprocesox    = trim($_POST['idprocesox']);
             $idclasipartex = trim($_POST['idclasipartex']);
-            
-            
+
+
             $clasificacionpartex = trim($_POST['clasificacionpartex']);
-            
-            
+
+
             //DATOS PARA EL REGISTRO DEL LOG
-        
+
             $fechahora  = $modelo->get_fecha_actual();
             $datosfecha = explode(" ",$fechahora);
             $fechalog   = $datosfecha[0];
             $horalog    = $datosfecha[1];
-            
-        
+
+
             $accion  = "Modificar Clasificacion Parte, Sistema SIGNOT, ID PROCESO: ".$idprocesox.", ID PARTE: ".$idpartex;
-            
+
             $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
             $tipolog = 6;
-            
-            try {  
-            
+
+            try {
+
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                
+
                 //EMPIEZA LA TRANSACCION
                 $this->db->beginTransaction();
-                    
-                    
+
+
                     /*$this->db->exec("INSERT INTO signot_parteproceso (idproceso,idparte,idclaseparte,idusuarioregistra)
                                      VALUES ('$idprocesox','$idpartex','$clasificacionpartex','$idusuario')");*/
-                                     
-                    
-                    
+
+
+
                     $this->db->exec("UPDATE signot_parteproceso SET idclaseparte  = '$clasificacionpartex'
                                      WHERE idproceso = '$idprocesox' AND idparte = '$idpartex' AND idclaseparte = '$idclasipartex'");
-                                     
-                            
-                
+
+
+
                     $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                    
-                
-                //SE TERMINA LA TRANSACCION  
+
+
+                //SE TERMINA LA TRANSACCION
                 $this->db->commit();
-                
+
                 //echo "DATO: ".$tipodocumento;
                 /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6"</script>';*/
-              
-            } 
+
+            }
             catch (Exception $e) {
-            
+
                 //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
                 $this->db->rollBack();
                 echo "Fallo: " . $e->getMessage();
                 /*print'<script languaje="Javascript">location.href="index.php?controller=signot&action=mensajes&nombre=6b"</script>';*/
             }
-        
+
     }
-    
+
     public function inactivar_direccion_parte(){
-    
+
         $modelo     = new signotModel();
-        
+
         //SE OBTIENEN LOS DATOS
         $idusuario       = $_SESSION['idUsuario'];
-        
+
         //ID
         $iddir       = trim($_GET['iddir']);
-    
+
         //RADICADO
         $idproc      = trim($_GET['idproc']);
         $desprocesox = trim($_GET['desprocesox']);
-        
+
 
         //DATOS PARA EL REGISTRO DEL LOG
         $fechahora  = $modelo->get_fecha_actual();
         $datosfecha = explode(" ",$fechahora);
         $fechalog   = $datosfecha[0];
         $horalog    = $datosfecha[1];
-        
-        
-        
+
+
+
         $accion  = "INACTIVA DIRECCION En el Sistema (SIGNOT), ID DIRECCION: ".$iddir.",ID RADICADO: ,".$idproc.", RADICADO:".$desprocesox;
-        
-        
-        
+
+
+
         $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
         $tipolog = 6;
-        
-        
-        try {  
-        
+
+
+        try {
+
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
+
             //EMPIEZA LA TRANSACCION
             $this->db->beginTransaction();
-            
-            
-                $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) 
+
+
+                $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog)
                                  VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                                 
-                
-             
+
+
+
                 $this->db->exec("UPDATE signot_direccion SET idusuarioedita = '$idusuario',estadodir = 'INACTIVA'
                                  WHERE id = '$iddir'");
-                                     
-                
-                
-                
-    
-            //SE TERMINA LA TRANSACCION  
+
+
+
+
+
+            //SE TERMINA LA TRANSACCION
             $this->db->commit();
-            
-            echo '<script languaje="JavaScript"> 
-            
+
+            echo '<script languaje="JavaScript">
+
                     alert("PROCESO SE REALIZA CORRECTAMENTE");
-                        
+
                 </script>';
-          
-        } 
+
+        }
         catch (Exception $e) {
-        
+
             //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
             $this->db->rollBack();
-            
-            echo '<script languaje="JavaScript"> 
-            
+
+            echo '<script languaje="JavaScript">
+
                     alert("ERROR AL REALIZAR EL PROCESO");
-                        
+
                 </script>';
-                
+
                 echo " Fallo: " . $e->getMessage();
         }
-        
-        
+
+
     }
-    
+
     public function cambiaestado_direccion_parte(){
-    
+
         $modelo     = new signotModel();
-        
+
         //SE OBTIENEN LOS DATOS
         $idusuario       = $_SESSION['idUsuario'];
-        
+
         //ID
         $iddir       = trim($_GET['iddir']);
-    
+
         //RADICADO
         $idproc      = trim($_GET['idproc']);
         $desprocesox = trim($_GET['desprocesox']);
-        
+
 
         //DATOS PARA EL REGISTRO DEL LOG
         $fechahora  = $modelo->get_fecha_actual();
         $datosfecha = explode(" ",$fechahora);
         $fechalog   = $datosfecha[0];
         $horalog    = $datosfecha[1];
-        
-        
-        
+
+
+
         $accion  = "CAMBIA ESTADO DIRECCION En el Sistema (SIGNOT), ID DIRECCION: ".$iddir.",ID RADICADO: ,".$idproc.", RADICADO:".$desprocesox;
-        
-        
-        
+
+
+
         $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
         $tipolog = 6;
-        
-        
-        try {  
-        
+
+
+        try {
+
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
+
             //EMPIEZA LA TRANSACCION
             $this->db->beginTransaction();
-            
-            
-                $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) 
+
+
+                $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog)
                                  VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                                 
-                
-             
+
+
+
                 $this->db->exec("UPDATE signot_direccion SET idusuarioedita = '$idusuario',estadodir = ''
                                  WHERE id = '$iddir'");
-                                     
-                
-                
-                
-    
-            //SE TERMINA LA TRANSACCION  
+
+
+
+
+
+            //SE TERMINA LA TRANSACCION
             $this->db->commit();
-            
-            echo '<script languaje="JavaScript"> 
-            
+
+            echo '<script languaje="JavaScript">
+
                     alert("PROCESO SE REALIZA CORRECTAMENTE");
-                        
+
                 </script>';
-          
-        } 
+
+        }
         catch (Exception $e) {
-        
+
             //NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
             $this->db->rollBack();
-            
-            echo '<script languaje="JavaScript"> 
-            
+
+            echo '<script languaje="JavaScript">
+
                     alert("ERROR AL REALIZAR EL PROCESO");
-                        
+
                 </script>';
-                
+
                 echo " Fallo: " . $e->getMessage();
         }
-        
-        
+
+
     }
         // JUAN ESTEBAN MUNERA BETANCUR 30/06/2017
         //*************************************************************************************************************************
@@ -3324,7 +3388,7 @@
         // --------------- DÍAS FESTIVOS  --------------------------------------------- //
         // ******************************* ---------------- *************************** //
         public function calendario_festivos(){
-            date_default_timezone_set('America/Bogota'); 
+            date_default_timezone_set('America/Bogota');
             $año = date('Y');
             try{
                 $listar = $this->db->prepare("SELECT * FROM `calendario_festivos`");
@@ -3332,36 +3396,36 @@
                 return $listar;
             } catch (Exception $e) {
                 die($e->getMessage());
-            } 
+            }
         }
     function calcularFechasHabiles($num_dias, $fechaInicial){
 //      function weekend($num_dias, $fechaInicial){
             $modelo     = new signotModel();
             $festivos  = $modelo->calendario_festivos();
-            
-            for ($i=0; $i<$num_dias; $i++){ 
-                $Segundos = $Segundos + 86400;   
+
+            for ($i=0; $i<$num_dias; $i++){
+                $Segundos = $Segundos + 86400;
                 $caduca = date("D",strtotime($fechaInicial)+$Segundos);
-                if ($caduca == "Sat"){  
-                    $i--;  
+                if ($caduca == "Sat"){
+                    $i--;
                     $FechaSab = date("Y-m-d",strtotime($fechaInicial)+$Segundos);
                 }else if ($caduca == "Sun") {
-                    $i--; 
-                    $FechaDom = date("Y-m-d",strtotime($fechaInicial)+$Segundos);   
-                }else{  
-                    $FechaFinal = date("Y-m-d",strtotime($fechaInicial)+$Segundos);  
+                    $i--;
+                    $FechaDom = date("Y-m-d",strtotime($fechaInicial)+$Segundos);
+                }else{
+                    $FechaFinal = date("Y-m-d",strtotime($fechaInicial)+$Segundos);
                     $fechas_totales_habiles[] = $FechaFinal;
                 }
             }
             while($row = $festivos->fetch()){
                 $array_festivos[] = $row['fes_fecha'];
             }
-            foreach($fechas_totales_habiles as $valor){ 
+            foreach($fechas_totales_habiles as $valor){
                 if(array_search($valor, $array_festivos) !== false){
                     $holiday [] = $valor;
                 }else {
-                    $arraglo_after_holiday_0 []= $valor; 
-                } 
+                    $arraglo_after_holiday_0 []= $valor;
+                }
                 $ultimaFecha = $valor;
             }
             $cantidad_festivos = count($holiday);
@@ -3373,18 +3437,18 @@
         function calcular_fecha_habil($num_dias, $fechaInicial){
             $modelo     = new signotModel();
             $festivos  = $modelo->calendario_festivos();
-            
-            for ($i=0; $i<$num_dias; $i++){ 
-                $Segundos = $Segundos + 86400;   
+
+            for ($i=0; $i<$num_dias; $i++){
+                $Segundos = $Segundos + 86400;
                 $caduca = date("D",strtotime($fechaInicial)+$Segundos);
-                if ($caduca == "Sat"){  
-                    $i--;  
+                if ($caduca == "Sat"){
+                    $i--;
                     $FechaSab = date("Y-m-d",strtotime($fechaInicial)+$Segundos);
-                }else if ($caduca == "Sun") {  
-                    $i--; 
-                    $FechaDom = date("Y-m-d",strtotime($fechaInicial)+$Segundos);   
-                }else{  
-                    $FechaFinal = date("Y-m-d",strtotime($fechaInicial)+$Segundos);  
+                }else if ($caduca == "Sun") {
+                    $i--;
+                    $FechaDom = date("Y-m-d",strtotime($fechaInicial)+$Segundos);
+                }else{
+                    $FechaFinal = date("Y-m-d",strtotime($fechaInicial)+$Segundos);
                     $fechas_totales_habiles[] = $FechaFinal;
                 }
             }
@@ -3395,8 +3459,8 @@
                 if(array_search($valor, $array_festivos) !== false){
                     $holiday [] = $valor;
                 }else {
-                    $arraglo_after_holiday_0 [] = $valor; 
-                } 
+                    $arraglo_after_holiday_0 [] = $valor;
+                }
                 $ultimaFecha = $valor;
             }
             $cantidad_festivos = count($holiday);
@@ -3423,7 +3487,7 @@
             $listar->execute();
             return $listar;
     }
-        
+
         public function get_datos_procesoJ($idJ){
             $listar = $this->db->prepare("
                 SELECT pro.id,pro.radicado,pro.iddevolucion
@@ -3434,7 +3498,7 @@
             $listar->execute();
             return $listar;
         }
-        
+
         public function get_datos_ClaseParte(){
             $listar = $this->db->prepare("
                 SELECT *
@@ -3448,9 +3512,9 @@
         // -------------------------------- SIGNOT - VER IDMUNICIPIO - DEPARTAMENTO --------------------------------------
         public function Direccion_Anotacion($idParte, $idProceso){
             $listar = $this->db->prepare("
-                SELECT iddepartamento, idmunicipio 
-                FROM signot_direccion 
-                WHERE idparte= '$idParte' and idproceso ='$idProceso' 
+                SELECT iddepartamento, idmunicipio
+                FROM signot_direccion
+                WHERE idparte= '$idParte' and idproceso ='$idProceso'
                     AND endevolucion is null AND estadodir is null;
             ");
             $listar->execute();
