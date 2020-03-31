@@ -1709,7 +1709,7 @@ div.box {
 	background-position: center center;
 	background-size: 80px 80px;
 	width: 66px;
-	margin-left: calc((100% - 80px) / 2);
+	margin-left: calc((100% - 66px) / 2);
 	height: 80px;
 }
 
@@ -1728,3 +1728,12 @@ div.box {
 /*------------------------------------------------------------------------------------------------------------------
 	FIN REGISTRO DE DOCUMENTOS EN SIGNOT
 /------------------------------------------------------------------------------------------------------------------*/
+
+.loadContent2{
+	display: none;
+	margin-top: 50px;
+}
+
+#crgnd{
+	margin-left: calc((100% - 75px) / 2);
+}

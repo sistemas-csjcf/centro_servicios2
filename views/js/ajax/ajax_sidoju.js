@@ -15,12 +15,12 @@ $(function(){
 	$("#instancia").change(function(event){
 			construir_radicado(0,0);
     });
-	
+
 	//PARA VALIDAR LOS CAMPOS DEL FORMULARIO
 	var validator = $("#frm").validate({
 		meta: "validate"
 	});
-	
+
 	//PARA LIMPIAR LOS CAMPOS DEL FORMULARIO
 	$(".btn_limpiar").click(function() {
 		validator.resetForm();
@@ -29,7 +29,7 @@ $(function(){
 	//PARA LAS FECHAS
 	$("#fechai").datepicker({ changeFirstDay: false	});
 	$("#fechaf").datepicker({ changeFirstDay: false	});
-	
+
 	//CARGAR LISTAS SEGUN UN DATO ESPECIFICADO EN OTRA LISTA
 	$("#juzgadodestino").change(function(event){
 			var id_a    = $("#juzgadodestino").find(':selected').val();
@@ -40,7 +40,7 @@ $(function(){
 					$("#nombreusuariojuzgado").val(datousuariojuzgado);
 			});
     });
-	
+
 	//FILTRAR TABLA VERIFICAR DOCUMENTOS ENTRANTES JUZGADOS
 	$('.filtrare').click(function(evento){
 		if (document.getElementById('fechai').value.length         == 0 &&
@@ -58,34 +58,34 @@ $(function(){
 			datox1 = document.getElementById('juzgadodestino').value;
 			location.href="index.php?controller=sidoju&action=FiltroTablaEntrantes&dato_0="+dato_0+"&dato_1="+dato_1+"&dato_2="+dato_2+"&datox1="+datox1;
 		}
-	
+
     });
-	
+
 	//FUNCION QUE ME PERMITE MARCAR TODOS LOS ELEMENTOS TIPO checkbox
 	//las funciones marcar y desmarcar tambien funcionan
 	$(".marcar").click(function(evento){
-		$("input:checkbox").attr('checked', true);					 
+		$("input:checkbox").attr('checked', true);
 	});
 	$(".desmarcar").click(function(evento){
-		$("input:checkbox").attr('checked', false);					 
+		$("input:checkbox").attr('checked', false);
 	});
 
 	// PARA RECORRER LA TABLA FILA POR FILA
-	$(".aprobar").click(function(evento){							
+	$(".aprobar").click(function(evento){
 		//PARA CONTROLAR LOS ENCABEZADOS DE LA TABLA, Y NO SEAN TENIDOS ENCUENTA COMO UN
 		//REGISTRO controlemcabezados = 0 (TITULO DE LA TABLA) Y controlemcabezados = 1 (ENCABEZADOS)
 		var controlemcabezados = 0;
 		var idspermiso="";
 		var f = 2;
 		var d7;
-	
+
 		$('#frm_editar1 tr').each(function () {
 			var d0  = $(this).find("td").eq(0).html();
 			d7      = $(this).find("td").eq(7).html();
 			if(controlemcabezados == 0  || controlemcabezados == 1){
 				controlemcabezados = controlemcabezados + 1;
 			} else {
-				if($("#chk"+f).is(':checked')) {  
+				if($("#chk"+f).is(':checked')) {
 					//CONCATENO TODOS LOS REGISTROS DE LA TABLA
 					idspermiso = d0+"******"+idspermiso;
 				}
@@ -98,7 +98,7 @@ $(function(){
 			document.getElementById('juzgadodestinover').style.borderColor='#FF0000';
 		} else {
 				location.href="index.php?controller=sidoju&action=Registro_Vereficar_Documentos_Entrantes_Juzgados&idspermiso="+idspermiso+"&dj="+d7;
-		}	
+		}
 	});
 
 	$("#juzgadodestinover").change(function(event){
@@ -142,6 +142,7 @@ $(function(){
 
 	//FILTRAR TABLA LISTAR DOCUMENTOS ENTRANTES JUZGADOS
 	$('.filtrare2').click(function(evento){
+
 		if (document.getElementById('fechai').value.length         == 0 &&
 			document.getElementById('fechaf').value.length         == 0 &&
 			document.getElementById('horaji').value.length         == 0 &&
@@ -157,6 +158,15 @@ $(function(){
 			dato_0 = 3;
 			location.href="index.php?controller=sidoju&action=RecargarListarTablaEntrantes&dato_0="+dato_0;
 		} else {
+
+			//Carga de loading
+			if (document.getElementById("frm_editar1")){
+					document.getElementById("frm_editar1").style.display = "none";
+			}
+			document.getElementById("loadContent").style.display = "block";
+			$(".load").css("background-image", 'url(../centro_servicios2/assets/imagenes/loading.gif)');
+			//Fin carga de loading
+
 			dato_0 = 1;
 			dato_1 = document.getElementById('fechai').value;
 			dato_2 = document.getElementById('fechaf').value;
@@ -181,7 +191,7 @@ $(function(){
 			location.href="index.php?controller=sidoju&action=FiltroListarTablaEntrantes&dato_0="+dato_0+"&dato_1="+dato_1+"&dato_2="+dato_2+"&datox1="+datox1+"&datox2="+datox2+"&datox3="+datox3+"&datox4="+datox4+"&datox5="+datox5+"&datox6="+datox6+"&datox7="+datox7+"&datox9="+datox9+"&datox10="+datox10;
 		}
     });
-	
+
 	//ME PERMITE CARGAR LOS DATOS AL FORMULARIO, SEGUN EL ID ESPECIFICADO
 	$(".editare").click(function(){
 		//CAPTURO EL ID DEL DOCUMENTO EL CUAL QUIERO EDITAR
@@ -190,7 +200,7 @@ $(function(){
 		$("#iddocumento").val(id);
 		location.href="index.php?controller=sidoju&action=Editar_documento_Entrante_Juzgado&id="+id;
 	});
-	
+
 	//FILTRAR TABLA IMPRIMIR DOCUMENTOS ENTRANTES JUZGADOS
 	$('.filtrare3').click(function(evento){
 		if (document.getElementById('fechai').value.length         == 0 &&
@@ -210,15 +220,15 @@ $(function(){
 			location.href="index.php?controller=sidoju&action=FiltroTablaImprimirDocumentos&dato_0="+dato_0+"&dato_1="+dato_1+"&dato_2="+dato_2+"&datox1="+datox1;
 		}
     });
-	
+
 	$(".marcar2").click(function(evento){
-		$("input:checkbox").attr('checked', true);						 
+		$("input:checkbox").attr('checked', true);
 	});
-	
+
 	$(".desmarcar2").click(function(evento){
-		$("input:checkbox").attr('checked', false);						 
+		$("input:checkbox").attr('checked', false);
 	});
-	
+
 	// PARA RECORRER LA TABLA FILA POR FILA, EH IMPRIOMIR LOS REGISTROS ESPECIFICADOS
 	$(".imprimirregistros").click(function(evento){
 		//PARA CONTROLAR LOS ENCABEZADOS DE LA TABLA, Y NO SEAN TENIDOS ENCUENTA COMO UN
@@ -231,7 +241,7 @@ $(function(){
 			if(controlemcabezados == 0  || controlemcabezados == 1){
 				controlemcabezados = controlemcabezados + 1;
 			} else {
-				if($("#chkk"+f).is(':checked')) {  
+				if($("#chkk"+f).is(':checked')) {
 					//CONCATENO TODOS LOS REGISTROS DE LA TABLA CON ,
 					//PARA USAR LA FUNCION IN DE MYSQL IN(1,2,3)
 					idspermiso = d0+","+idspermiso;
@@ -259,7 +269,7 @@ $(function(){
 			datox1 = document.getElementById('juzgadodestinoin').value;
 			location.href="index.php?controller=sidoju&action=FiltroTablaImprimirDocumentos&dato_0="+dato_0+"&dato_1="+dato_1+"&dato_2="+dato_2+"&datox1="+datox1;
     });
-	
+
 	// PARA IMPRIMIR UN BLOQUE DE REGISTROS RELACIONADOS CON UN NOMBRE DE BLOQUE
 	$(".imprimirbloque").click(function(evento){
 		if(document.getElementById('juzgadodestinoin').value.length == 0 || document.getElementById('listabloques').value.length == 0){
@@ -267,79 +277,79 @@ $(function(){
 			document.getElementById('juzgadodestinoin').style.borderColor='#FF0000';
 			document.getElementById('listabloques').style.borderColor='#FF0000';
 		} else {
-			var nombrebloque = document.getElementById('listabloques').value; 
+			var nombrebloque = document.getElementById('listabloques').value;
 			window.open("views/PHPPdf/Reporte_ADEJ_Bloque?datos="+nombrebloque);
 		}
 	});
-	
-	
-	
+
+
+
 	//PARA INCIDENTE DESACATO EN SALUD
 	//ADICIONADO POR INGENIERO JORGE ANDRES VALENCIA 22 DE ENERO 2020
 	$(".migrar_tutela").click(function(){
-	
+
 		//var idradicado = $(this).attr('data-idtutela');
-		
+
 		var idradicado = $("#radisalud").val();
-		
+
 		$.get("funciones/traer_datos_radicado_IDS_2.php?idradicado="+idradicado, function(cadena){
-				
-	
+
+
 				//alert(cadena);
-				
+
 				var datos = cadena.split("//////");
-				
+
 				if(cadena == 0){
-					
-					
+
+
 					alert("NO EXISTEN DATOS EN JUSTICIA XXI, NO ES POSIBLE MIGRAR TUTELA");
-					
+
 				}
 				if(cadena == 1){
-					
+
 					alert("NO SE PUEDE CONECTAR A LA BASE DE DATOS DE JUSTICIA XXI");
-					
+
 					//location.href="index.php?controller=sidoju&action=Registro_Documentos_Entrantes_Juzgados";
-					
+
 				}
-				
+
 				if(cadena == 2){
-					
+
 					alert("ERROR EN CARGA DE DATOS, REVISAR CONSULTA $SQL");
-					
+
 					//location.href="index.php?controller=sidoju&action=Registro_Documentos_Entrantes_Juzgados";
-					
+
 				}
-				
+
 				//SE REALIZA OPERACION DE MIGRACION
 				if(cadena != 0 && cadena != 1 && cadena != 2){
-				
+
 					//alert(cadena);
-					
+
 					location.href="index.php?controller=sidoju&action=Migrar_Tutela&datospartesXX="+cadena+"&valorradicado="+idradicado;
-				
+
 				}
-				
-				
+
+
 		} );
-		
-		
-	
+
+
+
 	} );
-	
-	
-	
+
+
+
 });
 
 function AJAXCrearObjeto(){
 	var obj=false;
 	try {
 		obj = new ActiveXObject("Msxml2.XMLHTTP");
-	} 
+	}
 	catch (e) {
 		try {
 	   		obj = new ActiveXObject("Microsoft.XMLHTTP");
-		} 
+		}
 		catch (E) {
 			obj = false;
 			}
@@ -446,7 +456,7 @@ function construir_radicado(idaccion,frmjuzgado){
 	var year        = $("#year").val();
 	var consecutivo = $("#consecutivo").val();
 	var instancia   = $("#instancia").val();
-	var relleno = "";  	
+	var relleno = "";
 	if(numero_juzgado > 9){
 		relleno = "0";
 	} else {
@@ -454,15 +464,15 @@ function construir_radicado(idaccion,frmjuzgado){
 	}
 	//CIRCUITO 3103
 	if(area_nueva == 1){
-		var area = "170013103"; 
+		var area = "170013103";
 	}
 	//FAMILIA 3110
 	if(area_nueva == 2){
-		var area = "170013110"; 
+		var area = "170013110";
 	}
 	//MUNICIPAL 4003
 	if(area_nueva == 3){
-		var area = "170014003"; 
+		var area = "170014003";
 	}
 	var radicadocompleto = "";
 	radicadocompleto     = area+relleno+numero_juzgado+year+"00"+consecutivo+instancia;
@@ -473,162 +483,162 @@ function construir_radicado(idaccion,frmjuzgado){
 
 
 function Existe_Radicado(valorradi){
-	
-	
-	
+
+
+
 		$.get("funciones/traer_datos_radicado_IDS.php?valorradi="+valorradi, function(cadena){
-			
+
 			//alert(cadena);
-			
+
 			var vector_datos_C = cadena.split("*****");
-			
+
 			var vector_datos = vector_datos_C[0].split("//////");
-			
+
 			//alert(vector_datos.length);
 			//alert(vector_datos);
-			
+
 			if(vector_datos.length == 6){
-		
+
 				$("#idradisalud").val('');
 				$("#idradisalud").val(vector_datos[0]);
 				//$("#nombrereg").attr('disabled',true);
-				
+
 				document.getElementById('idradisalud').style.borderColor = '#000000';
-				
+
 				$('#fila_botones').show();
-				
-				
+
+
 					//TABLA PARTES
 					//var vector_estudios = vector_datos_total[1].split("*/-*/-");
-					
+
 					var longi           = vector_datos_C.length - 1;
-					
+
 					Eliminar_Tabla_Partes();
-					
+
 					for (i = 0; i < longi; i++) {
-					  
+
 					  	vector_estudios_2 = vector_datos_C[i].split("//////");
-						
+
 						dato2_es = vector_estudios_2[2];
 						dato3_es = vector_estudios_2[3];
 						dato4_es = vector_estudios_2[4];
 						dato5_es = vector_estudios_2[5];
-						
+
 					 	var tabla=document.getElementById('cont_es').innerHTML;
-					
+
 						tabla = reemplazarCadena("</table>", " ", tabla);
-						
+
 						tabla+='<tr>';
-						
+
 						tabla+='<td>'+dato2_es+'</td>';
-						
+
 						tabla+='<td>'+dato3_es+'</td>';
-						
+
 						tabla+='<td>'+dato4_es+'</td>';
-						
+
 						tabla+='<td>'+dato5_es+'</td>';
-						
-				
+
+
 						tabla+='</tr></table>';
-						
+
 						document.getElementById('cont_es').innerHTML=tabla;
-						
-					
+
+
 					}
-				
-				
-				
+
+
+
 			}
 			else{
-				
+
 				if(cadena == 0){
-					
+
 					//alert('RADICADO NO EXISTE, EN BASE DE DATOS LOCAL, NI EN JUSTICIA XXI');
-					
+
 					$("#idradisalud").val('RADICADO NO EXISTE, EN BASE DE DATOS LOCAL, NI EN JUSTICIA XXI');
-					
+
 					//$("#idradisalud").val('RADICADO NO EXISTE');
 					//$("#radisalud").val('17001');
 					//$("#nombrereg").attr('disabled',false);
-						
+
 					document.getElementById('idradisalud').style.borderColor = '#FF0000';
-						
+
 					$('#fila_botones').hide();
-					
+
 					$('#fila_archivo_2').hide();
-						
+
 					Eliminar_Tabla_Partes();
-					
+
 				}
 				if(cadena == 1){
-					
+
 					//alert('NO se puede conectar a la Base de Datos JUSTICIA XXI');
-					
+
 					$("#idradisalud").val('NO se puede conectar a la Base de Datos JUSTICIA XXI');
-					
+
 					document.getElementById('idradisalud').style.borderColor = '#FF0000';
-						
+
 					$('#fila_botones').hide();
-					
+
 					$('#fila_archivo_2').hide();
-						
+
 					Eliminar_Tabla_Partes();
-					
+
 				}
 				//RADICADO EXISTE EN JUSTICIA XXI
 				if(cadena != 0 && cadena != 1){
-					
+
 					//alert('RADICADO EXISTE EN JUSTICIA XXI, DESEA MIGRAR LA INFORMACION');
-					
+
 					$("#idradisalud").val('RADICADO EXISTE EN JUSTICIA XXI');
-					
+
 					$('#fila_archivo_2').show();
-					
+
 					document.getElementById('idradisalud').style.borderColor = '#000000';
-					
+
 				}
-				
-				
+
+
 				/*$("#idradisalud").val('RADICADO NO EXISTE');
 				//$("#radisalud").val('17001');
 				//$("#nombrereg").attr('disabled',false);
-					
+
 				document.getElementById('idradisalud').style.borderColor = '#FF0000';
-					
+
 				$('#fila_botones').hide();
-					
+
 				Eliminar_Tabla_Partes();*/
-					
-					
-			
+
+
+
 			}
-			
-			
+
+
 		});
-		
-	
-	
+
+
+
 }
 
 function Eliminar_Tabla_Partes(){
-	
+
 	var r;
 	var cantidad_filas;
 	var TABLA = document.getElementById('t_es');
-			
+
 	cantidad_filas = TABLA.rows.length;
-				
+
 	for (r=1; r<cantidad_filas; r++){
-		
+
 		TABLA.deleteRow(r);
 		cantidad_filas=TABLA.rows.length;
 		r=1
 	}
-	
+
 	if(cantidad_filas>1){
 		TABLA.deleteRow(1);
 	}
-	
+
 }
 
 // Reemplaza cadenaVieja por cadenaNueva en cadenaCompleta
