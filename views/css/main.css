@@ -1698,10 +1698,12 @@ div.box {
 /*------------------------------------------------------------------------------------------------------------------
 	CODIGO ADICIONADO POR SEBASTIÀN MARTÌNEZ VALENCIA, CARGA DE EVENTO LOADING PARA EVITAR MULTIPLE PETICION HTTP
 /------------------------------------------------------------------------------------------------------------------*/
+
 .loadContent{
 	display: none;
 	margin-top: 250px;
 }
+
 .load{
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -1709,3 +1711,20 @@ div.box {
 	width: 66px;
 	margin-left: calc((100% - 80px) / 2);
 	height: 80px;
+}
+
+/*------------------------------------------------------------------------------------------------------------------
+	CODIGO ADICIONADO POR SEBASTIÀN MARTÌNEZ VALENCIA, TITULOS DE FORMULARIO DE REGISTRO DE DOCUMENTOS EN SIGNOT
+/------------------------------------------------------------------------------------------------------------------*/
+
+.allW{
+	width: 100% !important;
+}
+
+.wd{
+	width:180px;
+}
+
+/*------------------------------------------------------------------------------------------------------------------
+	FIN REGISTRO DE DOCUMENTOS EN SIGNOT
+/------------------------------------------------------------------------------------------------------------------*/
