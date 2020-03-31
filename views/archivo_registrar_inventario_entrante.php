@@ -6,39 +6,39 @@
 <script src="views/js/jquery.js" type="text/javascript"></script>
 <script src="views/js/jquery.easySlider.js" type="text/javascript"></script>
 <script src="views/js/jquery.validate.js" type="text/javascript"></script>
-<script src="views/js/ui.datepicker.js" type="text/javascript" charset="utf-8"></script>                    	
+<script src="views/js/ui.datepicker.js" type="text/javascript" charset="utf-8"></script>
 <link href="views/css/pepper-grinder/ui.all.css" rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8">
 <link href="views/css/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 $(document).ready(function() {
 	$(".topMenuAction").click( function() {
 		if ($("#openCloseIdentifier").is(":hidden")) {
-			$("#sliderm").animate({ 
+			$("#sliderm").animate({
 				marginTop: "-238px"
 				}, 500 );
 			$("#topMenuImage").html('<img src="views/images/open.png" alt="open" />');
 			$("#openCloseIdentifier").show();
 		} else {
-			$("#sliderm").animate({ 
+			$("#sliderm").animate({
 				marginTop: "0px"
 				}, 500 );
 			$("#topMenuImage").html('<img src="views/images/close.png" alt="close" />');
 			$("#openCloseIdentifier").hide();
 		}
-	});  
-		
-	$("#sliderop").easySlider({});	
+	});
+
+	$("#sliderop").easySlider({});
 	$("#frm").validate();
-	
+
 	var validator = $("#frm").validate({
 		meta: "validate"
 	});
 
 	$(".btn_limpiar").click(function() {
 		validator.resetForm();
-	});			
+	});
 });
-</script>	
+</script>
 <script type="text/javascript">
 function mainmenu(){
 $(" #menusec ul ").css({display: "none"});
@@ -56,7 +56,7 @@ function vinculo(variable)
 {
 
 location.href="index.php?controller=proyecto&action=show_proyecto&nombre="+variable;
-//document.write(location.href) 
+//document.write(location.href)
 }
 </script>
 <script type="text/javascript" language="javascript">
@@ -80,30 +80,30 @@ function cambiar(frm)
  frm.color.value='Azul Oscuro';
   if(variable=='BP')
  frm.color.value='Morado';
- 
+
 }
-function sumar(frm) { 
-var n1 = parseInt(frm.desde.value); 
-var n2 = parseInt(frm.hasta.value); 
+function sumar(frm) {
+var n1 = parseInt(frm.desde.value);
+var n2 = parseInt(frm.hasta.value);
 var p= parseInt(n2-n1);
-document.frm.procesos.value=p; 
+document.frm.procesos.value=p;
 
-} 
+}
 
-function validar_fecha(frm) { 
+function validar_fecha(frm) {
 fecha = frm.fecha_acta.value;
 dias_temp = frm.dias.value;
 dias = dias_temp.split(",");
-Array.prototype.in_array=function(){ 
-    for(var j in this){ 
-        if(this[j]==arguments[0]){ 
-            return true; 
-        } 
-    } 
-    return false;     
-} 
+Array.prototype.in_array=function(){
+    for(var j in this){
+        if(this[j]==arguments[0]){
+            return true;
+        }
+    }
+    return false;
+}
 if(dias.in_array(fecha)){
-alert('La fecha seleccionada, corresponde a un día no hábil, seleccione otra fecha por favor');
+alert('La fecha seleccionada, corresponde a un dï¿½a no hï¿½bil, seleccione otra fecha por favor');
 //jAlert('This is a custom alert box', 'Alert Dialog');
 frm.fecha_acta.value="";
 }
@@ -116,13 +116,13 @@ else {
 function construir_radicado(frm)
 {
 
- 
+
   radicado = 'AR';
-  var juzgado =frm.idjuzgado.value; 
-  var ano =frm.ano.value; 
+  var juzgado =frm.idjuzgado.value;
+  var ano =frm.ano.value;
   var area_vector = juzgado.split("-");
   var area_nueva = area_vector[1];
-  
+
   if(area_nueva==1)
   {
    radicado = radicado+'C';
@@ -134,37 +134,37 @@ function construir_radicado(frm)
    radicado = radicado+'F';
    consecutivo_temp = frm.consecutivo_familia.value;
    frm.tipo_consecutivo.value=2;
-  } 
+  }
   if(area_nueva==3)
   {
    radicado = radicado+'M';
    consecutivo_temp = frm.consecutivo_municipal.value;
    frm.tipo_consecutivo.value=3;
   }
-  
+
   if(consecutivo_temp<10)
   {
    consecutivo =  '00'+consecutivo_temp;
-  
+
   }
   if((consecutivo_temp<100) && (consecutivo_temp>9))
   {
    consecutivo =  '0'+consecutivo_temp;
-  
+
   }
   if(consecutivo_temp>99)
   {
    consecutivo =  consecutivo_temp;
-  
-  }  
-  
-  
+
+  }
+
+
   radicado = radicado+ano+"-"+consecutivo;
-  
-  
+
+
   frm.consecutivo_acta.value=radicado;
-  
-  
+
+
 }
 
 
@@ -176,9 +176,9 @@ if(x)
  frm.cantidad_prestamo.disabled= false;
  frm.nombre_prestamo.disabled= false;
  frm.observaciones_prestamo.disabled= false
- 
- 
- 
+
+
+
 
 }
 else
@@ -188,7 +188,7 @@ else
  frm.nombre_prestamo.value= "";
  frm.nombre_prestamo.disabled= true;
  frm.observaciones_prestamo.value= "";
- frm.observaciones_prestamo.disabled= true; 
+ frm.observaciones_prestamo.disabled= true;
 }
 
 }
@@ -228,22 +228,22 @@ else
     <td></td>
   </tr>
   <tr>
-  <?php 
-  
-     date_default_timezone_set('America/Bogota'); 
+  <?php
+
+     date_default_timezone_set('America/Bogota');
      $ano=date('y');
-	 
+
     while ($field = $datos_consecutivo->fetch())
   {
-  
+
     $consecutivo_familia = $field[consecutivo_familia];
 	$consecutivo_civil = $field[consecutivo_civil];
 	$consecutivo_municipal = $field[consecutivo_municipal];
   }
 
-  
+
   ?>
-  
+
     <td><div id="contenido">
       <form id="frm" name="frm" method="post" action="">
         <div id="titulo_frm">Registrar Acta Recibido</div><input name="dias" type="hidden" value="<?php echo $datos_dias;?>" />
@@ -255,7 +255,7 @@ else
               <input type="hidden" name="consecutivo_municipal" id="hiddenField2" value="<?php  echo $consecutivo_municipal;?>" />
               <input type="hidden" name="tipo_consecutivo" id="hiddenField2" value="0" />
           <tr>
-            <td>Fecha Acta:</td> 
+            <td>Fecha Acta:</td>
             <td colspan="2"><input name="fecha_acta" type="text" class="required tinicio" id="txt_input" readonly="readonly" onchange="validar_fecha(frm)"/>
 	<script type="text/javascript" charset="utf-8">
 			jQuery(document).ready(function()
@@ -270,8 +270,8 @@ else
             				<option value="" >Seleccione un juzgado</option>
               <?php
  while($fieldj = $datos_juzgados->fetch()){
- 
-  
+
+
  ?>
               <option value="<?php echo $fieldj[id]."-".$fieldj[idarea];?>" ><?php echo $fieldj[nombre] ?></option>
               <?php }?>
@@ -283,15 +283,15 @@ else
           </tr>
           <tr>
             <td>Responsable:</td>
-            <td colspan="2"><select name="responsable" id="sl_input">
+            <td colspan="2">
+							<select name="responsable" id="sl_input">
               <?php
- while($field = $datos_empleados->fetch()){
- 
-  
- ?>
+ 								while($field = $datos_empleados->fetch()){
+  						?>
               <option value="<?php echo $field[empleado];?>" ><?php echo $field[empleado]; ?></option>
               <?php }?>
-            </select></td>
+            </select>
+					</td>
           </tr>
              <tr>
                <td>Mes Archivar:</td>
@@ -315,15 +315,12 @@ else
              <tr>
             <td width="260">A&ntilde;o Archivar:</td>
             <td colspan="2"><label>
-              <select name="ano[]" size="1" multiple="MULTIPLE"  id="sl_input" >
-                <option value="2013">2013</option>
-                <option value="2014">2014</option>
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-				<option value="2020">2020</option>
+              <select name="ano[]" size="1" multiple="MULTIPLE"  id="sl_input" style="height: 81px;">
+                <option value="2020">2020</option>
+								<option value="2019">2019</option>
+								<option value="2018">2018</option>
+								<option value="2017">2017</option>
+								<option value="2016">2016</option>
               </select>
             </label></td>
           </tr>
@@ -375,21 +372,21 @@ else
                  <textarea name="observaciones_prestamo" id="txt_input" cols="45" rows="5" disabled="disabled" class="required"></textarea>
                </label></td>
              </tr>
-             
+
             <tr>
               <td>Nombre quien entrega:</td>
               <td colspan="2"><label>
                 <input type="text" name="nombre_entrega" id="txt_input"  />
               </label></td>
           </tr>
-          
+
           <tr>
               <td>Nombre quien recibe:</td>
               <td colspan="2"><label>
                 <input type="text" name="nombre_recibe" id="txt_input" class="required" />
               </label></td>
           </tr>
-           
+
            <tr>
              <td>Observaciones:</td>
              <td colspan="2"><label>
