@@ -1,4 +1,4 @@
-<?php 
+<?php
 	//DATOS PARA CARGAR AL FORMULARIO, SE CARGAN VARIABLES CON INFOMACION
 	//O SE INSTANCIA EL MODELO Y SE LLAMAN FUNCIONES PARA TRAER DATOS Y SER
 	//ASIGNADOS A CAMPOS DEL FORMULARIO O CONSTRUIR TABLAS
@@ -11,11 +11,11 @@
 	//OBTENEMOS LISTADO DE JUZGADOS SEGUN LOS ASIGNADOS AL USUARIO QUE INICIA SESION
 	//$datosjuzgadodestino = $modelo->get_lista_juzgados_usuario();
 	//OBTENEMOS LISTADO SEGUN LA LISTA SOLICITADA
-	
+
 	$nombrelista  = 'sigdoc_pa_tipodocumento';
 	$campoordenar = 'nombre_tipo_documento';
 	$datostipodocumento = $modelo->get_lista($nombrelista,$campoordenar);
-	
+
 	$nombrelista   = 'pa_usuario';
 	$campoordenar  = 'empleado';
 	$datosuser     = $modelo->get_lista($nombrelista,$campoordenar);
@@ -64,7 +64,7 @@
 			$datosuser2   = $filauser[idjuzgadousuario];
 
 			$datosdocumentosentrantes = $modelo->get_listrar_documentos_entrantes_usuario_2(2,$datosuser2);
-			
+
 			//CANTIDAD DE REGISTROS
 			$datosdocumentosentrantes_b = $modelo->get_listrar_documentos_entrantes_usuario_cantidad_2(2,$datosuser2);
 			$filax                      = $datosdocumentosentrantes_b->fetch();
@@ -77,7 +77,7 @@
 			$cantregistros              = $filax[cantidad];
 		}
 	}
-	
+
 	//**************************************************************************************************************************
 	//EN ESTA PARTE DEFINO QUE USUARIOS PUEDO PONER A QUE EJECUTEN CIERTAS ACCIONES,COMO REGISTRAR,EDITAR, GENERAR UN REPORTE
 	//SEGUN EN EL FORMULARIO QUE ME ENCUENTRE
@@ -85,12 +85,12 @@
 	//$nombrelista                    --> tabla que contiene los registros de las acciones
 	//$idaccion                       --> id de la accion a consultar en este caso (Editar, vista sigdoc_documentos_salientes.php)
 	//$campoordenar                   --> campo por el que se ordena la consulta a la tabla pa_usuario_acciones
-	//$datosusuarioacciones,$usuarios --> variables donde obtengo los valores de los usuarios concatenados de esta forma 46////55////45 
-	//$usuariosa                      --> vector donde se cargan los codigos de los usuarios, y donde se comparara con 
+	//$datosusuarioacciones,$usuarios --> variables donde obtengo los valores de los usuarios concatenados de esta forma 46////55////45
+	//$usuariosa                      --> vector donde se cargan los codigos de los usuarios, y donde se comparara con
     //	                                  if ( in_array($_SESSION['idUsuario'],$usuariosa) )
 	//                                    segun el usuario logeado en el sistema y si dicho usuario puede ejecutar una accion especifica
 	//**************************************************************************************************************************
-	
+
 	/*$campos               = 'usuario';
 	$nombrelista          = 'pa_usuario_acciones';
 	$idaccion			  = '13';
@@ -98,16 +98,16 @@
 	$datosusuarioacciones = $modelo->get_lista_usuario_acciones($campos,$nombrelista,$idaccion,$campoordenar);
 	$usuarios             = $datosusuarioacciones->fetch();
 	$usuariosa			  = explode("////",$usuarios[usuario]);*/
-	
+
 	//print_r($datosusuarioacciones->fetch());
 	//echo $usuarios[usuario];*/
-	
+
 	//SE COMPRUEBA QUE EL USUARIO EN SESION SEA UNO DE LOS 25 JUZGADOS
 	//SI ES EL CASO LA LISTA Juzgado Destino: SOLO CARGA CON EL JUZGADO EN SESION
 	//SI NO CARGA TODOS LOS JUZGADOS, PARAESTO SE TIENE EN CUENTA LA ACCION 13 DEFINIDA EN
 	//LA TABLA pa_usuario_acciones LA CUAL CONTIENE LOS ID DE LOS USUARIOS DE LOS 25 JUZGADOS
-	if ( in_array($_SESSION['idUsuario'],$usuariosa) ) { 
-	
+	if ( in_array($_SESSION['idUsuario'],$usuariosa) ) {
+
 		$nombrelista  = 'pa_usuario';
 		$campoordenar = 'id';
 		$filtro       = 'WHERE id = '.$_SESSION['idUsuario'];
@@ -173,19 +173,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> --> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> -->
 <title><?php echo $titulo?></title>
 
 <!-- SE DEFINEN LAS LIBRERIAS DE ESTA FORMA PARA EVITAR CONFLICTOS COMO EL DESPLIEGUE DE MENUS,
 QUE AL REALIZAR UN REGISTRO SALGA EL MENSAJE DE CONFIRMACION, SEGUIDO DE LAS LIBRERIAS
 FUNCIONES JAVASCRIPT COMO mainmenu() Y $(document).ready(function() , YA QUE SI SE DEFINEN
 MAS ARRIBA AL NO ENCONTRAR LAS LIBRERIAS TAMBIEN PUEDE PRESENTAR INCONSISTENCIAS.
-PARA EL MANEJO DE LAS FECHAS, SI SE USA DIRECTAMENTE POR EJEMPLO EN ESTE FORMULARIO SE DEFINE 
+PARA EL MANEJO DE LAS FECHAS, SI SE USA DIRECTAMENTE POR EJEMPLO EN ESTE FORMULARIO SE DEFINE
 ALGO COMO
 <input name="fechair" id="fechair" type="text" readonly="true" size="10">
-Y SE DEFINE EN $(document).ready(function() 
-$("#fechair").datepicker({ changeFirstDay: false	}); 
+Y SE DEFINE EN $(document).ready(function()
+$("#fechair").datepicker({ changeFirstDay: false	});
 SI SE DESEA MANEJAR FECHAS EN UN POPUPBOX, SE PUEDE USAR LAS LIBRERIAS DE views\fechajquery
 EJENPLODE ESTO LO VEMOS EN EL FORMULARIO permisos.php UBICADO EN views\popupbox
 -->
@@ -193,7 +193,7 @@ EJENPLODE ESTO LO VEMOS EN EL FORMULARIO permisos.php UBICADO EN views\popupbox
 <script src="views/js/jquery.easySlider.js" type="text/javascript"></script>
 <script src="views/js/jquery.simplemodal.js" type="text/javascript"></script>
 <script src="views/js/jquery.validate.js" type="text/javascript"></script>
-<script src="views/js/ui.datepicker.js" type="text/javascript" charset="utf-8"></script>                    	
+<script src="views/js/ui.datepicker.js" type="text/javascript" charset="utf-8"></script>
 <link href="views/css/pepper-grinder/ui.all.css" rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8">
 <link href="views/css/main.css" rel="stylesheet" type="text/css">
 <!-- USO DE ARCHVIO PARA VALIDACIONES DE CAMPOS Y APLICACION DE FUNCIONES -->
@@ -223,7 +223,7 @@ $(document).ready(function() {
 	//aqui puedo pegar el codigo del archivo ubicado en  views/js/ajax/ajax_sigdoc.js
 	//y que esta entre $(function(){ });
 });
-</script>	
+</script>
  <style>
 	.alternar:hover{ background-color:#dddddd;color:#000 !important;}
 	.tabla2{padding: 4px 7px !important;color: #666;text-align: left;}
@@ -231,11 +231,11 @@ $(document).ready(function() {
 </style>
 </head>
 <body>
-	<?php 
-		//imagen principal TEMIS, y iconos volver al menu principal y cerrar sesion 
+	<?php
+		//imagen principal TEMIS, y iconos volver al menu principal y cerrar sesion
 		require 'header.php';
 		//menus, con imagen del modulo
-		require 'secc_sidoju.php';	
+		require 'secc_sidoju.php';
 	?>
 	<table border="0" cellspacing="0" cellpadding="0" align="center">
 		<tr>
@@ -290,10 +290,10 @@ $(document).ready(function() {
 								</td>
 								<td>
 									<select name="tipodocumento" id="tipodocumento" class="required">
-										<option value="" selected="selected">Seleccionar Tipo Documento</option> 
+										<option value="" selected="selected">Seleccionar Tipo Documento</option>
 										<?php
 											while($row = $datostipodocumento->fetch()){
-											
+
 												if($row[id] == trim($_GET['datox5'])){
 													echo "<option value=\"". $row[id] ."\" selected='selected'>" . $row[nombre_tipo_documento] . "</option>";
 												}
@@ -325,11 +325,11 @@ $(document).ready(function() {
 								</td>
 								<td>
 									<select name="juzgadodestino" id="juzgadodestino" class="required">
-										<option value="" selected="selected">Seleccionar Juzgado Destino</option> 
+										<option value="" selected="selected">Seleccionar Juzgado Destino</option>
 										<?php
 											while($row = $datosjuzgadodestino->fetch()){
 												//echo "<option value=\"". $row[id] ."\">" . $row[nombre] . "</option>";
-											
+
 												if($row[id] == trim($_GET['datox1'])){
 													echo "<option value=\"". $row[id] ."\" selected='selected'>" . $row[nombre] . "</option>";
 												}
@@ -345,7 +345,7 @@ $(document).ready(function() {
 								</td>
 								<td colspan="3">
 									<select name="usuariox" id="usuariox">
-										<option value="" selected="selected">Seleccionar Usuario</option> 
+										<option value="" selected="selected">Seleccionar Usuario</option>
 										<?php
 											while($row = $datosuser->fetch()){
 												//PREGUNTO QUE OPCION SE ENVIO PARA SER SELECCIONADA
@@ -376,14 +376,14 @@ $(document).ready(function() {
 									<select name="estadox" id="estadox" class="required">
 										<option value="" selected="selected">Seleccionar Estado</option>
 												<?php if( trim($_GET['datox10']) == "1" ){ ?>
-													<option value="1" selected="selected">Aprobado</option> 
-													<option value="0" >No Aprobado</option> 
-												<?php } 
+													<option value="1" selected="selected">Aprobado</option>
+													<option value="0" >No Aprobado</option>
+												<?php }
 												elseif( trim($_GET['datox10']) == "0" ){ ?>
-													<option value="1">Aprobado</option> 
-													<option value="0" selected="selected">No Aprobado</option> 
+													<option value="1">Aprobado</option>
+													<option value="0" selected="selected">No Aprobado</option>
 												<?php } else{?>
-													<option value="1">Aprobado</option> 
+													<option value="1">Aprobado</option>
 													<option value="0">No Aprobado</option>
 												<?php } ?>
 											</select>
@@ -396,7 +396,7 @@ $(document).ready(function() {
 												<input type="hidden" name="action" value="adicionar" />
 												<input type="reset" name="Submit2" value="Restablecer" id="btn_input" class="btn_limpiar"/>
 											</center>
-										</td> 
+										</td>
 								  	</tr>
 								</table>
 							</form>
@@ -404,16 +404,19 @@ $(document).ready(function() {
 					</td>
 				</tr>
 			</table>
-
+			<div id="loadContent" class="loadContent2">
+				<div id="load" class="load"></div>
+				<b id="crgnd">Cargando...</b>
+			</div>
 			<?php
 			//PREGUNTO SI SE A ENVIADO ALGUN FILTRO PARA QUE LA TABLA SEA VISIBLE.
-			if(!empty($opcion)){ 
+			if(!empty($opcion)){
 			?>
 			<table border="0" align="center"  rules="rows" id="tablaconsulta">
 				<tr>
 					<td>
-						<table cellpadding="0" cellspacing="0" rules="rows" border="1" class="display" id="frm_editar1" style="box-shadow: 1px 0px 0px grey !important;">		
-							<thead> 
+						<table cellpadding="0" cellspacing="0" rules="rows" border="1" class="display" id="frm_editar1" style="box-shadow: 1px 0px 0px grey !important;">
+							<thead>
 								<tr>
 									<th bgcolor="#CDE3F9" colspan="16">
 										<div id="titulo_frm"><?php echo "TOTAL REGISTROS: ".$cantregistros; ?></div>
@@ -424,22 +427,21 @@ $(document).ready(function() {
 										<center><div id="titulo_frm"><?php echo strtoupper($subtitulo); ?></div></center>
 									</th>
 								</tr>
-								<tr> 
+								<tr>
 									<th>NUMERO</th>
 									<th>INCIDENTE</th>
-									<th>CONSECUTIVO</th>
 									<th>TIPO</th>
 									<th>NOMBRE/FOLIOS/CARPETAS</th>
 									<th>FECHA</th>
 									<th>HORA</th>
 									<th>RECIBE</th>
-									<th>REMITENTE</th> 
-									<th>JUZGADO</th> 
+									<th>REMITENTE</th>
+									<th>JUZGADO</th>
 									<th>RUTA ARCHIVO</th>
 									<th>ESTADO</th>
 									<th>-</th>
-								</tr> 
-							</thead> 			
+								</tr>
+							</thead>
 							<tbody>
 								<tr>
 								<?php $i=2; while($row = $datosdocumentosentrantes->fetch()){ ?>
@@ -453,7 +455,7 @@ $(document).ready(function() {
 										$estado='Resuelto';
 									} if ($row[sal_id_estado] == 4) {
 										$estado='Cancelado';
-									} 
+									}
 									if ($row[sal_id_estado] >= 1) {
 									?>
 										<a class="editare" href="/centro_servicios2/index.php?controller=sidoju&action=Documento_Entrante_Juzgado_Salud_Ver&id=<?php echo $row['id'];?>"><?php echo $estado; ?></a>
@@ -479,7 +481,7 @@ $(document).ready(function() {
 								<td bgcolor="#CDE3F9">
 									<?php
 										if($row[chk] == 0) {
-											echo "No Aprobado"; 
+											echo "No Aprobado";
 										} else{
 											echo "<b>"."Aprobado"."</b>";
 										}
@@ -501,14 +503,14 @@ $(document).ready(function() {
 									<?php } ?>
 								</td>
 							</tr>
-						<?php  $i=$i+1; } ?>		
+						<?php  $i=$i+1; } ?>
 					</tbody>
 				</table>
 			</td>
 		</tr>
 	</table>
 	<?php
-	} 
+	}
 	?>
 	<?php require 'alertas.php';?>
 </body>

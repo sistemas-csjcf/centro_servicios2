@@ -1460,7 +1460,7 @@
 			if ( validateFormLd == (nu+ac+vn) ){
 				$(".non").css({display: "none"});
 				document.getElementById("loadContent").style.display = "block";
-				$(".load").css("background-image", 'url(../centro_servicios2/assets/imagenes/loading.gif)'); 
+				$(".load").css("background-image", 'url(../centro_servicios2/assets/imagenes/loading.gif)');
 				$("#frm").submit();
 			}
 
@@ -1636,7 +1636,7 @@
 									</form>
 									<div id="loadContent" class="loadContent">
 										<div id="load" class="load"></div>
-										<b id="crgnd">Cargando...</b>
+										<b>Cargando...</b>
 									</div>
 								</div></td>
 							</tr>
