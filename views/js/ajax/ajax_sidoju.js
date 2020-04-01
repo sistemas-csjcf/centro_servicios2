@@ -203,6 +203,14 @@ $(function(){
 
 	//FILTRAR TABLA IMPRIMIR DOCUMENTOS ENTRANTES JUZGADOS
 	$('.filtrare3').click(function(evento){
+
+		//Carga de LOAD
+		if (document.getElementById("frm_editar1")){
+			$("#frm_editar1").css({display: "none"});
+		}
+		document.getElementById("loadContent").style.display = "block";
+		$(".load").css("background-image", 'url(../centro_servicios2/assets/imagenes/loading.gif)');
+
 		if (document.getElementById('fechai').value.length         == 0 &&
 			document.getElementById('fechaf').value.length         == 0 &&
 			document.getElementById('juzgadodestinoin').value.length == 0
