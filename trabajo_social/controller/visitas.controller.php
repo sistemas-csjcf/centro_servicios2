@@ -1,6 +1,6 @@
 <?php
     require_once 'model/visita_model.php';
-    header('Content-Type: text/html; charset=UTF-8'); 
+    header('Content-Type: text/html; charset=UTF-8');
     class VisitasController{
         private $model;
         public function __CONSTRUCT(){
@@ -23,7 +23,7 @@
             }else{
                 require_once 'view/header.php';
                 require_once 'view/footer.php';
-            }    
+            }
         }
         public function Crud(){
 //            session_start();
@@ -53,7 +53,7 @@
             session_start();
             $_SESSION['nombre'];
             $vis = new Visita();
-   
+
             $campos               = 'usuario';
             $nombrelista          = 'pa_usuario_acciones';
             $idaccion             = '20';
@@ -61,7 +61,7 @@
             $datosusuarioacciones = $vis->get_lista_usuario_acciones($campos,$nombrelista,$idaccion,$campoordenar);
             $usuarios             = $datosusuarioacciones->fetch();
             $usuariosa            = explode("////",$usuarios[usuario]);
-            
+
             $vis->id                = $_POST['id'];
             $vis->radicado          = $_POST['radicado'];
             $vis->comentarios       = $_POST['comentarios'];
@@ -80,7 +80,7 @@
             $vis->bandera           = $_POST['bandera'];
 
             if($vis->bandera > 0){
-                $vis->id > 0 
+                $vis->id > 0
                     ? $this->model->Actualizar($vis)
                     : $this->model->Registrar($vis);
                 if ( in_array($_SESSION['idUsuario'],$usuariosa) ) {
@@ -134,13 +134,13 @@
                 $this->model->Finalizar($_REQUEST['data-id'], $_REQUEST['data-us']) ;
                 header('Location: index.php?c=Visitas&a=Visitas_TS');
             }
-        } 
+        }
         public function Cancelar_Visita(){
             session_start();
             $_SESSION['nombre'];
             $id_user = $_SESSION['idUsuario'];
             $vis = new Visita();
-   
+
             $campos               = 'usuario';
             $nombrelista          = 'pa_usuario_acciones';
             $idaccion             = '20';
@@ -148,7 +148,7 @@
             $datosusuarioacciones = $vis->get_lista_usuario_acciones($campos,$nombrelista,$idaccion,$campoordenar);
             $usuarios             = $datosusuarioacciones->fetch();
             $usuariosa            = explode("////",$usuarios[usuario]);
-            
+
             if ( in_array($_SESSION['idUsuario'],$usuariosa) ) {
                 if(isset($_REQUEST['id'])){
                     $this->model->Cancelar_visita($_REQUEST['motivo'], $_REQUEST['id'],$id_user, $_REQUEST['idtsocial']);
@@ -174,8 +174,8 @@
         }
         // --------------------------- Descargar documento excel formato Visita ----------------------
         public function Generar_Formato(){
-            date_default_timezone_set('America/Bogota'); 	
-            $fecharegistro = date('Y-m-d g:i'); 
+            date_default_timezone_set('America/Bogota');
+            $fecharegistro = date('Y-m-d g:i');
             header("Content-type: application/vnd.ms-excel");
             header("Content-Disposition: attachment; filename=Formato_visita-$fecharegistro.xls");
             header("Pragma: no-cache");
@@ -192,11 +192,11 @@
             require_once 'view/visitas/visitas.php';
             require_once 'view/footer.php';
         }
-        
+
         //***************************************************************************** //
         // --------------- INFORMES VISITAS ------------------------------------------- //
         // ******************************* ---------------- *************************** //
-        
+
         // --------------- INFORME SEGUIMIENTO ---------------------------------------- //
         // ******************************* ---------------- *************************** //
         public function IndexVisitasTS(){
@@ -232,7 +232,7 @@
             $datosusuarioacciones = $vis->get_lista_usuario_acciones($campos,$nombrelista,$idaccion,$campoordenar);
             $usuarios             = $datosusuarioacciones->fetch();
             $usuariosa            = explode("////",$usuarios[usuario]);
-            
+
             $vis->id            = $_POST['id'];
             $vis->fecha_visita  = $_POST['fecha_visita'];
             $vis->hora_inicio   = $_POST['hora_inicio'];
@@ -244,7 +244,7 @@
             $vis->comentarios   = $_POST['comentarios'];
             $vis->duracion      = $_POST['duracion'];
             $vis->bool_log      = $_POST['bool_log'];
-            
+
             $raiz = "uploads_informes";
             $nom  = $_SESSION['idUsuario'];
             //AQUI SE CREA EL DIRECTORIO
@@ -254,7 +254,7 @@
                 mkdir($raiz.'/Informes_Seguimiento/'.$nom, 0, true);
             }
             if( !empty( $_FILES['vis_inf_ruta_formato']['name'] ) ){
-                date_default_timezone_set('America/Bogota'); 
+                date_default_timezone_set('America/Bogota');
                 $formato = date('Ymdhis') . '-' .strtolower(utf8_decode($_FILES['vis_inf_ruta_formato']['name']));
 				//$formato = date('Y-m-d h:i s') . '-' . substr( strtolower( str_replace(' ','_' , $_FILES['vis_inf_ruta_formato']['name'] ) ),0 , 8);
                 move_uploaded_file ($_FILES['vis_inf_ruta_formato']['tmp_name'], 'uploads_informes/Informes_Seguimiento/'.$nom .'/'. $formato);
@@ -262,7 +262,7 @@
             }else{
                 $vis->vis_inf_ruta_formato = $_POST['vis_inf_formato'];
             }
-            
+
             $this->model->Guardar_Informe_Seguimiento($vis);
             if ( in_array($_SESSION['idUsuario'],$usuariosa) ) {
                 header('Location: index.php');
@@ -296,7 +296,7 @@
             require_once 'view/informes/informe_seguimiento_historialDespacho.php';
             require_once 'view/footer.php';
         }
-        
+
         //***************************************************************************//
         // --------------- INFORME REMISIÓN ---------------------------------------- //
         //***************************************************************************//
@@ -339,7 +339,7 @@
             $datosusuarioacciones = $vis->get_lista_usuario_acciones($campos,$nombrelista,$idaccion,$campoordenar);
             $usuarios             = $datosusuarioacciones->fetch();
             $usuariosa            = explode("////",$usuarios[usuario]);
-            
+
             $vis->id                    = $_POST['id'];
             $vis->fecha_presentacion    = $_POST['fecha_presentacion'];
             $vis->num_oficio            = $_POST['num_oficio'];
@@ -347,7 +347,7 @@
             $vis->comentarios           = $_POST['comentarios'];
             $vis->juzgadoSolicitante    = $_POST['juzgadoSolicitante'];
             $vis->contenidoDoc          = $_POST['contenido'];
-            
+
             $this->model->Guardar_Informe_Remision($vis);
             if ( in_array($_SESSION['idUsuario'],$usuariosa) ) {
                 header('Location: ?c=Visitas&a=Listado_InformesRemision');
@@ -375,7 +375,7 @@
             require_once 'view/informes/informe_remision_historialDespacho.php';
             require_once 'view/footer.php';
         }
-        
+
         //***************************************************************************//
         // --------------- INFORME VALORACIÓN ---------------------------------------- //
         //***************************************************************************//
@@ -431,7 +431,7 @@
             session_start();
             $_SESSION['nombre'];
             $vis = new Visita();
-   
+
             $campos               = 'usuario';
             $nombrelista          = 'pa_usuario_acciones';
             $idaccion             = '20';
@@ -439,7 +439,7 @@
             $datosusuarioacciones = $vis->get_lista_usuario_acciones($campos,$nombrelista,$idaccion,$campoordenar);
             $usuarios             = $datosusuarioacciones->fetch();
             $usuariosa            = explode("////",$usuarios[usuario]);
-            
+
             if ( in_array($_SESSION['idUsuario'],$usuariosa) ) {
                 $vis = $this->model->Valoracion_visita_Vista();
             }
@@ -478,7 +478,7 @@
             $vis->contadorTS    = $_POST['contadorTS'];
             $vis->estadoTS      = $_POST['estadoTS'];
 
-            $vis->id > 0 
+            $vis->id > 0
                 ? $this->model->Actualizar_TSocial($vis)
                 : $this->model->Registrar_TSocial($vis);
 
@@ -504,8 +504,8 @@
             $vis->id                = $_POST['id'];
             $vis->fecha_Festivo     = $_POST['fechaFestivo'];
             $vis->descripcionF      = $_POST['descripcionF'];
-            
-            $vis->id > 0 
+
+            $vis->id > 0
                 ? $this->model->Actualizar_DiaFestivo($vis)
                 : $this->model->Registrar_DiaFestivo($vis);
 
@@ -520,7 +520,7 @@
             require_once 'view/header.php';
             require_once 'view/estadistica/estadistica_consultar_visitasTS.php';
             require_once 'view/footer.php';
-            
+
         }
 //        public function estadisticaGraficaVisitasTS(){
 //            require_once 'view/header.php';
@@ -535,13 +535,13 @@
                 header("Content-type: application/vnd.ms-excel");
                 header("Content-Disposition: attachment; filename=Reporte_Cantidadvisitas_".$fecha_doc.".xls");
                 header("Pragma: no-cache");
-                header("Expires: 0");    
+                header("Expires: 0");
                 require_once 'view/estadistica/estadistica-excel_ContadorVisitasTS.php';
             }else{
                 header("refresh: 0; URL=/centro_servicios2/");
             }
         }
-        
+
         public function estadistica_Contador_VisitasDespacho(){
             require_once 'view/header.php';
             require_once 'view/estadistica/estadistica_consultar_visitasDespacho.php';
@@ -555,7 +555,7 @@
                 header("Content-type: application/vnd.ms-excel");
                 header("Content-Disposition: attachment; filename=Reporte_Cantidadvisitas_Despachos_".$fecha_doc.".xls");
                 header("Pragma: no-cache");
-                header("Expires: 0");    
+                header("Expires: 0");
                 require_once 'view/estadistica/estadistica-excel_ContadorVisitasDespachos.php';
             }else{
                 header("refresh: 0; URL=/centro_servicios2/");
@@ -592,7 +592,7 @@
                 header("Content-type: application/vnd.ms-excel");
                 header("Content-Disposition: attachment; filename=Reporte_Historial_Valoracion_Visitas_".$fecha_doc.".xls");
                 header("Pragma: no-cache");
-                header("Expires: 0");    
+                header("Expires: 0");
                 require_once 'view/estadistica/estadistica-excel_Historial_Visitas_ValoracionCompleta.php';
             }else{
                 header("refresh: 0; URL=/centro_servicios2/");
@@ -606,7 +606,7 @@
                 header("Content-type: application/vnd.ms-excel");
                 header("Content-Disposition: attachment; filename=Reporte_Visitas_PendientesTS_".$fecha_doc.".xls");
                 header("Pragma: no-cache");
-                header("Expires: 0");    
+                header("Expires: 0");
                 require_once 'view/estadistica/estadistica-excel_visitasPendientesTS.php';
             }else{
                 header("refresh: 0; URL=/centro_servicios2/");
@@ -620,7 +620,7 @@
                 header("Content-type: application/vnd.ms-excel");
                 header("Content-Disposition: attachment; filename=Reporte_Total_Visitas_".$fecha_doc.".xls");
                 header("Pragma: no-cache");
-                header("Expires: 0");    
+                header("Expires: 0");
                 require_once 'view/estadistica/estadistica-excel_all_solicitud_VisitasCompleta.php';
             }else{
                 header("refresh: 0; URL=/centro_servicios2/");
