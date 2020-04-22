@@ -2263,17 +2263,20 @@ if(($fechai !='') and ($fechaf !=''))
 
   if ($tipo == 'Otro')
  {
-  $listar = $this->db->prepare("SELECT usu.empleado,ar.nombre AS areaempleado, juz.nombre AS juzgado,otro.esOficio_Telegrama,otro.oficio_telegrama,tu.tipo_proceso,otro.radicado,otro.direccion,otro.fecha,tu.hora
+  $listar = $this->db->prepare("
+SELECT usu.empleado,ar.nombre AS areaempleado, juz.nombre AS juzgado,otro.esOficio_Telegrama,otro.oficio_telegrama,tu.tipo_proceso,otro.radicado,otro.direccion,otro.fecha,tu.hora
 FROM turno tu
 INNER JOIN pa_usuario usu ON (tu.idusuario=usu.id)
 INNER JOIN correspondencia_otros otro ON (otro.id=tu.idproceso)
 INNER JOIN pa_juzgado juz ON (juz.id=otro.idjuzgado)
 INNER JOIN pa_areaempleado ar ON (usu.idareaempleado=ar.id)
-WHERE tu.tipo_proceso ='Otro' AND otro.esOficio_Telegrama LIKE '%$esoficio_telegrama%' AND otro.oficio_telegrama LIKE '%$oficio_telegrama%' AND otro.radicado LIKE '%$radicado%' AND usu.empleado LIKE '%$empleado%' AND usu.idareaempleado LIKE '%$area%' AND otro.idjuzgado LIKE '%$idjuzgado%' AND otro.direccion LIKE '%$direccion%' AND otro.fecha BETWEEN '$fechai' and '$fechaf'");
+WHERE tu.tipo_proceso ='Otro' AND otro.esOficio_Telegrama LIKE '%$esoficio_telegrama%' AND otro.oficio_telegrama LIKE '%$oficio_telegrama%' AND otro.radicado LIKE '%$radicado%' AND usu.empleado LIKE '%$empleado%' AND usu.idareaempleado LIKE '%$area%' AND otro.idjuzgado LIKE '%$idjuzgado%' AND otro.direccion LIKE '%$direccion%' AND otro.fecha BETWEEN '$fechai' and '$fechaf'
+");
 }
 else
 {
-$listar = $this->db->prepare("SELECT usu.empleado,ar.nombre AS areaempleado, juz.nombre AS juzgado,act.esOficio_Telegrama,act.oficio_telegrama,tu.tipo_proceso,co.radicado,act.direccion,act.fecha_envio as fecha,tu.hora
+$listar = $this->db->prepare("
+SELECT usu.empleado,ar.nombre AS areaempleado, juz.nombre AS juzgado,act.esOficio_Telegrama,act.oficio_telegrama,tu.tipo_proceso,co.radicado,act.direccion,act.fecha_envio as fecha,tu.hora
 FROM turno tu
 INNER JOIN pa_usuario usu ON (tu.idusuario=usu.id)
 INNER JOIN actuacion_tutela act ON (act.id=tu.idproceso)
@@ -2281,66 +2284,51 @@ INNER JOIN accionante_accionado_vinculado acc ON (acc.id=act.idaccionado_vincula
 INNER JOIN correspondencia_tutelas co ON (co.id=acc.idcorrespondencia_tutelas)
 INNER JOIN pa_juzgado juz ON (juz.id=co.idjuzgado)
 INNER JOIN pa_areaempleado ar ON (usu.idareaempleado=ar.id)
-WHERE tu.tipo_proceso !='Otro' AND act.esOficio_Telegrama LIKE '%$esoficio_telegrama%' AND act.oficio_telegrama LIKE '%$oficio_telegrama%' AND co.radicado LIKE '%$radicado%' AND usu.empleado LIKE '%$empleado%' AND usu.idareaempleado LIKE '%$area%' AND co.idjuzgado LIKE '%$idjuzgado%' AND act.direccion LIKE '%$direccion%' AND act.fecha_envio BETWEEN '$fechai' and '$fechaf'");
-
+WHERE tu.tipo_proceso !='Otro' AND act.esOficio_Telegrama LIKE '%$esoficio_telegrama%' AND act.oficio_telegrama LIKE '%$oficio_telegrama%' AND co.radicado LIKE '%$radicado%' AND usu.empleado LIKE '%$empleado%' AND usu.idareaempleado LIKE '%$area%' AND co.idjuzgado LIKE '%$idjuzgado%' AND act.direccion LIKE '%$direccion%' AND act.fecha_envio BETWEEN '$fechai' and '$fechaf'
+");
 }
-
-
-
-
   $listar->execute();
 
  }
 
-else
-{
+else {
 
-	if ($tipo == 'Otro')
-	{
-	 $listar = $this->db->prepare("SELECT usu.empleado,ar.nombre AS areaempleado, juz.nombre AS juzgado,otro.esOficio_Telegrama,otro.oficio_telegrama,tu.tipo_proceso,otro.radicado,otro.direccion,otro.fecha,tu.hora
-FROM turno tu
-INNER JOIN pa_usuario usu ON (tu.idusuario=usu.id)
-INNER JOIN correspondencia_otros otro ON (otro.id=tu.idproceso)
-INNER JOIN pa_juzgado juz ON (juz.id=otro.idjuzgado)
-INNER JOIN pa_areaempleado ar ON (usu.idareaempleado=ar.id)
-WHERE tu.tipo_proceso ='Otro' AND otro.esOficio_Telegrama LIKE '%$esoficio_telegrama%' AND otro.oficio_telegrama LIKE '%$oficio_telegrama%' AND otro.radicado LIKE '%$radicado%' AND usu.empleado LIKE '%$empleado%' AND usu.idareaempleado LIKE '%$area%' AND otro.idjuzgado LIKE '%$idjuzgado%' AND otro.direccion LIKE '%$direccion%'");
+	if ($tipo == 'Otro') {
+	 $listar = $this->db->prepare("
+    SELECT usu.empleado,ar.nombre AS areaempleado, juz.nombre AS juzgado,otro.esOficio_Telegrama,otro.oficio_telegrama,tu.tipo_proceso,otro.radicado,otro.direccion,otro.fecha,tu.hora
+    FROM turno tu
+    INNER JOIN pa_usuario usu ON (tu.idusuario=usu.id)
+    INNER JOIN correspondencia_otros otro ON (otro.id=tu.idproceso)
+    INNER JOIN pa_juzgado juz ON (juz.id=otro.idjuzgado)
+    INNER JOIN pa_areaempleado ar ON (usu.idareaempleado=ar.id)
+    WHERE tu.tipo_proceso ='Otro' AND otro.esOficio_Telegrama LIKE '%$esoficio_telegrama%' AND otro.oficio_telegrama LIKE '%$oficio_telegrama%' AND otro.radicado LIKE '%$radicado%' AND usu.empleado LIKE '%$empleado%' AND usu.idareaempleado LIKE '%$area%' AND otro.idjuzgado LIKE '%$idjuzgado%' AND otro.direccion LIKE '%$direccion%'
+    ");
+	}
+	else{
+	$listar = $this->db->prepare("
+  SELECT usu.empleado,ar.nombre AS areaempleado, juz.nombre AS juzgado,act.esOficio_Telegrama,act.oficio_telegrama,tu.tipo_proceso,co.radicado,act.direccion,act.fecha_envio as fecha,tu.hora
+  FROM turno tu
+  INNER JOIN pa_usuario usu ON (tu.idusuario=usu.id)
+  INNER JOIN actuacion_tutela act ON (act.id=tu.idproceso)
+  INNER JOIN accionante_accionado_vinculado acc ON (acc.id=act.idaccionado_vinculado_accionante_tut)
+  INNER JOIN correspondencia_tutelas co ON (co.id=acc.idcorrespondencia_tutelas)
+  INNER JOIN pa_juzgado juz ON (juz.id=co.idjuzgado)
+  INNER JOIN pa_areaempleado ar ON (usu.idareaempleado=ar.id)
+  WHERE tu.tipo_proceso !='Otro' AND act.esOficio_Telegrama LIKE '%$esoficio_telegrama%' AND act.oficio_telegrama LIKE '%$oficio_telegrama%' AND co.radicado LIKE '%$radicado%' AND usu.empleado LIKE '%$empleado%' AND usu.idareaempleado LIKE '%$area%' AND co.idjuzgado LIKE '%$idjuzgado%' AND act.direccion LIKE '%$direccion%'
+  ");
 
 	}
-
-	else
-	{
-
-
-
-	$listar = $this->db->prepare("SELECT usu.empleado,ar.nombre AS areaempleado, juz.nombre AS juzgado,act.esOficio_Telegrama,act.oficio_telegrama,tu.tipo_proceso,co.radicado,act.direccion,act.fecha_envio as fecha,tu.hora
-FROM turno tu
-INNER JOIN pa_usuario usu ON (tu.idusuario=usu.id)
-INNER JOIN actuacion_tutela act ON (act.id=tu.idproceso)
-INNER JOIN accionante_accionado_vinculado acc ON (acc.id=act.idaccionado_vinculado_accionante_tut)
-INNER JOIN correspondencia_tutelas co ON (co.id=acc.idcorrespondencia_tutelas)
-INNER JOIN pa_juzgado juz ON (juz.id=co.idjuzgado)
-INNER JOIN pa_areaempleado ar ON (usu.idareaempleado=ar.id)
-WHERE tu.tipo_proceso !='Otro' AND act.esOficio_Telegrama LIKE '%$esoficio_telegrama%' AND act.oficio_telegrama LIKE '%$oficio_telegrama%' AND co.radicado LIKE '%$radicado%' AND usu.empleado LIKE '%$empleado%' AND usu.idareaempleado LIKE '%$area%' AND co.idjuzgado LIKE '%$idjuzgado%' AND act.direccion LIKE '%$direccion%'");
-
-
-
-
-
-	}
-
 
   $listar->execute();
 
 }
  return $listar;
 
-
-  }
+}
 
  /*******************************  Consultar Filtro Otro ***************************************************/
 
   public function consultar_filtro_partes()
-
   {
 
  $radicado 				= $_GET['nombre1'];
@@ -2394,7 +2382,6 @@ WHERE acc.id ='$id';");
   /***********************************************************************************/
 
   public function consultarsaidoj()
-
   {
 /*
 SERV-JUSTICIA2
@@ -2495,9 +2482,10 @@ while( $row = sqlsrv_fetch_array( $stmt) ) {
 			return $fecharegistro;
 		}
 
-        public function subir_consolidado(){
-            try{
-                //DATOS PARA EL REGISTRO DEL LOG
+
+    public function subir_consolidado(){
+      try{
+        //DATOS PARA EL REGISTRO DEL LOG
 				$modelo     = new correspondenciaModel();
 				$fechahora  = $modelo->get_fecha_actual();
 				$datosfecha = explode(" ",$fechahora);
@@ -2507,79 +2495,88 @@ while( $row = sqlsrv_fetch_array( $stmt) ) {
 				$fecha_admision = $_POST['fecha_admision'];
 				$tipo_envio     = $_POST['tipo_envio'];
 
-                //OBTENEMOS EL ARCHIVO (.csv)
-                $tipo = $_FILES['archivo']['type'];
-                $tamanio = $_FILES['archivo']['size'];
-                $archivotmp = $_FILES['archivo']['tmp_name'];
-                //cargamos el archivo
-                $lineas = file($archivotmp);
-                //inicializamos variable a 0, esto nos ayudar� a indicarle que no lea la primera l�nea
-                $i=0;
-                $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                //EMPIEZA LA TRANSACCION
-                $this->db->beginTransaction();
+        //OBTENEMOS EL ARCHIVO (.csv)
+        $tipo = $_FILES['archivo']['type'];
+        $tamanio = $_FILES['archivo']['size'];
+        $archivotmp = $_FILES['archivo']['tmp_name'];
+        //cargamos el archivo
+        $lineas = file($archivotmp);
+        //inicializamos variable a 0, esto nos ayudará a indicarle que no lea la primera l�nea
+        $i=0;
 
-				// CALCULA EL TAMA�O DEL ARRAY, PARA EVITAR QUE EL BUCLE SE QUEDE FIRU77
+        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //EMPIEZA LA TRANSACCION
+        $this->db->beginTransaction();
+
+				// CALCULA EL TAMAÑO DEL ARRAY, PARA EVITAR QUE EL BUCLE SE QUEDE FIRU77
 				$tama=count($lineas);
-
-                //Recorremos el bucle para leer l�nea por l�nea
-                foreach ($lineas as $linea_num => $linea){
-                    if($i != 0){
+        $save = 0;
+        //Recorremos el bucle para leer linea por linea
+        foreach ($lineas as $linea_num => $linea){
+          if($i != 0){
 						// GARANTIZA LA SALIDA DEL BUCLE FIRU77
-						if($i == $tama)
-						{
+						if($i == $tama){
 							break;
 						}
-                        $datos = explode(";",$linea);
-                        //Almacenamos los datos que vamos leyendo en una variable
-                        $guia_master        = trim($datos[0]);
+
+            $datos = explode(";",$linea);
+            //Almacenamos los datos que vamos leyendo en una variable
+            $guia_master        = trim($datos[0]);
 						$guia               = trim($datos[1]);
-                        $nombre             = utf8_decode(trim($datos[2]));
-                        $direccion          = utf8_decode(trim($datos[3]));
-                        $ciudad             = utf8_decode(trim($datos[4]));
-                        $pais_origen        = trim($datos[5]);
-                        $valor_declarado    = trim($datos[6]);
-                        $valor_recaudar     = trim($datos[7]);
-                        $peso_fisico        = trim($datos[8]);
-                        $largo              = trim($datos[9]);
-                        $ancho              = trim($datos[10]);
-                        $alto               = trim($datos[11]);
-                        $peso_vol           = trim($datos[12]);
-                        $peso_tari          = trim($datos[13]);
-                        $tasa_manejo        = trim($datos[14]);
-                        $costo_manejo       = trim($datos[15]);
-                        $valor_total        = trim($datos[16]);
-                        $descuento_adi      = trim($datos[17]);
-                        $descuento_servi    = trim($datos[18]);
-                        $contenido          = trim($datos[19]);
-                        $referencia         = trim($datos[20]);
-                        $observaciones      = utf8_decode(trim($datos[21]));
-                        $locker             = trim($datos[22]);
-                        $casillero_des      = trim($datos[23]);
-                        $tamano             = trim($datos[24]);
-                        $telefono           = trim($datos[25]);
-                        $email              = trim($datos[26]);
-                        $cod_postal         = trim($datos[27]);
-                        $cod_operativo      = trim($datos[28]);
-                        $cobertura          = utf8_decode(trim($datos[29]));
-                        $causa_rechazo      = trim($datos[30]);
+            $nombre             = utf8_decode(trim($datos[2]));
+            $direccion          = utf8_decode(trim($datos[3]));
+            $ciudad             = utf8_decode(trim($datos[4]));
+            $pais_origen        = trim($datos[5]);
+            $valor_declarado    = trim($datos[6]);
+            $valor_recaudar     = trim($datos[7]);
+            $peso_fisico        = trim($datos[8]);
+            $largo              = trim($datos[9]);
+            $ancho              = trim($datos[10]);
+            $alto               = trim($datos[11]);
+            $peso_vol           = trim($datos[12]);
+            $peso_tari          = trim($datos[13]);
+            $tasa_manejo        = trim($datos[14]);
+            $costo_manejo       = trim($datos[15]);
+            $valor_total        = trim($datos[16]);
+            $descuento_adi      = trim($datos[17]);
+            $descuento_servi    = trim($datos[18]);
+            $contenido          = trim($datos[19]);
+            $referencia         = trim($datos[20]);
+            $observaciones      = utf8_decode(trim($datos[21]));
+            $locker             = trim($datos[22]);
+            $casillero_des      = trim($datos[23]);
+            $tamano             = trim($datos[24]);
+            $telefono           = trim($datos[25]);
+            $email              = trim($datos[26]);
+            $cod_postal         = trim($datos[27]);
+            $cod_operativo      = trim($datos[28]);
+            $cobertura          = utf8_decode(trim($datos[29]));
+            $causa_rechazo      = trim($datos[30]);
 
+            $verif = $this->db->prepare("
+            SELECT COUNT(*) AS cantidad FROM consolidado_472 WHERE guia LIKE '%$guia%'
+            ");
+            $verif->execute();
+            $verif = $verif->fetch(PDO::FETCH_ASSOC);
 
-                        $this->db->exec("INSERT INTO `consolidado_472`
-                                (`guias_master`,`guia`, `nombre_destinatario`, `direccion`, `ciudad`, `pais_origen`, `valor_declarado`, `valor_recaudar`,
-                                `peso_fisico`, `largo`, `ancho`, `alto`, `peso_volumetrico`, `peso_tarificado`, `Tasa_manejo`,
-                                `Costo_manejo`, `valor_total`, `descuento_adicional`, `descuento_por_servicio`, `contenido`, `referencia`,
-                                `observaciones`, `locker`, `casillero_de_destino`, `tamanio`, `telefono`, `email`, `codigo_postal`,
-                                `codigo_operativo`, `cobertura`, `causa_rechazo`, fecha_admision, id_tipo_envio)
-                                VALUES('$guia_master','$guia','$nombre','$direccion','$ciudad','$pais_origen','$valor_declarado','$valor_recaudar',
-                                '$peso_fisico','$largo','$ancho','$alto','$peso_vol','$peso_tari','$tasa_manejo',
-                                '$costo_manejo','$valor_total','$descuento_adi','$descuento_servi','$contenido','$referencia',
-                                '$observaciones','$locker','$casillero_des','$tamano','$telefono','$email','$cod_postal',
-                                '$cod_operativo','$cobertura','$causa_rechazo', '$fecha_admision', '$tipo_envio')");
+            if ($verif["cantidad"] == 0){
 
+              $this->db->exec("
+              INSERT INTO `consolidado_472`
+              (`guias_master`,`guia`, `nombre_destinatario`, `direccion`, `ciudad`, `pais_origen`, `valor_declarado`, `valor_recaudar`,
+              `peso_fisico`, `largo`, `ancho`, `alto`, `peso_volumetrico`, `peso_tarificado`, `Tasa_manejo`,
+              `Costo_manejo`, `valor_total`, `descuento_adicional`, `descuento_por_servicio`, `contenido`, `referencia`,
+              `observaciones`, `locker`, `casillero_de_destino`, `tamanio`, `telefono`, `email`, `codigo_postal`,
+              `codigo_operativo`, `cobertura`, `causa_rechazo`, fecha_admision, id_tipo_envio)
+              VALUES('$guia_master','$guia','$nombre','$direccion','$ciudad','$pais_origen','$valor_declarado','$valor_recaudar',
+              '$peso_fisico','$largo','$ancho','$alto','$peso_vol','$peso_tari','$tasa_manejo',
+              '$costo_manejo','$valor_total','$descuento_adi','$descuento_servi','$contenido','$referencia',
+              '$observaciones','$locker','$casillero_des','$tamano','$telefono','$email','$cod_postal',
+              '$cod_operativo','$cobertura','$causa_rechazo', '$fecha_admision', '$tipo_envio')
+              ");
+              $save++;
 
-
-
+            }
 						//PARTE PARA ASIGNAR NUMERO DE GUIA, EN LA TABLA actuacion_tutela
 						//CODIGO ADICICONADO POR JORGE ANDRES VALENCIA 17 DE JUNIO 2019
 						//SE CIERRA EL CODIGO PARA REALIZAR UNOS AJUSTES 18 DE JUNIO 2019
@@ -2589,26 +2586,35 @@ while( $row = sqlsrv_fetch_array( $stmt) ) {
 						$oficio_telegrama      = end($nombre_destinatario_1);
 
 						$this->db->exec("UPDATE actuacion_tutela SET nunguia = '$guia'
-										 WHERE oficio_telegrama = '$oficio_telegrama'");*/
+					 WHERE oficio_telegrama = '$oficio_telegrama'");*/
 
+          }
+          $i++;
+        }
 
-                    }
-                    $i++;
-                }
-                $tiporegistro = "IMPORTACION plantilla 472 con guia";
-                $accion  = "Registra una Nueva ".$tiporegistro." En el Sistema (CORRESPONDENCIA) REGISTRO DE PLANTILLA 472";
-                $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
-				$tipolog = 2;
+        if ($save > 0){
+          $tiporegistro = "IMPORTACION plantilla 472 con guia";
+          $accion  = "Registra una Nueva ".$tiporegistro." En el Sistema (CORRESPONDENCIA) REGISTRO DE PLANTILLA 472";
+          $detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
+  				$tipolog = 2;
 
-                $this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-                //SE TERMINA LA TRANSACCION
-                $this->db->commit();
+          $this->db->exec("
+          INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')
+          ");
+        }
+
+        //SE TERMINA LA TRANSACCION
+        $this->db->commit();
 				print'<script languaje="Javascript">location.href="index.php?controller=correspondencia&action=mensajes&nombre=2"</script>';
-            } catch (Exception $e){
+        }
+        catch (Exception $e){
                 $this->db->rollback();
                 die($e->getMessage());
-            }
         }
+
+      }
+
+
         public function listar_despachos(){
             $stm = $this->db
                 ->prepare(
@@ -2616,6 +2622,8 @@ while( $row = sqlsrv_fetch_array( $stmt) ) {
             $stm->execute();
             return $stm;
         }
+
+
         public function listar_orden_servicio(){
             $stm = $this->db
                 ->prepare(
@@ -2623,17 +2631,21 @@ while( $row = sqlsrv_fetch_array( $stmt) ) {
             $stm->execute();
             return $stm;
         }
+
+
         public function permisos_item_usuario(){
             $listar = $this->db->prepare("SELECT usuario FROM pa_usuario_acciones WHERE id = 16 ORDER BY id");
             $listar->execute();
             return $listar;
-		}
+		    }
+
+
         public function get_lista_usuario_acciones($campos,$nombrelista,$idaccion,$campoordenar){
             $listar     = $this->db->prepare("SELECT ".$campos." FROM ".$nombrelista." WHERE id = ".$idaccion." ORDER BY ".$campoordenar);
             $listar->execute();
             return $listar;
 
-		}
+		    }
 
 		public function permisos_subir_doc_472(){
 			$listar = $this->db->prepare("SELECT usuario FROM pa_usuario_acciones WHERE id = 17 ORDER BY id");
