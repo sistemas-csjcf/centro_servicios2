@@ -1726,7 +1726,7 @@ div.box {
 }
 
 /*------------------------------------------------------------------------------------------------------------------
-	FIN REGISTRO DE DOCUMENTOS EN SIGNOT
+	CODIGO ADICIONADO POR SEBASTIÀN MARTÌNEZ VALENCIA, VARIACIÓN DE LOAD Y ESTILOS PARA FORMULARIO DE 472
 /------------------------------------------------------------------------------------------------------------------*/
 
 .loadContent2{
@@ -1736,4 +1736,8 @@ div.box {
 
 #crgnd{
 	margin-left: calc((100% - 75px) / 2);
+}
+
+#msgT{
+	display: none;
 }
