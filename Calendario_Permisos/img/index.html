@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SICA V1- Audiencias Virtuales Programadas</title>
+        <meta name="description" content="audiencias programadas, plataforma SICA, siva v1">
+        <link rel="stylesheet" href="../css/styleFonts.css"><!--iconos-->
+        <link rel="shortcut icon" href="../imagenes/logocsj.ico" />
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="components/bootstrap2/css/bootstrap.css">
+        <link rel="stylesheet" href="components/bootstrap2/css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="css/calendar.css">
+    </head>
+    <body oncontextmenu="return false">
+        <div class="container">
+            <div class="hero-unit">
+                <h1>Audiencias Virtuales Programadas <span class="icon-calendar"></span></h1>
+                <p>Plataforma SICA</p>	
+            </div>
+            <div class="page-header">
+		<div class="pull-right form-inline">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" data-calendar-nav="prev"><< Anterior</button>
+			<button class="btn" data-calendar-nav="today">Hoy</button>
+			<button class="btn btn-primary" data-calendar-nav="next">Siguiente >></button>
+                    </div>
+                    <div class="btn-group">
+			<button class="btn btn-warning" data-calendar-view="year">Año</button>
+			<button class="btn btn-warning active" data-calendar-view="month">Mes</button>
+			<button class="btn btn-warning" data-calendar-view="week">Semana</button>
+                        <button class="btn btn-warning" data-calendar-view="day">Día</button>
+                    </div>
+		</div>
+		<h3></h3>
+		<small>..</small>
+            </div>
+            <div class="row">
+		<div class="span9">
+                    <div id="calendar"></div>
+		</div>
+		<div class="span3">
+                    <div class="row-fluid"><!--		
+                        <label class="checkbox">
+                            <input type="checkbox" value="#events-modal" id="events-in-modal" checked=""> abrir evento ventana modal
+			</label>
+			<label class="checkbox">
+                            <input type="checkbox" id="format-12-hours"> Formato 12 Horas 
+			</label>
+			<label class="checkbox">
+                            <input type="checkbox" id="show_wb" checked> Show week box
+			</label>
+			<label class="checkbox">
+                            <input type="checkbox" id="show_wbn" checked> Show week box number
+			</label> -->
+                    </div>
+                    <h4>Audiencias</h4>
+                    <small>Lista de Audiencias Programadas</small><br>  
+                    <div style="padding: 8px; width: 10px; border-radius: 150%; background-color: goldenrod"></div><small> Pendiente</small>
+                    <div style="padding: 8px; width: 10px; border-radius: 150%; background-color: #009933"></div><small> Realizada</small>
+                    <div style="padding: 8px; width: 10px; border-radius: 150%; background-color: red"></div> <small> Cancelada</small>
+                    <!--<div style="padding: 8px; width: 10px; border-radius: 150%; background-color: purple"></div> <small> Aplazada</small> -->
+		</div>
+            </div>
+            <br><br>
+            <div id="disqus_thread"></div>	
+            <div class="modal hide fade" id="events-modal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3>Event</h3>
+                </div>
+                <div class="modal-body" style="height: 400px"></div>
+                <div class="modal-footer">
+                    <a href="#" data-dismiss="modal" class="btn">Close</a>
+                </div>
+            </div>
+            <script type="text/javascript" src="components/jquery/jquery.min.js"></script>
+            <script type="text/javascript" src="components/underscore/underscore-min.js"></script>
+            <script type="text/javascript" src="components/bootstrap2/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="components/jstimezonedetect/jstz.min.js"></script>
+            <script type="text/javascript" src="js/calendar.js"></script>
+            <script type="text/javascript" src="js/app.js"></script>
+        </div>
+        <footer class="text-center well">
+            <p>Desarrollado por <p>GRUPO DE MANTENIMIENTO Y SOPORTE TECNOLÓGICO</p><strong><a data-toggle="popover" title="Jest Múnera">Juan Esteban Múnera Betancur </a></strong>Version 1.0 <br>© 2016
+        </footer>  
+    </body>
+</html>
