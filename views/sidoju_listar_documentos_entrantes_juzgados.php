@@ -478,12 +478,13 @@ $(document).ready(function() {
 											<?php $newtext = wordwrap($row[rutaarchivo], 20, "\n", true); echo $newtext;?></a>
 								<?php } ?>
 								</td>
-								<td bgcolor="#CDE3F9">
 									<?php
-										if($row[chk] == 0) {
-											echo "No Aprobado";
-										} else{
-											echo "<b>"."Aprobado"."</b>";
+										if ($row[chk] == 0) {
+											echo "<td bgcolor='#CDE3F9'><b>"."No Aprobado"."</b>";
+										} else if ($row[chk] == 1){
+											echo "<td bgcolor='#fff3cd'><b>"."Pendiente"."</b>";
+										} else if ($row[chk] == 2){
+											echo "<td bgcolor='#d4edda'><b>"."Aprobado"."</b>";
 										}
 									?>
 								</td>
