@@ -43,19 +43,20 @@ $(function(){
 
 	//FILTRAR TABLA VERIFICAR DOCUMENTOS ENTRANTES JUZGADOS
 	$('.filtrare').click(function(evento){
-		if (document.getElementById('fechai').value.length         == 0 &&
-			document.getElementById('fechaf').value.length         == 0 &&
-			document.getElementById('juzgadodestino').value.length == 0){
-			//ASIGNO VALOR DE 3 YA QUE EN LA VISTA sigdoc_listar_documentos_salientes.php
-			//AL FINAL DE ESTA PREGUNTO POR if(!empty($opcion)), SI PONGO CERO (0) NO LO VALIDA
-			//CON LA FUNCION empty()
-			dato_0 = 3;
-			location.href="index.php?controller=sidoju&action=RecargarTablaEntrantes&dato_0="+dato_0;
+
+		if (document.getElementById('fechai').value == "" || document.getElementById('fechaf').value == "" || document.getElementById('juzgadodestinover').value == ""){
+				//alert("Debe rellenar todos los campos.");
+				$('#msgT').css({'width':'788px','margin':'0px auto 0px auto','border':'1px solid #ebccd1','background-color':'#f2dede','color':'#a94442','padding':'5px','display':'block'});
+        $('#msgT').html("Por favor rellene todos los campos.");
 		} else {
+			$("#msgT").css({display: "none"});
 			dato_0 = 1;
 			dato_1 = document.getElementById('fechai').value;
 			dato_2 = document.getElementById('fechaf').value;
-			datox1 = document.getElementById('juzgadodestino').value;
+			datox1 = document.getElementById('juzgadodestinover').value;
+			$(".non").css({display: "none"});
+      document.getElementById("loadContent").style.display = "block";
+      $(".load").css("background-image", 'url(../centro_servicios2/assets/imagenes/loading.gif)');
 			location.href="index.php?controller=sidoju&action=FiltroTablaEntrantes&dato_0="+dato_0+"&dato_1="+dato_1+"&dato_2="+dato_2+"&datox1="+datox1;
 		}
 
@@ -101,6 +102,8 @@ $(function(){
 		}
 	});
 
+	// Se comenta la función, pues se ve innecesaria al reparar comportamiento del formulario de verificación de documentos entrantes - Sebastián Martínez V - 05/05/2020
+	/*
 	$("#juzgadodestinover").change(function(event){
 		dato_0 = 1;
 		dato_1 = document.getElementById('fechai').value;
@@ -108,6 +111,7 @@ $(function(){
 		datox1 = document.getElementById('juzgadodestinover').value
 		location.href="index.php?controller=sidoju&action=FiltroTablaEntrantes&dato_0="+dato_0+"&dato_1="+dato_1+"&dato_2="+dato_2+"&datox1="+datox1;
     });
+	*/
 
 	// PARA IMPRIMIR REGISTROS APROBADOS
 	$(".imprimir").click(function(evento){

@@ -3,12 +3,12 @@
 	//DATOS PARA CARGAR AL FORMULARIO, SE CARGAN VARIABLES CON INFOMACION
 	//O SE INSTANCIA EL MODELO Y SE LLAMAN FUNCIONES PARA TRAER DATOS Y SER
 	//ASIGNADOS A CAMPOS DEL FORMULARIO O CONSTRUIR TABLAS
-	
+
 	//TITULO FORMULARIO
 	$titulo     = "Verificar Documentos Entrantes Juzgados";
 	$subtitulo  = "Lista Aprobar Documentos Entrantes Juzgados";
 	//$subtitulo2 = "Permisos Usuario";
-	
+
 	//INSTANCIAMOS EL MODELO, PARA DAR USO DE SUS FUNCIONES
 	$modelo       = new sidojuModel();
 	$fechaactual = $modelo->get_fecha_actual_amd();
@@ -16,23 +16,23 @@
 	//OBTENEMOS LISTADO DE JUZGADOS SEGUN LOS ASIGNADOS AL USUARIO QUE INICIA SESION
 	$datosjuzgadodestino = $modelo->get_lista_juzgados_usuario();
 
-	
+
 	//OBTENEMOS EL REGISTRO DE ENTRADAS Y SALIDAS DEL USUARIO
 	//AL CARGAR EL SCRIPT $opcion ES DIFERENTE DE 1, PERO
 	//AL DAR CLIC EN EL ICONO DE FILTRO ES SE LE ASIGA 1
 	//HACIEDO PÓSIBLE EL FILTRO EN LA TABLA SEGUN LAS FECHAS
-	
+
 	$opcion = trim($_GET['dato_0']);
-	
+
 	if($opcion != 1){
 	//echo 'opcion 1';
-		$datosdocumentosentrantes = $modelo->get_documentos_entrantes_usuario(1);
-		$datosdocumentosentrantes2 = $modelo->get_documentos_entrantes_usuario(1);
+		//$datosdocumentosentrantes = $modelo->get_documentos_entrantes_usuario(1);
+		//$datosdocumentosentrantes2 = $modelo->get_documentos_entrantes_usuario(1);
 	}
 	else{
 		//echo 'opcion 2';
 		$datosdocumentosentrantes = $modelo->get_documentos_entrantes_usuario(2);
-		$datosdocumentosentrantes2 = $modelo->get_documentos_entrantes_usuario(2);
+		//$datosdocumentosentrantes2 = $modelo->get_documentos_entrantes_usuario(2);
 	}
 
 	//Oficina Judicial
@@ -63,13 +63,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title><?php echo $titulo?></title>
 <script src="views/js/jquery.js" type="text/javascript"></script>
 <script src="views/js/jquery.easySlider.js" type="text/javascript"></script>
 <script src="views/js/jquery.simplemodal.js" type="text/javascript"></script>
 <script src="views/js/jquery.validate.js" type="text/javascript"></script>
-<script src="views/js/ui.datepicker.js" type="text/javascript" charset="utf-8"></script>                    	
+<script src="views/js/ui.datepicker.js" type="text/javascript" charset="utf-8"></script>
 <link href="views/css/pepper-grinder/ui.all.css" rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8">
 <link href="views/css/main.css" rel="stylesheet" type="text/css">
 
@@ -82,7 +82,7 @@
 <script type="text/javascript" src="views/fechajquery/jquery.datetimepicker.js"></script>
 <link rel="stylesheet" type="text/css" href="views/fechajquery/jquery.datetimepicker.css"/ >
 
-<!-- PARA LAS VENTANAS EMERGENTES POPUPBOX 
+<!-- PARA LAS VENTANAS EMERGENTES POPUPBOX
 <script src="views/js/ajax/ajax_popupbox_empleados_registro_entrada_salida.js" type="text/javascript" charset="utf-8"></script>-->
 <link href="views/css/stylepopupbox.css" rel="stylesheet" type="text/css">
 <!-- PARA EL DESPLIEGUE DE MENUS -->
@@ -114,8 +114,8 @@ $(document).ready(function() {
 </head>
 <body>
 
-	<?php 
-		//imagen principal TEMIS, y iconos volver al menu principal y cerrar sesion 
+	<?php
+		//imagen principal TEMIS, y iconos volver al menu principal y cerrar sesion
 		require 'header.php';
 		//menus, con imagen del modulo
 		require 'secc_sidoju.php';
@@ -154,14 +154,14 @@ $(document).ready(function() {
 								</td>
 								<td colspan="4">
 									<select name="juzgadodestinover" id="juzgadodestinover" class="required">
-										<option value="" selected="selected">Seleccionar Juzgado Destino</option> 
+										<option value="" selected="selected">Seleccionar Juzgado Destino</option>
 										<?php
 											while($row = $datosjuzgadodestino->fetch()){
 												if($row[id] == trim($_GET['datox1'])){
-													echo "<option value=\"". $row[id] ."\" selected='selected'>" . $row[nombre] . "</option>";
+													echo "<option value='".$row[id]."' selected='selected'>" . $row[nombre] . "</option>";
 												}
 												else{
-													echo "<option value=\"". $row[id] ."\">" . $row[nombre] . "</option>";
+													echo "<option value='".$row[id]."'>" . $row[nombre] . "</option>";
 												}
 											}
 										?>
@@ -169,7 +169,7 @@ $(document).ready(function() {
 								</td>
 							</tr>
 							<tr>
-								
+
 								<td colspan="4">
 									<center>
 										<input type="button" name="consultar" value="Consultar" id="btn_input" class="filtrare">
@@ -177,15 +177,20 @@ $(document).ready(function() {
 									</center>
 								</td>
 						  	</tr>
-						</table>
+					</table>
+					<div id="msgT"></div>
+					<div id="loadContent" class="loadContent2">
+						<div id="load" class="load"></div>
+						<b>Cargando...</b>
+					</div>
 					</form>
 				</div>
 			</td>
 		</tr>
 	</table>
-	<table border="0" align="center"  rules="rows" id="tablaconsulta">
+	<table border="0" align="center"  rules="rows" id="tablaconsulta" class="non">
 		<tr>
-			<td>	
+			<td>
 				<table cellpadding="0" cellspacing="0" rules="rows" border="1" class="display" id="frm_editar1" style="box-shadow: 1px 15px 0px white !important;border-color: #96898973 !important;">
 					<thead>
 					<tr>
@@ -193,7 +198,7 @@ $(document).ready(function() {
 							<center><div id="titulo_frm"><?php echo strtoupper($subtitulo); ?></div></center>
 						</th>
 					</tr>
-					<tr> 
+					<tr>
 						<th>NUMERO</th>
 						<th>CONSECUTIVO</th>
 						<th>TIPO</th>
@@ -202,7 +207,7 @@ $(document).ready(function() {
 						<th>HORA</th>
 						<th>RECIBE</th>
 						<!-- <th>REMITENTE</th> -->
-						<th>JUZGADO</th> 
+						<th>JUZGADO</th>
 						<!-- <th>RUTA ARCHIVO</th> -->
 						<th>
 							<!-- <input type="button" onclick="marcar(':checkbox')" value="Marcar todos"> -->
@@ -215,13 +220,13 @@ $(document).ready(function() {
 						</th>
 						<th>|</th>
 						<th>
-							<a class="aprobar" href="javascript:void(0);" title="APROBAR"><img src="views/images/OK3.png" width="45" height="45" title="APROBAR"/></a>
+							<a class="aprobar" href="javascript:void(0);" title="SOLICITAR APROBACIÓN DEL DESPACHO"><img src="views/images/OK3.png" width="45" height="45" title="SOLICITAR APROBACIÓN DEL DESPACHO"/></a>
 						</th>
 							<!-- <th>
 								<a class="imprimir" href="javascript:void(0);" title="Imprimir"><img src="views/images/imprimir.jpg" width="45" height="45" title="Imprimir"/></a>
 							</th> -->
-						</tr> 
-					</thead> 
+						</tr>
+					</thead>
 
 					<tbody>
 					<?php $i=2; while($row = $datosdocumentosentrantes->fetch()){ ?>
@@ -234,8 +239,8 @@ $(document).ready(function() {
 						<td><?php echo $row[hora];?></td>
 						<td><?php echo $row[empleado];?></td>
 						<td><?php echo $row[nombre];?></td>
-						<td><input type="checkbox" name="<?php echo "chk".$i;?>" id="<?php echo "chk".$i;?>" value="<?php echo "chk".$i;?>"/></td> 
-						<td></td> 
+						<td><input type="checkbox" name="<?php echo "chk".$i;?>" id="<?php echo "chk".$i;?>" value="<?php echo "chk".$i;?>"/></td>
+						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
@@ -281,7 +286,7 @@ foreach ($check0 as $checkID0) {
 /*include("/../libs/conexion2.php"); //Centro de Servicios
 $check1=$_POST['casilla'];
 
-$i=2; while($row = $datosdocumentosentrantes2->fetch()){ 
+$i=2; while($row = $datosdocumentosentrantes2->fetch()){
 	if ($row[idtipodocumento]==100) {
 		foreach ($check1 as $checkID1) {
 			$res2=mysql_query("UPDATE sidoju_documentos_entrantes_juzgados SET chk='1',idusuarioverifica='$idusuario',fechaverifica='$fechaactual' WHERE sal_id_externo_fk=".$checkID1."",$cs);
