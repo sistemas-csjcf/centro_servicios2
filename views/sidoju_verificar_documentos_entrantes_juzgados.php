@@ -231,7 +231,7 @@ $(document).ready(function() {
 					<tbody>
 					<?php
 					$i=2;
-					if ($datosdocumentosentrantes){ 
+					if (!empty($datosdocumentosentrantes)){ 
 					while($row = $datosdocumentosentrantes->fetch()){ ?>
 					<tr>
 						<td><?php echo $row[id];?></td>
