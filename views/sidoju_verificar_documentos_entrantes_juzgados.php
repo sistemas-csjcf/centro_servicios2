@@ -229,7 +229,10 @@ $(document).ready(function() {
 					</thead>
 
 					<tbody>
-					<?php $i=2; while($row = $datosdocumentosentrantes->fetch()){ ?>
+					<?php
+					$i=2;
+					if ($datosdocumentosentrantes){ 
+					while($row = $datosdocumentosentrantes->fetch()){ ?>
 					<tr>
 						<td><?php echo $row[id];?></td>
 						<td><?php echo $row[numero];?></td>
@@ -266,7 +269,9 @@ $(document).ready(function() {
 						?>
 						<td><input type="checkbox" name="casilla[]" value="<?php echo $idmodificar; ?>"></td>
 					</tr>-->
-					<?php $i=$i+1; } ?>
+					<?php $i=$i+1; }
+					}
+					?>
 				</tbody>
 			</table>
 		</form>
