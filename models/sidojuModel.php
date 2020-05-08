@@ -43,10 +43,24 @@ class sidojuModel extends modelBase{
 			}
 		}
 	 	if($condicion == "4b"){
-	 		$_SESSION['elemento'] = "Error al Realizar el registro";
+	 		$_SESSION['elemento'] = "Error al Realizar el registro.";
 	    	$_SESSION['elem_error_transaccion'] = true;
 	   		if($_SESSION['id']!=""){
 				print'<script languaje="Javascript">location.href="index.php?controller=sidoju&action=Verificar_Documentos_Entrantes_Juzgados"</script>';
+	   		}
+	 	}
+		if($condicion == "5c"){
+			$_SESSION['elemento'] = "El documento ha sido aprobado correctamente.";
+	    	$_SESSION['elem_conscontrato'] = true;
+	   		if($_SESSION['id']!=""){
+				print'<script languaje="Javascript">location.href="index.php?controller=sidoju&action=Aprobar_Documentos_Entrantes_Juzgados"</script>';
+			}
+	 	}
+		if($condicion == "5d"){
+	 		$_SESSION['elemento'] = "Ocurrió un error intentando realizar el registro.";
+	    	$_SESSION['elem_error_transaccion'] = true;
+	   		if($_SESSION['id']!=""){
+				print'<script languaje="Javascript">location.href="index.php?controller=sidoju&action=Aprobar_Documentos_Entrantes_Juzgados"</script>';
 	   		}
 	 	}
 	 	if($condicion == "4E"){
@@ -366,6 +380,39 @@ class sidojuModel extends modelBase{
   		$listar->execute();
   		return $listar;
   	}
+
+		// Función para listar documentos entrantes por juzgado
+		// Sebastián Martínez Valecia - 08/05/2020
+		public function get_documentos_entrantes_juzgado($identrada)
+		{
+			$model       = new sidojuModel();
+			$fechaactual = $model->get_fecha_actual_amd();
+			$idusuario   = $_SESSION['idUsuario'];
+			if($identrada == 1){
+				$listar    = $this->db->prepare("SELECT de.id,de.fecha,de.hora,pu.empleado,de.remitente,td.nombre_tipo_documento,de.numero,de.nfc,pj.nombre,de.rutaarchivo,de.sal_id_externo_fk,de.idtipodocumento
+				FROM (((sidoju_documentos_entrantes_juzgados de INNER JOIN pa_usuario pu ON de.idusuario = pu.id)
+				INNER JOIN sigdoc_pa_tipodocumento td ON de.idtipodocumento = td.id)
+				INNER JOIN pa_juzgado pj ON de.idjuzgadodestino = pj.id)
+				WHERE de.chk = 1 AND fecha >= '2020-05-01' AND de.idjuzgadodestino IN(SELECT id FROM pa_juzgado WHERE cod_usuario_juzgado = '$idusuario') ORDER BY de.id DESC");
+			}
+			if($identrada == 2){
+				$filtrof;
+				$fechad    = trim($_GET['dato_1']);
+				$fechah    = trim($_GET['dato_2']);
+
+				if ( !empty($fechad) && !empty($fechah) ) {
+					$filtrof = " AND (de.fecha >= '$fechad' AND de.fecha <= '$fechah') ";
+				}
+
+				$listar    = $this->db->prepare("SELECT de.id,de.fecha,de.hora,pu.empleado,de.remitente,td.nombre_tipo_documento,de.numero,de.nfc,pj.nombre,de.rutaarchivo,de.sal_id_externo_fk,de.idtipodocumento
+					FROM (((sidoju_documentos_entrantes_juzgados de INNER JOIN pa_usuario pu ON de.idusuario = pu.id)
+					INNER JOIN sigdoc_pa_tipodocumento td ON de.idtipodocumento = td.id)
+					INNER JOIN pa_juzgado pj ON de.idjuzgadodestino = pj.id)
+					WHERE de.chk = 1 AND de.idjuzgadodestino IN(SELECT id FROM pa_juzgado WHERE cod_usuario_juzgado = '$idusuario') " .$filtrof. " ORDER BY de.id DESC");
+			}
+			$listar->execute();
+			return $listar;
+	  }
 
 	//Listar docuemntos entrantes y modificarlos
 	//adicionar
@@ -2187,11 +2234,9 @@ class sidojuModel extends modelBase{
 		$horalog    = $datosfecha[1];
 
 
-		$tiporegistro = "Verificacion de Documentos";
-
+		$tiporegistro = "Solicitud de aprobación de Documentos";
 		$accion  = "Registra una Nueva ".$tiporegistro." En el Sistema (SIDOJU) VERIFICAR DOCUMENTOS ENTRANTES JUZGADOS";
-
-      	$detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
+  	$detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
 		$tipolog = 5;
 
 		//--------------------------------------------------------------------------------------------------------------------
@@ -2211,34 +2256,17 @@ class sidojuModel extends modelBase{
 
 					$id = $ides[$i];
 
-					$sql = "UPDATE sidoju_documentos_entrantes_juzgados SET chk = '1',idusuarioverifica = '$idusuario',fechaverifica = '$fechalog',
-							nombrebloque = '$nombrebloque'
-					        WHERE  id = '$id'";
+					$sql = "UPDATE sidoju_documentos_entrantes_juzgados SET chk = '1',idusuarioverifica = '$idusuario',fechaverifica = '$fechalog', nombrebloque = '$nombrebloque' WHERE  id = '$id'";
 
 					$this->db->exec($sql);
 
 					$i = $i + 1;
-
-					//CARGO LOS IDES DE LOS REGISTROS PARA GENERAR EL REPORTE, QUE ACABAN DE SER APROBADOS
-					$idimprimir = $id.",".$idimprimir;
-					//CARGO LA VARIABLE SIN EL PRIMER CARACTER QUE ES UNA COMA (,) --> ,9,8,7,6,5,4,3,2,1, --> 9,8,7,6,5,4,3,2,1,
-					$registros  = substr($idimprimir,1);
 
 				}
 
 				$this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
 			//SE TERMINA LA TRANSACCION
 		  	$this->db->commit();
-
-			//GENERO EL REPORTE PERO SE VERIFICA ANTES QUE LA TRANSACCION ES CORRECTA
-			echo '<script languaje="JavaScript">
-
-						var datos = "'.$registros.'";
-
-						window.open("views/PHPPdf/Reporte_ADEJ.php?datos="+datos);
-
-
-				 </script>';
 
 			print'<script languaje="Javascript">location.href="index.php?controller=sidoju&action=mensajes&nombre=4"</script>';
 
@@ -2251,6 +2279,94 @@ class sidojuModel extends modelBase{
 			print'<script languaje="Javascript">location.href="index.php?controller=sidoju&action=mensajes&nombre=4b"</script>';
 		}
   	}
+
+		public function registrar_aprobar_documentos_entrantes_juzgados(){
+
+
+			//SE OBTIENEN LOS DATOS
+			$idusuario  = $_SESSION['idUsuario'];
+
+			//NOMBRE DEL JUZGADO
+			$dj         = trim($_GET['dj']);
+			$idspermiso = trim($_GET['idspermiso']);
+
+			$ides       = explode("******",$idspermiso);
+			$longid     = count($ides);
+			$i=0;
+
+
+			//DATOS PARA EL REGISTRO DEL LOG
+
+			$modelo     = new sidojuModel();
+			$fechahora  = $modelo->get_fecha_actual();
+			$datosfecha = explode(" ",$fechahora);
+			$fechalog   = $datosfecha[0];
+			$horalog    = $datosfecha[1];
+
+
+			$tiporegistro = "Aprobación de Documentos";
+
+			$accion  = "Registra una Nueva ".$tiporegistro." En el Sistema (SIDOJU) VERIFICAR DOCUMENTOS ENTRANTES JUZGADOS";
+			$detalle = $_SESSION['nombre']." ".$accion." ".$fechalog." "."a las: ".$horalog;
+			$tipolog = 5;
+
+			//--------------------------------------------------------------------------------------------------------------------
+
+			//NOMBRE DEL BLOQUE, QUE IDENTIFICA UN CONJUNTO DE REGISTROS
+			$nombrebloque = $dj."".$fechahora;
+
+			try {
+
+				$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+				//EMPIEZA LA TRANSACCION
+			   	$this->db->beginTransaction();
+
+
+					while($i < $longid){
+
+						$id = $ides[$i];
+
+						$sql = "UPDATE sidoju_documentos_entrantes_juzgados SET chk = '2',idusuarioverifica = '$idusuario',fechaverifica = '$fechalog',	nombrebloque = '$nombrebloque' WHERE  id = '$id'";
+
+						$this->db->exec($sql);
+
+						$i = $i + 1;
+
+						/* Se omite la generación de pdf por documento ya que se optiene a traves de la impresión por bloque.
+						//CARGO LOS IDES DE LOS REGISTROS PARA GENERAR EL REPORTE, QUE ACABAN DE SER APROBADOS
+						$idimprimir = $id.",".$idimprimir;
+						//CARGO LA VARIABLE SIN EL PRIMER CARACTER QUE ES UNA COMA (,) --> ,9,8,7,6,5,4,3,2,1, --> 9,8,7,6,5,4,3,2,1,
+						$registros  = substr($idimprimir,1);
+						*/
+					}
+
+					$this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
+				//SE TERMINA LA TRANSACCION
+			  	$this->db->commit();
+
+				/* Se omite la generación de pdf por documento ya que se optiene a traves de la impresión por bloque.
+				//GENERO EL REPORTE PERO SE VERIFICA ANTES QUE LA TRANSACCION ES CORRECTA
+				echo '<script languaje="JavaScript">
+
+							var datos = "'.$registros.'";
+
+							window.open("views/PHPPdf/Reporte_ADEJ.php?datos="+datos);
+
+
+					 </script>';
+				*/
+				print'<script languaje="Javascript">location.href="index.php?controller=sidoju&action=mensajes&nombre=5c"</script>';
+
+			}
+			catch (Exception $e) {
+
+				//NO TERMINA LA TRANSACCION SE PRESENTO UN ERROR
+				$this->db->rollBack();
+			  	//echo "Fallo: " . $e->getMessage();
+				print'<script languaje="Javascript">location.href="index.php?controller=sidoju&action=mensajes&nombre=5d"</script>';
+			}
+	  	}
 
 	public function eliminar_documentos_entrantes_juzgados(){
         $idusuario  = $_SESSION['idUsuario'];
