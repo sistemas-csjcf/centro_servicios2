@@ -307,7 +307,7 @@ class sidojuModel extends modelBase{
 
 
 		$listar     = $this->db->prepare("SELECT de.nombrebloque FROM sidoju_documentos_entrantes_juzgados de
-										  WHERE de.chk = 1
+										  WHERE de.chk = 2
 										  AND de.idjuzgadodestino IN(SELECT id FROM pa_juzgado WHERE idusuariojuzgado = '$idusuario')
 										  AND de.idjuzgadodestino = '$idjuzgado'
 										  GROUP BY de.nombrebloque
@@ -773,7 +773,11 @@ class sidojuModel extends modelBase{
 		//Y NO TRAER TODOS LOS REGISTROS QUE A APROBADO EL USUARIO
 		$idusuario   = $_SESSION['idUsuario'];
 		if($identrada == 1){
-			$listar    = $this->db->prepare("SELECT de.id,de.fecha,de.hora,pu.empleado,de.remitente,td.nombre_tipo_documento,de.numero,de.nfc,pj.nombre,de.rutaarchivo FROM (((sidoju_documentos_entrantes_juzgados de INNER JOIN pa_usuario pu ON de.idusuario = pu.id) INNER JOIN sigdoc_pa_tipodocumento td ON de.idtipodocumento = td.id) INNER JOIN pa_juzgado pj ON de.idjuzgadodestino = pj.id) WHERE de.chk = 1 AND de.idjuzgadodestino IN(SELECT id FROM pa_juzgado WHERE idusuariojuzgado = '$idusuario') ORDER BY de.id DESC LIMIT 5");
+			$listar    = $this->db->prepare("
+			SELECT de.id,de.fecha,de.hora,pu.empleado,de.remitente,td.nombre_tipo_documento,de.numero,de.nfc,pj.nombre,de.rutaarchivo
+			FROM (((sidoju_documentos_entrantes_juzgados de INNER JOIN pa_usuario pu ON de.idusuario = pu.id)
+			INNER JOIN sigdoc_pa_tipodocumento td ON de.idtipodocumento = td.id) INNER JOIN pa_juzgado pj ON de.idjuzgadodestino = pj.id)
+			WHERE de.chk = 2 AND de.idjuzgadodestino IN(SELECT id FROM pa_juzgado WHERE idusuariojuzgado = '$idusuario') ORDER BY de.id DESC LIMIT 5");
 		}
 		if($identrada == 2){
 			$filtrox;
@@ -790,7 +794,11 @@ class sidojuModel extends modelBase{
 			}
 			$filtrox = $filtro1." ".$filtrof;
 			//echo $filtrox;
-			$listar    = $this->db->prepare("SELECT de.id,de.fecha,de.hora,pu.empleado,de.remitente,td.nombre_tipo_documento,de.numero,de.nfc,pj.nombre,de.rutaarchivo FROM (((sidoju_documentos_entrantes_juzgados de INNER JOIN pa_usuario pu ON de.idusuario = pu.id) INNER JOIN sigdoc_pa_tipodocumento td ON de.idtipodocumento = td.id) INNER JOIN pa_juzgado pj ON de.idjuzgadodestino = pj.id) WHERE de.chk = 1 AND de.idjuzgadodestino IN(SELECT id FROM pa_juzgado WHERE idusuariojuzgado = '$idusuario') " .$filtrox. " ORDER BY de.id DESC");
+			$listar    = $this->db->prepare("
+			SELECT de.id,de.fecha,de.hora,pu.empleado,de.remitente,td.nombre_tipo_documento,de.numero,de.nfc,pj.nombre,de.rutaarchivo
+			FROM (((sidoju_documentos_entrantes_juzgados de INNER JOIN pa_usuario pu ON de.idusuario = pu.id)
+			INNER JOIN sigdoc_pa_tipodocumento td ON de.idtipodocumento = td.id) INNER JOIN pa_juzgado pj ON de.idjuzgadodestino = pj.id)
+			WHERE de.chk = 2 AND de.idjuzgadodestino IN(SELECT id FROM pa_juzgado WHERE idusuariojuzgado = '$idusuario') " .$filtrox. " ORDER BY de.id DESC");
 		}
   		$listar->execute();
   		return $listar;

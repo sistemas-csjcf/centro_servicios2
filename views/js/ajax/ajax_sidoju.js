@@ -350,7 +350,7 @@ $(function(){
 			document.getElementById('listabloques').style.borderColor='#FF0000';
 		} else {
 			var nombrebloque = document.getElementById('listabloques').value;
-			window.open("views/PHPPdf/Reporte_ADEJ_Bloque?datos="+nombrebloque);
+			window.open("views/PHPPdf/Reporte_ADEJ_Bloque.php?datos="+nombrebloque);
 		}
 	});
 
