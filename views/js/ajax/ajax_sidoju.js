@@ -43,7 +43,7 @@ $(function(){
 
 	//FILTRAR TABLA VERIFICAR DOCUMENTOS ENTRANTES JUZGADOS
 	$('.filtrare').click(function(evento){
-
+		if (document.getElementById('juzgadodestinover').value != "NO"){
 		if (document.getElementById('fechai').value == "" || document.getElementById('fechaf').value == "" || document.getElementById('juzgadodestinover').value == ""){
 				//alert("Debe rellenar todos los campos.");
 				$('#msgT').css({'width':'788px','margin':'0px auto 0px auto','border':'1px solid #ebccd1','background-color':'#f2dede','color':'#a94442','padding':'5px','display':'block'});
@@ -59,8 +59,31 @@ $(function(){
       $(".load").css("background-image", 'url(../centro_servicios2/assets/imagenes/loading.gif)');
 			location.href="index.php?controller=sidoju&action=FiltroTablaEntrantes&dato_0="+dato_0+"&dato_1="+dato_1+"&dato_2="+dato_2+"&datox1="+datox1;
 		}
+		} else {
+			$('#msgT').css({'width':'788px','margin':'0px auto 0px auto','border':'1px solid #ebccd1','background-color':'#f2dede','color':'#a94442','padding':'5px','display':'block'});
+			$('#msgT').html("No tiene juzgados asignados.");
+		}
+  });
 
-    });
+		//FILTRAR TABLA VERIFICAR DOCUMENTOS ENTRANTES PENDIENTES DE APROBACIÓN POR LOS JUZGADOS
+		// Sebastián Martínez Valencia - 08/05/2020
+		$('.filtrareD').click(function(evento){
+
+			if (document.getElementById('fechai').value == "" || document.getElementById('fechaf').value == ""){
+					$('#msgT').css({'width':'788px','margin':'0px auto 0px auto','border':'1px solid #ebccd1','background-color':'#f2dede','color':'#a94442','padding':'5px','display':'block'});
+	        $('#msgT').html("Por favor indique las fechas inicial y final para optimizar la busqueda.");
+			} else {
+				$("#msgT").css({display: "none"});
+				dato_0 = 1;
+				dato_1 = document.getElementById('fechai').value;
+				dato_2 = document.getElementById('fechaf').value;
+				$(".non").css({display: "none"});
+	      document.getElementById("loadContent").style.display = "block";
+	      $(".load").css("background-image", 'url(../centro_servicios2/assets/imagenes/loading.gif)');
+				location.href="index.php?controller=sidoju&action=FiltroTablaEntrantesParaJuzgados&dato_0="+dato_0+"&dato_1="+dato_1+"&dato_2="+dato_2;
+			}
+
+		});
 
 	//FUNCION QUE ME PERMITE MARCAR TODOS LOS ELEMENTOS TIPO checkbox
 	//las funciones marcar y desmarcar tambien funcionan
@@ -73,6 +96,10 @@ $(function(){
 
 	// PARA RECORRER LA TABLA FILA POR FILA
 	$(".aprobar").click(function(evento){
+		$("#msgT").css({display: "none"});
+		$(".non").css({display: "none"});
+		document.getElementById("loadContent").style.display = "block";
+		$(".load").css("background-image", 'url(../centro_servicios2/assets/imagenes/loading.gif)');
 		//PARA CONTROLAR LOS ENCABEZADOS DE LA TABLA, Y NO SEAN TENIDOS ENCUENTA COMO UN
 		//REGISTRO controlemcabezados = 0 (TITULO DE LA TABLA) Y controlemcabezados = 1 (ENCABEZADOS)
 		var controlemcabezados = 0;
@@ -94,12 +121,39 @@ $(function(){
 			}
 		});
 
-		if(document.getElementById('juzgadodestinover').value.length == 0){
-			alert("Definir Juzgado Destino");
-			document.getElementById('juzgadodestinover').style.borderColor='#FF0000';
-		} else {
-				location.href="index.php?controller=sidoju&action=Registro_Vereficar_Documentos_Entrantes_Juzgados&idspermiso="+idspermiso+"&dj="+d7;
-		}
+		location.href="index.php?controller=sidoju&action=Registro_Vereficar_Documentos_Entrantes_Juzgados&idspermiso="+idspermiso+"&dj="+d7;
+
+	});
+
+	// PARA RECORRER LA TABLA FILA POR FILA
+	$(".aprobar2").click(function(evento){
+		$("#msgT").css({display: "none"});
+		$(".non").css({display: "none"});
+		document.getElementById("loadContent").style.display = "block";
+		$(".load").css("background-image", 'url(../centro_servicios2/assets/imagenes/loading.gif)');
+		//PARA CONTROLAR LOS ENCABEZADOS DE LA TABLA, Y NO SEAN TENIDOS ENCUENTA COMO UN
+		//REGISTRO controlemcabezados = 0 (TITULO DE LA TABLA) Y controlemcabezados = 1 (ENCABEZADOS)
+		var controlemcabezados = 0;
+		var idspermiso="";
+		var f = 2;
+		var d7;
+
+		$('#frm_editar1 tr').each(function () {
+			var d0  = $(this).find("td").eq(0).html();
+			d7      = $(this).find("td").eq(7).html();
+			if(controlemcabezados == 0  || controlemcabezados == 1){
+				controlemcabezados = controlemcabezados + 1;
+			} else {
+				if($("#chk"+f).is(':checked')) {
+					//CONCATENO TODOS LOS REGISTROS DE LA TABLA
+					idspermiso = d0+"******"+idspermiso;
+				}
+				f = f + 1;
+			}
+		});
+
+		location.href="index.php?controller=sidoju&action=Registro_Aprobar_Documentos_Entrantes_Juzgados&idspermiso="+idspermiso+"&dj="+d7;
+
 	});
 
 	// Se comenta la función, pues se ve innecesaria al reparar comportamiento del formulario de verificación de documentos entrantes - Sebastián Martínez V - 05/05/2020
@@ -158,6 +212,12 @@ $(function(){
 			document.getElementById('juzgadodestino').value.length == 0 &&
 			document.getElementById('usuariox').value.length       == 0 &&
 			document.getElementById('estadox').value.length        == 0) {
+				//Carga de LOAD
+				if (document.getElementById("frm_editar1")){
+					$("#frm_editar1").css({display: "none"});
+				}
+				document.getElementById("loadContent").style.display = "block";
+				$(".load").css("background-image", 'url(../centro_servicios2/assets/imagenes/loading.gif)');
 			//ASIGNO VALOR DE 3 YA QUE EN LA VISTA sigdoc_listar_documentos_salientes.php AL FINAL DE ESTA PREGUNTO POR if(!empty($opcion)), SI PONGO CERO (0) NO LO VALIDA CON LA FUNCION empty()
 			dato_0 = 3;
 			location.href="index.php?controller=sidoju&action=RecargarListarTablaEntrantes&dato_0="+dato_0;
@@ -290,7 +350,7 @@ $(function(){
 			document.getElementById('listabloques').style.borderColor='#FF0000';
 		} else {
 			var nombrebloque = document.getElementById('listabloques').value;
-			window.open("views/PHPPdf/Reporte_ADEJ_Bloque?datos="+nombrebloque);
+			window.open("views/PHPPdf/Reporte_ADEJ_Bloque.php?datos="+nombrebloque);
 		}
 	});
 

@@ -21,21 +21,21 @@ class sidojuController extends controllerBase{
 	  	}
 
 	}
-	
+
 	public function listar_fecha_actual(){
-	
+
 
 		if($_SESSION['id']!=""){
 
 			require 'models/sigdocModel.php';
-			
+
 			$lu = new sidojuModel();
-			
+
 			$rs1=$lu->fecha_actual();
-			
-			
+
+
 			$data['dato_fecha_actual']=$rs1;
-			
+
 			$this->view->show("sigdoc_documentos_salientes.php", $data);
 
 		}
@@ -47,13 +47,29 @@ class sidojuController extends controllerBase{
 
 
 	}
-	
+
+	public function Aprobar_Documentos_Entrantes_Juzgados(){
+
+		if($_SESSION['id']!=""){
+
+			require 'models/sidojuModel.php';
+
+			$this->view->show("sidoju_aprobar_documentos_entrantes_juzgados.php", $data);
+
+	  	}
+	  	else{
+
+			header("refresh: 0; URL=/centro_servicios2/");
+		}
+
+	}
+
 	public function Verificar_Documentos_Entrantes_Juzgados(){
 
 		if($_SESSION['id']!=""){
 
 			require 'models/sidojuModel.php';
-		
+
 			$this->view->show("sidoju_verificar_documentos_entrantes_juzgados.php", $data);
 
 	  	}
@@ -63,7 +79,7 @@ class sidojuController extends controllerBase{
 		}
 
 	}
-	
+
 	public function Imprimir_Documentos_Entrantes_Juzgados(){
 		if($_SESSION['id']!=""){
 			require 'models/sidojuModel.php';
@@ -72,19 +88,19 @@ class sidojuController extends controllerBase{
 			header("refresh: 0; URL=/centro_servicios2/");
 		}
 	}
-	
+
 	public function RecargarTablaEntrantes(){
 
 		if($_SESSION['id']!=""){
 
 			require 'models/sidojuModel.php';
-		
+
 			$model  = new sidojuModel();
-		
+
 			$filtro = $model->get_documentos_entrantes_usuario(1);
-	
+
 			$data['datosdocumentosentrantes'] = $filtro;
-		
+
 			$this->view->show("sidoju_verificar_documentos_entrantes_juzgados.php", $data);
 
 	  	}
@@ -99,13 +115,13 @@ class sidojuController extends controllerBase{
 		if($_SESSION['id']!=""){
 
 			require 'models/sidojuModel.php';
-		
+
 			$model  = new sidojuModel();
-		
+
 			$filtro = $model->get_documentos_imprimir_usuario(1);
-	
+
 			$data['datosdocumentosentrantes'] = $filtro;
-		
+
 			$this->view->show("sidoju_imprimir_documentos_entrantes_juzgados.php", $data);
 
 	  	}
@@ -115,19 +131,19 @@ class sidojuController extends controllerBase{
 		}
 
 	}
-	
+
 	public function RecargarListarTablaEntrantes(){
 
 		if($_SESSION['id']!=""){
 
 			require 'models/sidojuModel.php';
-		
+
 			$model  = new sidojuModel();
-		
+
 			$filtro = $model->get_listrar_documentos_entrantes_usuario(1);
-	
+
 			$data['datosdocumentosentrantes'] = $filtro;
-		
+
 			$this->view->show("sidoju_listar_documentos_entrantes_juzgados.php", $data);
 
 	  	}
@@ -137,19 +153,19 @@ class sidojuController extends controllerBase{
 		}
 
 	}
-	
+
 	public function FiltroTablaEntrantes(){
 
 		if($_SESSION['id']!=""){
 
 			require 'models/sidojuModel.php';
-		
+
 			$model  = new sidojuModel();
-		
+
 			$filtro = $model->get_documentos_entrantes_usuario(2);
-	
+
 			$data['datosdocumentosentrantes'] = $filtro;
-		
+
 			$this->view->show("sidoju_verificar_documentos_entrantes_juzgados.php", $data);
 
 	  	}
@@ -159,18 +175,44 @@ class sidojuController extends controllerBase{
 		}
 
 	}
+
+	// FunciÃ³n de filtrar documentos segÃºn el juzgados
+	// SebastiÃ¡n MartÃ­nez Valencia - 08/05/2020
+	public function FiltroTablaEntrantesParaJuzgados()
+	{
+
+		if($_SESSION['id']!=""){
+
+			require 'models/sidojuModel.php';
+
+			$model  = new sidojuModel();
+
+			$filtro = $model->get_documentos_entrantes_juzgado(2);
+
+			$data['datosdocumentosentrantes'] = $filtro;
+
+			$this->view->show("sidoju_aprobar_documentos_entrantes_juzgados.php", $data);
+
+	  	}
+	  	else{
+
+			header("refresh: 0; URL=/centro_servicios2/");
+		}
+
+	}
+
 	public function FiltroTablaImprimirDocumentos(){
 
 		if($_SESSION['id']!=""){
 
 			require 'models/sidojuModel.php';
-		
+
 			$model  = new sidojuModel();
-		
+
 			$filtro = $model->get_documentos_imprimir_usuario(2);
-	
+
 			$data['datosdocumentosentrantes'] = $filtro;
-		
+
 			$this->view->show("sidoju_imprimir_documentos_entrantes_juzgados.php", $data);
 
 	  	}
@@ -180,19 +222,19 @@ class sidojuController extends controllerBase{
 		}
 
 	}
-	
+
 	public function FiltroListarTablaEntrantes(){
 
 		if($_SESSION['id']!=""){
 
 			require 'models/sidojuModel.php';
-		
+
 			$model  = new sidojuModel();
-		
+
 			$filtro = $model->get_listrar_documentos_entrantes_usuario(2);
-	
+
 			$data['datosdocumentosentrantes'] = $filtro;
-		
+
 			$this->view->show("sidoju_listar_documentos_entrantes_juzgados.php", $data);
 
 	  	}
@@ -202,19 +244,19 @@ class sidojuController extends controllerBase{
 		}
 
 	}
-	
+
 	public function Listar_Documentos_Entrantes_Juzgados(){
 
 		if($_SESSION['id']!=""){
 
 			require 'models/sidojuModel.php';
-		
+
 			/*$model  = new sigdocModel();
-		
+
 			$filtro = $model->get_documentos_salientes_usuario(2);
-	
+
 			$data['datosdocumentossalientes'] = $filtro;*/
-		
+
 			$this->view->show("sidoju_listar_documentos_entrantes_juzgados.php", $data);
 
 	  	}
@@ -226,22 +268,22 @@ class sidojuController extends controllerBase{
 	}
 
 	public function Registro_Documentos_Entrantes_Juzgados(){
-	
-	
+
+
 		if($_SESSION['id']!=""){
-		
+
 				$i = 0 ;
 				$tienepermiso = 0;
 				$nombremodulo = "sidoju";
-				
+
 				require 'models/menuModel.php';
-				
+
 				$model        = new menuModel();
 				$datosusuario = $model->get_permiso_usuario();
 				$fielddatos   = $datosusuario->fetch();
 				$nivel        = trim($fielddatos['idperfil']);
 				$modulo       = trim($fielddatos['modulos']);
-				
+
 				//NUEVA FORMA DE PREGUNTAR SI UN USUARIO ES ADMINISTRADOR
 				//SE REALIZA PARA QUE SE VISUALIZE EN LA VISTA m_admin.php
 				//SU PERFIL, DE ESTA FORMA if($nivel == 1){ TAMBIEN FUNCIONA
@@ -250,70 +292,70 @@ class sidojuController extends controllerBase{
 				$fielddatos_2            = $usuarioaadministradores->fetch();
 				$nivel_2                 = trim($fielddatos_2['usuario']);
 				$modulost2			     = explode("////",$nivel_2);
-				
+
 				if ( in_array($_SESSION['idUsuario'],$modulost2) ){
-				
+
 				//Administrador
 				//if($nivel == 1){
-				
+
 					require 'models/sidojuModel.php';
 
 					$modelo = new sidojuModel();
-					
+
 					if($_POST){
-					 
+
 						$modelo->registrar_documentos_entrantes_juzgados();
-		
+
 					}
-		
+
 					$this->view->show("sidoju_documentos_entrantes_juzgados.php", $data);
 				}
 				else{
-					
+
 					$modulos_usuario = explode("////",trim($modulo));
-					
+
 					$longitud_modulos = count($modulos_usuario);
-					
+
 					while($i < $longitud_modulos){
-		
+
 						if( $nombremodulo == $modulos_usuario[$i] ){
-		
+
 							$tienepermiso = 1;
 							$i = $longitud_modulos;
 						}
-		
+
 						$i = $i+1;
-		
+
 					}
-					
+
 					if($tienepermiso == 1){
-		
+
 						require 'models/sidojuModel.php';
 
 						$modelo = new sidojuModel();
-						
+
 						if($_POST){
-						 
+
 							$modelo->registrar_documentos_entrantes_juzgados();
-			
+
 						}
-			
+
 						$this->view->show("sidoju_documentos_entrantes_juzgados.php", $data);
 					}
 					else{
-						print'<script languaje="Javascript">alert("¡Acceso denegado para este módulo, verifique la configuración de su perfil con el administrador del sistema...!"); location.href="index.php?controller=index&action=ruta_base"</script>';
+						print'<script languaje="Javascript">alert("ï¿½Acceso denegado para este mï¿½dulo, verifique la configuraciï¿½n de su perfil con el administrador del sistema...!"); location.href="index.php?controller=index&action=ruta_base"</script>';
 						/*print'<script languaje="Javascript">location.href="index.php?controller=menu&action=mensajes&idmensaje=1"</script>';*/
 					}
-					
-					
+
+
 				}
-				
-				
+
+
 			}
 			else{
 				header("refresh: 0; URL=/centro_servicios2/");
 
-			}	
+			}
 
 	}
 
@@ -356,42 +398,69 @@ class sidojuController extends controllerBase{
 					}
 					$this->view->show("sidoju_documentos_entrantes_juzgados_salud.php", $data);
 				} else {
-					print'<script languaje="Javascript">alert("¡Acceso denegado para este módulo, verifique la configuración de su perfil con el administrador del sistema...!"); location.href="index.php?controller=index&action=ruta_base"</script>';
-				}	
+					print'<script languaje="Javascript">alert("ï¿½Acceso denegado para este mï¿½dulo, verifique la configuraciï¿½n de su perfil con el administrador del sistema...!"); location.href="index.php?controller=index&action=ruta_base"</script>';
+				}
 			}
 		} else {
 		header("refresh: 0; URL=/centro_servicios2/");
 		}
 	}
-	
-	
+
+
 	public function Registro_Vereficar_Documentos_Entrantes_Juzgados(){
-	
-	
+
+
 			if($_SESSION['id']!=""){
-		
+
 				require 'models/sidojuModel.php';
 
 				$modelo = new sidojuModel();
-					
+
 				if($_GET){
-					 
+
 					$modelo->registrar_vereficar_documentos_entrantes_juzgados();
-		
+
 				}
-		
+
 				$this->view->show("sidoju_verificar_documentos_entrantes_juzgados.php", $data);
-				
-				
+
+
 			}
 			else{
 				header("refresh: 0; URL=/centro_servicios2/");
 
-			}	
-		
-	
+			}
+
+
 	}
-	
+
+	public function Registro_Aprobar_Documentos_Entrantes_Juzgados(){
+
+
+			if($_SESSION['id']!=""){
+
+				require 'models/sidojuModel.php';
+
+				$modelo = new sidojuModel();
+
+				if($_GET){
+
+					$modelo->registrar_aprobar_documentos_entrantes_juzgados();
+
+				}
+
+				$this->view->show("sidoju_aprobar_documentos_entrantes_juzgados.php", $data);
+
+
+			}
+			else{
+				header("refresh: 0; URL=/centro_servicios2/");
+
+			}
+
+
+	}
+
 	public function Editar_documento_Entrante_Juzgado(){
 		if($_SESSION['id']!=""){
 			require 'models/sidojuModel.php';
@@ -458,27 +527,27 @@ class sidojuController extends controllerBase{
             $modelo = new sidojuModel();
             if($_POST){
                 $modelo->eliminar_documentos_entrantes_juzgados();
-            }	
+            }
             header("refresh: 0; URL=/centro_servicios2/views/popupbox/popup_sidojuEliminar_Registro.php?c=sidoju&a=Eliminar_Registro_Sidoju");
-            
+
         }else{
             header("refresh: 0; URL=/centro_servicios2/");
         }
     }
-	
+
 	//--------------------------------------------------------------------------------------------------------
-	
-	
-	
+
+
+
 	//ACTUALIZADO FECHA 17 DE ENERO 2020
-	
+
 	public function Listar_Archivos_Escaneados_2(){
-	
+
 		if($_SESSION['id']!=""){
 
 			require 'models/sidojuModel.php';
-		
-			
+
+
 			$this->view->show("archivo_listar_archivos_escaneados_2.php", $data);
 
 	  	}
@@ -486,50 +555,50 @@ class sidojuController extends controllerBase{
 
 			header("refresh: 0; URL=/centro_servicios2/");
 		}
-	
+
 	}
-	
-	
-	
+
+
+
 	//MIGRAR TUTELA
 	//PARA INCIDENTE DESACATO EN SALUD
 	//ADICIONADO POR INGENIERO JORGE ANDRES VALENCIA 22 DE ENERO 2020
 	public function Migrar_Tutela(){
-	
-	
+
+
 		if($_SESSION['id']!=""){
-		
+
 			require 'models/sidojuModel.php';
 
 			$modelo = new sidojuModel();
-			
+
 			//$valorradicadoconsulta       = trim($_GET['valorradicado']);
 			//$data['valorradicadoconsulta'] = $valorradicadoconsulta;
-					
-			
+
+
 			if($_GET){
-					 
-				
+
+
 				$modelo->migrar_tutela_NV();
-		
+
 			}
-		
-		
+
+
 			$this->view->show("sidoju_documentos_entrantes_juzgados.php", $data);
-				
-				
+
+
 		}
 		else{
 			header("refresh: 0; URL=/centro_servicios2/");
 
-		}	
-		
+		}
+
 
 	}
 
 
 
-	
+
 }//FIN CLASE
 
 ?>
