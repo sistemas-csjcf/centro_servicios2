@@ -3,13 +3,14 @@
 	//INSTANCIAMOS EL MODELO, PARA DAR USO DE SUS FUNCIONES
 	$modelo       = new sidojuModel();
 
-	$campos               = 'usuario';
-	$nombrelista          = 'pa_usuario_acciones';
-	$idaccion			        = '13';
-	$campoordenar         = 'id';
+	$campos                = 'usuario';
+	$nombrelista           = 'pa_usuario_acciones';
+	$idaccion			         = '13';
+	$campoordenar          = 'id';
 	$jdatosusuarioacciones = $modelo->get_lista_usuario_acciones($campos,$nombrelista,$idaccion,$campoordenar);
 	$jusuarios             = $jdatosusuarioacciones->fetch();
-	$jusuariosa			  = explode("////",$jusuarios[usuario]);
+	$jusuariosa			  		 = explode("////",$jusuarios[usuario]);
+	$usaprobext						 = array('185', '82', '24', '73', '29', '69', '118');
 
 ?>
 <div id="contentSecc_sidoju">
@@ -49,7 +50,14 @@
 				<?php } else{?>
 
 				<ul class="submenu">
-
+						<?php if ( in_array($_SESSION['idUsuario'], $usaprobext) ) {
+							echo "
+									<li>
+										<a href= 'consultextern/index.php?uid=".$_SESSION['idUsuario']."'>Memoriales | Portal Web</a>
+									</li>
+								";
+					 		}
+						?>
 					<li>
 						<a href= "index.php?controller=sidoju&amp;action=Registro_Documentos_Entrantes_Juzgados">Registro Documentos Entrantes Juzgados</a>
 					</li>
