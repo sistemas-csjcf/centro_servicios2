@@ -1,0 +1,43 @@
+.form-control.is-valid {
+  background-position: center right calc(1.375em + .1875rem) !important;
+}
+
+.form-control.is-invalid {
+  background-position: center right calc(1.375em + .1875rem) !important;
+}
+
+.input-group > .custom-file:not(:last-child) .custom-file-label::after {
+  content: "Buscar";
+}
+
+#load{
+  display: none;
+  width: 50px;
+  margin-left: calc((100% - 50px) / 2);
+  margin-bottom: 1%;
+}
+
+.loading{
+  width: 50px;
+}
+
+.imgOk{
+  width: 100%;
+}
+
+.fontP{
+  font-size: 16px;
+}
+
+.fontP2{
+  font-size: 13px;
+}
+
+.separator{
+  border: solid 1px #ccc;
+  width: 100%;
+}
+
+.imgPdf{
+  margin-left: calc((100% - 64px) / 2);
+}
