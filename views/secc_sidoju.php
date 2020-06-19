@@ -10,7 +10,7 @@
 	$jdatosusuarioacciones = $modelo->get_lista_usuario_acciones($campos,$nombrelista,$idaccion,$campoordenar);
 	$jusuarios             = $jdatosusuarioacciones->fetch();
 	$jusuariosa			  		 = explode("////",$jusuarios[usuario]);
-	$usaprobext						 = array('185', '82', '24', '73', '29', '69', '118');
+	$usaprobext						 = array('87', '45', '145', '132', '185', '82', '24', '73', '29', '69', '118');
 
 ?>
 <div id="contentSecc_sidoju">
