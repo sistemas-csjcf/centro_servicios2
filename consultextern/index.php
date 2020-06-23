@@ -6,6 +6,7 @@ if(!isset($_GET['uid']))
 }
 else
 {
+	date_default_timezone_set('America/Bogota');
 	include('head.php');
 	?>
 	<!-- Header -->
@@ -19,14 +20,14 @@ else
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th scope="col">Juzgado</th>
-							<th scope="col">Año</th>
-							<th scope="col">Consecutivo</th>
-							<th scope="col">Folios</th>
-							<th scope="col">Nombre de quien suscribe</th>
-							<th scope="col">Correo</th>
-							<th scope="col">Archivo</th>
-							<th scope="col">Registrar | SIDOJU</th>
+							<th scope="col">JUZGADO</th>
+							<th scope="col">AÑO</th>
+							<th scope="col">CONSECUTIVO</th>
+							<th scope="col">FOLIOS</th>
+							<th scope="col">NOMBRE DE QUIEN SUSCRIBE</th>
+							<th scope="col">CORREO</th>
+							<th scope="col">ARCHIVOS</th>
+							<th scope="col">REGISTRAR | SIDOJU</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -40,7 +41,7 @@ else
 							$and = "and j.id between 5 and 7";
 						} else if($user_id == 82){
 							$and = "and j.id between 14 and 16";
-						} else if($user_id == 24 || $user_id == 45){
+						} else if($user_id == 24){
 							$and = "and j.id between 1 and 4";
 						} else if($user_id == 73){
 							$and = "and j.id between 23 and 25";
@@ -54,19 +55,22 @@ else
 
 						$consulta = "
 						select j.nombre as juzgado, e.ano as ano, e.consecutivo as consecutivo, e.folios as folios, e.nombre_persona as persona,
-						e.correo_persona as correo, e.ruta_memorial as archivo
+						e.correo_persona as correo, e.id as id, e.fecha_registro as fecha
 						from pa_juzgado j
 						join ext_memoriales e on
 						j.id = e.id_juzgado
 						".$and."
+						and e.revisado = 0
 						";
 						include("conect_and_data.php");
 						$resultado = mysql_query($consulta);
+						$object = json_encode($resultado);
 						if(mysql_num_rows($resultado) == 0){
 							echo "<tr><td><p align='center'>Sin datos...</p></td><td><p align='center'>Sin datos...</p></td><td><p align='center'>Sin datos...</p></td><td><p align='center'>Sin datos...</p></td><td><p align='center'>Sin datos...</p></td><td><p align='center'>Sin datos...</p></td><td><p align='center'>Sin datos...</p></td><td><p align='center'>Sin datos...</p></td></tr>";
 						}
 						else{
 							while ($columna = mysql_fetch_array($resultado)){
+								$fechaR = explode(" ", $columna['fecha']);
 								echo"
 								<tr>
 								<th scope='row'>".$columna['juzgado']."</th>
@@ -75,8 +79,10 @@ else
 								<td>".$columna['folios']."</td>
 								<td>".$columna['persona']."</td>
 								<td>".$columna['correo']."</td>
-								<td><a href='http://localhost/recepcionmemoriales/memoriales/RIF-".$columna['archivo']."' target='_blank'><img src='img/pdf.png'></a></td>
-								<td><a href='#' data-toggle='modal' data-target='#ModalSidoju'><img src='img/sidoju.png' style='width: 76px;'></a></td>
+								<td><a href='#' data-toggle='modal' data-target='#ModalDocs' onClick='ModalDocs(".$columna['id'].");'><img src='img/pdf.png' style='width: 40px;'></a></td>
+								<td><a href='#' data-toggle='modal' data-target='#ModalSidoju'
+								onClick='FormSIDOJU(".chr(34).$columna['id'].chr(34).",".chr(34).$columna['persona'].chr(34).", ".chr(34).$columna['folios'].chr(34).", ".chr(34).$columna['juzgado'].chr(34).",
+								".chr(34).$_GET['uid'].chr(34).", ".chr(34).$fechaR[0].chr(34).", ".chr(34).$fechaR[1].chr(34).");'><img src='img/sidoju.png' style='width: 47px;'></a></td>
 								</tr>
 								";
 							}
@@ -86,22 +92,51 @@ else
 					</tbody>
 				</table>
 
-				<div id="ModalSidoju" class="modal fade" role="dialog">
+				<div id="ModalDocs" class="modal fade" role="dialog">
 					<div class="modal-dialog modal-md">
 						<!-- Modal content-->
 						<div class="modal-content">
 							<div class="modal-header" style="padding: 0.5rem !important; margin-bottom: 15px; background-color: #17a2b8;">
+								<label style="color: #FFF;">Revizar Documentación</label>
+								<button type="button" class="close" data-dismiss="modal" style="color: #FFF;">&times;</button>
+							</div>
+							<div class="modal-body" id="putContent">
+
+							</div>
+						</div>
+					</div>
+					<!-- /Formulario de edición -->
+				</div>
+
+				<div id="ModalSidoju" class="modal fade" role="dialog">
+					<div class="modal-dialog modal-md" style="max-width: 550px !important;">
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header" style="padding: 0.5rem !important; margin-bottom: 15px; background-color: #17a2b8;">
 								<label style="color: #FFF;">Registrar en SIDOJU</label>
-								<button type="button" class="close" data-dismiss="modal" onclick="reload();" style="color: #FFF;">&times;</button>
+								<button type="button" class="close" data-dismiss="modal" style="color: #FFF;">&times;</button>
 							</div>
 							<div class="modal-body">
 
-								<form action="regSidoju.php" method="POST" style="text-align: left !important;">
+								<form id="formSIDOJU" action="regSidoju.php" method="POST" style="text-align: left !important;" enctype="multipart/form-data">
 
 									<div class="card-body">
-										<div class="form-group">
-											<label for="juzgado">Seleccione el tipo de documento</label>
-											<select class="form-control" id="tipdoc" name="tipdoc">
+										<input type="hidden" id="idm" name="idm" readonly>
+										<div class="form-group form-inline">
+											<label style="width: 220px; justify-content: left;" for="fecha">Fecha</label>
+											<input style="width: 250px;" type="text" class="form-control" id="fecha" name="fecha" readonly>
+										</div>
+										<div class="form-group form-inline">
+											<label style="width: 220px; justify-content: left;" for="hora">Hora</label>
+											<input style="width: 250px;" type="text" class="form-control" id="hora" name="hora" readonly>
+										</div>
+										<div class="form-group form-inline">
+											<label style="width: 220px; justify-content: left;" for="remitente">Remitente</label>
+											<input style="width: 250px;" type="text" class="form-control" id="remitente" name="remitente" readonly>
+										</div>
+										<div class="form-group form-inline">
+											<label style="width: 220px; justify-content: left;" for="juzgado">Tipo de documento</label>
+											<select class="form-control" id="tipdoc" name="tipdoc" style="width: 251px;">
 												<option value="" selected>Seleccione</option>
 												<option value="1">Circular</option>
 												<option value="2">Oficio</option>
@@ -112,16 +147,27 @@ else
 												<option value="7">Asunto de tutela</option>
 												<option value="8">Expedientes</option>
 												<option value="9">Tutela Corte Constitucional</option>
-												<option value="10">INCIDENTE DESACATO EN SALUD</option>
 											</select>
 										</div>
-										<div class="form-group">
-											<label for="ano">Asunto</label>
-											<input type="text" class="form-control" id="asunto" name="asunto">
+										<div class="form-group form-inline">
+											<label style="width: 220px; justify-content: left;" for="numdoc">Número Documento</label>
+											<input style="width: 250px;" type="text" class="form-control" id="numdoc" name="numdoc">
 										</div>
-										<div class="form-group">
-											<label for="ano">Nombre/Cuadernos</label>
-											<input type="text" class="form-control" id="nomcuad" name="nomcuad">
+										<div class="form-group form-inline">
+											<label style="width: 220px; justify-content: left;" for="folios">Nombre/Folios/Cuadernos</label>
+											<input style="width: 250px;" type="text" class="form-control" id="folios" name="folios">
+										</div>
+										<div class="form-group form-inline">
+											<label style="width: 220px; justify-content: left;" for="juzgado">Juzgado Destino</label>
+											<input style="width: 250px;" type="text" class="form-control" id="juzgado" name="juzgado" readonly>
+										</div>
+										<div class="form-group form-inline">
+											<label style="width: 220px; justify-content: left;" for="empleado">Empleado</label>
+											<input style="width: 250px;" type="text" class="form-control" id="empleado" name="empleado" readonly>
+										</div>
+										<div class="form-group form-inline">
+											<label style="width: 220px; justify-content: left;" for="archivo">Archivo</label>
+											<input style="width: 250px;" type="file" class="form-control" id="archivo" name="archivo">
 										</div>
 									</div>
 									<!-- /.card-body -->
@@ -129,13 +175,14 @@ else
 									<div id="resultfrm"></div>
 
 									<div class="card-footer">
-										<button id="env" class="btn btn-info">Guardar | SIDOJU</button>
+										<div id="env" class="btn btn-info float-right" onClick="envForm();">Guardar | SIDOJU</div>
 									</div>
-
+									<div id="resultfrm"></div>
 								</form>
 
 							</div>
 							<div class="modal-footer">
+								<img src="img/alert.png" style="width: 68px; margin-left: 3%; margin-bottom: 13px;"><br>
 								<p align="left">Cerciorese de la información que suministra en el formulario antes de registrar el documento en SIDOJU.</p>
 							</div>
 						</div>

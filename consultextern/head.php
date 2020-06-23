@@ -12,5 +12,6 @@
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="dist/css/adminlte.min.css">
   <link rel="stylesheet" href="dist/css/style.css">
+	<script src="js/functions.js"></script>
 </head>
-<a href="http://localhost/centro_servicios2/index.php?controller=menu&action=mod_sidoju"><img src="img/cabecera.png" style="width: 100%;"></a>
+<a href="http://172.16.175.124/centro_servicios2/index.php?controller=menu&action=mod_sidoju"><img src="img/cabecera.png" style="width: 100%;"></a>

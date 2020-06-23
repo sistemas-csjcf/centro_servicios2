@@ -483,7 +483,7 @@ $(document).ready(function() {
 										if ($row[chk] == 0) {
 											echo "<td bgcolor='#CDE3F9'><b>"."No Aprobado"."</b>";
 										} else if ($row[chk] == 1){
-											if ($row[fecha] < '2020-05-01'){
+											if ($row[fecha] < '2020-07-01'){
 												echo "<td bgcolor='#d4edda'><b>"."Aprobado"."</b>";
 											} else{
 												echo "<td bgcolor='#fff3cd'><b>"."Pendiente"."</b>";
