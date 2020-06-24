@@ -55,7 +55,7 @@ else
 
 						$consulta = "
 						select j.nombre as juzgado, e.ano as ano, e.consecutivo as consecutivo, e.folios as folios, e.nombre_persona as persona,
-						e.correo_persona as correo, e.id as id, e.fecha_registro as fecha
+						e.correo_persona as correo, e.id as id, e.fecha_registro as fecha, e.acuse as acuse
 						from pa_juzgado j
 						join ext_memoriales e on
 						j.id = e.id_juzgado
@@ -82,7 +82,7 @@ else
 								<td><a href='#' data-toggle='modal' data-target='#ModalDocs' onClick='ModalDocs(".$columna['id'].");'><img src='img/pdf.png' style='width: 40px;'></a></td>
 								<td><a href='#' data-toggle='modal' data-target='#ModalSidoju'
 								onClick='FormSIDOJU(".chr(34).$columna['id'].chr(34).",".chr(34).$columna['persona'].chr(34).", ".chr(34).$columna['folios'].chr(34).", ".chr(34).$columna['juzgado'].chr(34).",
-								".chr(34).$_GET['uid'].chr(34).", ".chr(34).$fechaR[0].chr(34).", ".chr(34).$fechaR[1].chr(34).");'><img src='img/sidoju.png' style='width: 47px;'></a></td>
+								".chr(34).$_GET['uid'].chr(34).", ".chr(34).$fechaR[0].chr(34).", ".chr(34).$fechaR[1].chr(34).", ".chr(34).$columna['acuse'].chr(34).");'><img src='img/sidoju.png' style='width: 47px;'></a></td>
 								</tr>
 								";
 							}
@@ -122,6 +122,7 @@ else
 
 									<div class="card-body">
 										<input type="hidden" id="idm" name="idm" readonly>
+										<input type="hidden" id="acuse" name="acuse" readonly>
 										<div class="form-group form-inline">
 											<label style="width: 220px; justify-content: left;" for="fecha">Fecha</label>
 											<input style="width: 250px;" type="text" class="form-control" id="fecha" name="fecha" readonly>

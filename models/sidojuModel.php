@@ -590,7 +590,7 @@ class sidojuModel extends modelBase{
 	public function get_listrar_documentos_entrantes_usuario_2($identrada,$idsesionjuzgado){
 		$model       = new sidojuModel();
 		if($identrada == 1){
-			$listar    = $this->db->prepare("SELECT de.id,de.fecha,de.hora,pu.empleado,de.remitente,td.nombre_tipo_documento,de.numero,de.nfc,pj.nombre,de.rutaarchivo,de.chk,de.sal_id_externo_fk,de.sal_id_estado FROM (((sidoju_documentos_entrantes_juzgados de INNER JOIN pa_usuario pu ON de.idusuario = pu.id) INNER JOIN sigdoc_pa_tipodocumento td ON de.idtipodocumento = td.id) INNER JOIN pa_juzgado pj ON de.idjuzgadodestino = pj.id) WHERE de.idjuzgadodestino = '$idsesionjuzgado' ORDER BY de.id DESC LIMIT 10");
+			$listar    = $this->db->prepare("SELECT de.id,de.fecha,de.hora,pu.empleado,de.remitente,td.nombre_tipo_documento,de.numero,de.nfc,pj.nombre,de.rutaarchivo,de.acuse,de.chk,de.sal_id_externo_fk,de.sal_id_estado FROM (((sidoju_documentos_entrantes_juzgados de INNER JOIN pa_usuario pu ON de.idusuario = pu.id) INNER JOIN sigdoc_pa_tipodocumento td ON de.idtipodocumento = td.id) INNER JOIN pa_juzgado pj ON de.idjuzgadodestino = pj.id) WHERE de.idjuzgadodestino = '$idsesionjuzgado' ORDER BY de.id DESC LIMIT 10");
 		}
 		if($identrada == 2){
 			$filtrox;
@@ -653,7 +653,7 @@ class sidojuModel extends modelBase{
 			//echo $filtrox;
 
 
-			$listar    = $this->db->prepare("SELECT de.id,de.fecha,de.hora,pu.empleado,de.remitente,td.nombre_tipo_documento,de.numero,de.nfc,pj.nombre,de.rutaarchivo,de.chk,de.sal_id_externo_fk,de.sal_id_estado FROM (((sidoju_documentos_entrantes_juzgados de INNER JOIN pa_usuario pu ON de.idusuario = pu.id) INNER JOIN sigdoc_pa_tipodocumento td ON de.idtipodocumento = td.id) INNER JOIN pa_juzgado pj ON de.idjuzgadodestino = pj.id) WHERE de.id >= '1'" .$filtrox. " AND de.idjuzgadodestino = '$idsesionjuzgado' ORDER BY de.id DESC");
+			$listar    = $this->db->prepare("SELECT de.id,de.fecha,de.hora,pu.empleado,de.remitente,td.nombre_tipo_documento,de.numero,de.nfc,pj.nombre,de.rutaarchivo,de.acuse,de.chk,de.sal_id_externo_fk,de.sal_id_estado FROM (((sidoju_documentos_entrantes_juzgados de INNER JOIN pa_usuario pu ON de.idusuario = pu.id) INNER JOIN sigdoc_pa_tipodocumento td ON de.idtipodocumento = td.id) INNER JOIN pa_juzgado pj ON de.idjuzgadodestino = pj.id) WHERE de.id >= '1'" .$filtrox. " AND de.idjuzgadodestino = '$idsesionjuzgado' ORDER BY de.id DESC");
 		}
   		$listar->execute();
   		return $listar;
@@ -2340,30 +2340,19 @@ class sidojuModel extends modelBase{
 						$this->db->exec($sql);
 
 						$i = $i + 1;
-
-						/* Se omite la generación de pdf por documento ya que se optiene a traves de la impresión por bloque.
-						//CARGO LOS IDES DE LOS REGISTROS PARA GENERAR EL REPORTE, QUE ACABAN DE SER APROBADOS
-						$idimprimir = $id.",".$idimprimir;
-						//CARGO LA VARIABLE SIN EL PRIMER CARACTER QUE ES UNA COMA (,) --> ,9,8,7,6,5,4,3,2,1, --> 9,8,7,6,5,4,3,2,1,
-						$registros  = substr($idimprimir,1);
-						*/
 					}
 
 					$this->db->exec("INSERT INTO log (fecha, accion,detalle,idusuario,idtipolog) VALUES ('$fechalog', '$accion','$detalle','$idusuario','$tipolog')");
-				//SE TERMINA LA TRANSACCION
+					//SE TERMINA LA TRANSACCION
 			  	$this->db->commit();
 
-				/* Se omite la generación de pdf por documento ya que se optiene a traves de la impresión por bloque.
-				//GENERO EL REPORTE PERO SE VERIFICA ANTES QUE LA TRANSACCION ES CORRECTA
+
+				//Se genera la relación de documentos a entregar
 				echo '<script languaje="JavaScript">
+								var datos = "'.$nombrebloque.'";
+								window.open("views/PHPPdf/Reporte_ADEJ_Bloque.php?datos="+datos);
+					 		</script>';
 
-							var datos = "'.$registros.'";
-
-							window.open("views/PHPPdf/Reporte_ADEJ.php?datos="+datos);
-
-
-					 </script>';
-				*/
 				print'<script languaje="Javascript">location.href="index.php?controller=sidoju&action=mensajes&nombre=5c"</script>';
 
 			}

@@ -34,9 +34,10 @@ function ModalDocs(identif)
 	}
 }
 
-function FormSIDOJU(idm, persona, folios, juzgado, empleado, fecha, hora)
+function FormSIDOJU(idm, persona, folios, juzgado, empleado, fecha, hora, acuse)
 {
 	document.getElementById("idm").value = idm;
+	document.getElementById("acuse").value = acuse;
 	document.getElementById("fecha").value = fecha;
 	document.getElementById("hora").value = hora;
 	document.getElementById("remitente").value = persona;

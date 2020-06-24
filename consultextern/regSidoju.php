@@ -2,6 +2,7 @@
 date_default_timezone_set('America/Bogota');
 // Recopilación de Datos
 $idm            = trim($_POST['idm']);
+$acuse          = trim($_POST['acuse']);
 $fechae         = trim($_POST['fecha']);
 $horae          = trim($_POST['hora']);
 $remitente      = trim($_POST['remitente']);
@@ -40,9 +41,9 @@ if ($archivoOriginal != "") {
     require_once("conect_and_data.php");
     $doc = "
     INSERT INTO sidoju_documentos_entrantes_juzgados (idusuario,idusuarioedita,idusuarioverifica,fecha,
-    fechaedita,fechaverifica,hora,remitente,idtipodocumento,numero,nfc,idjuzgadodestino,rutaarchivo,nombrebloque,chk)
+    fechaedita,fechaverifica,hora,remitente,idtipodocumento,numero,nfc,idjuzgadodestino,rutaarchivo,acuse,nombrebloque,chk)
     VALUES (".$nom.",0,0,'".$fechae."','0000-00-00','0000-00-00','".$horae."','".$remitente."',".$tipodocumento.",'".$numerodoce."','".$nfc."',
-    (SELECT id FROM pa_juzgado WHERE nombre LIKE '".$nom_u."'),'ArchivosSidoju/".$nom.'/'.$nombre_archivo."','',0);
+    (SELECT id FROM pa_juzgado WHERE nombre LIKE '".$nom_u."'),'ArchivosSidoju/".$nom.'/'.$nombre_archivo."','".$acuse."','',0);
     ";
 
     if ( mysql_query($doc) or die ( mysql_error($conexion) ) ) {
