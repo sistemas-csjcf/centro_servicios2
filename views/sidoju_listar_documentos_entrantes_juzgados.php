@@ -438,13 +438,13 @@ if(!empty($opcion)){
 							<th>RECIBE</th>
 							<th>REMITENTE</th>
 							<th>JUZGADO</th>
-							<th>RUTA ARCHIVO</th>
+							<th>ARCHIVO</th>
 							<th>ESTADO</th>
 							<?php
 							if (in_array($_SESSION['idUsuario'],$usuariosa)) {
-							echo "<th>ACUSE DE RECIBIDO</th>";
+								echo "<th>ACUSE DE RECIBIDO</th>";
 							} else {
-							echo "<th>-</th>";
+								echo "<th>-</th>";
 							}
 							?>
 						</tr>
@@ -478,9 +478,10 @@ if(!empty($opcion)){
 								<td><?php echo $row[remitente];?></td>
 								<td><?php echo $row[nombre];?></td>
 								<td width="85 !important">
-									<?php if($row[sal_id_externo_fk] ==null) { ?>
-										<a href="javascript:void(0);" title="Desacargar Archivo" data-ruta="<?php echo $row['rutaarchivo'];?>" style="color:#0000FF" onclick="document.location='<?php echo $row['rutaarchivo'];?>'"><?php $newtext = wordwrap($row[rutaarchivo], 20, "\n", true); echo $newtext;?></a>
-									<?php } if($row[sal_id_externo_fk] >=1) {  ?>
+									<?php if($row[sal_id_externo_fk] == null) {
+										echo "<a href='".$row['rutaarchivo']."' title='Visualizar Archivo' target='_blank'><img src='/centro_servicios2/consultextern/img/pdf.png' width='40'/></a>";
+										/*<a href="javascript:void(0);" title="Desacargar Archivo" data-ruta="<?php echo $row['rutaarchivo'];?>" style="color:#0000FF" onclick="document.location='<?php echo $row['rutaarchivo'];?>'"><?php $newtext = wordwrap($row[rutaarchivo], 20, "\n", true); echo $newtext;?></a>*/
+									} if($row[sal_id_externo_fk] >=1) {  ?>
 										<a href="ftp://192.168.89.28/<?php echo $row['rutaarchivo'];?>" title="Desacargar Archivo" style="color:#0000FF">
 											<?php $newtext = wordwrap($row[rutaarchivo], 20, "\n", true); echo $newtext;?></a>
 										<?php } ?>
@@ -502,11 +503,11 @@ if(!empty($opcion)){
 								<td>
 									<?php
 									if (in_array($_SESSION['idUsuario'],$usuariosa)) {
-											if($row[chk] == 1 || $row[chk] == 2) {
-												echo "<a href='/recepcionmemoriales/".$row[acuse]."' target='_blank'><img src='/centro_servicios2/consultextern/img/pdf.png' width='40' title='Ver Acuse de Recibido'/></a>";
-											} else {
-													echo "-";
-												}
+										if($row[chk] == 1 || $row[chk] == 2) {
+											echo "<a href='/recepcionmemoriales/dist/".$row[acuse]."' target='_blank'><img src='/centro_servicios2/consultextern/img/pdf.png' width='40' title='Ver Acuse de Recibido'/></a>";
+										} else {
+											echo "-";
+										}
 									}	else { ?>
 
 										<?php if($row[chk] == 0 AND $row[sal_id_externo_fk] ==null) { ?>

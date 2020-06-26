@@ -8,6 +8,7 @@ else
 {
 	date_default_timezone_set('America/Bogota');
 	include('head.php');
+	include('nav.php');
 	?>
 	<!-- Header -->
 

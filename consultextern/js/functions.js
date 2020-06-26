@@ -24,7 +24,7 @@ function ModalDocs(identif)
 					var arrayObject = response.split('|');
 					var content = "<table class='table table-striped table-bordered'><thead><tr><th scope='col'>Memorial</th><th scope='col'>Documento</th></tr></thead><tbody>";
 					for (var i = 1 ; i <= (arrayObject.length -1) ; i++) {
-						content = content+"<tr><td>"+arrayObject[i]+"</td><td><a href='http://localhost/recepcionmemoriales/memoriales/"+arrayObject[i]+"' target='_blank'><img src='img/pdf.png' style='width: 40px;'></a></td></tr>";
+						content = content+"<tr><td>"+arrayObject[i]+"</td><td><a href='http://localhost/recepcionmemoriales/dist/memoriales/"+arrayObject[i]+"' target='_blank'><img src='img/pdf.png' style='width: 40px;'></a></td></tr>";
 					}
 					content = content+"</tbody></table>";
 					document.getElementById("putContent").innerHTML = content;
@@ -63,4 +63,24 @@ function envForm()
 		$( "#formSIDOJU" ).submit();
 	}
 
+}
+
+function UserRG(uid, nombre, documento, correo, contrasena, es_abogado)
+{
+	document.getElementById("uid").value = uid;
+	document.getElementById("nombre").value = nombre;
+	document.getElementById("documento").value = documento;
+	document.getElementById("correo").value = correo;
+	document.getElementById("contrasena").value = contrasena;
+	if (es_abogado == "ABOGADO"){$("#es_abogado").addClass("is-valid");}
+	else {$("#es_abogado").removeClass("is-valid");}
+	document.getElementById("es_abogado").value = es_abogado;
+}
+
+function envFormUser()
+{
+	var r = confirm("Está seguro de registrar el usuario? \nRecuerde que si el usuario es ABOGADO, debió validar su registro en la URNA.");
+	if (r == true) {
+		$( "#formUserExt" ).submit();
+	}
 }

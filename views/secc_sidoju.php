@@ -53,7 +53,7 @@
 						<?php if ( in_array($_SESSION['idUsuario'], $usaprobext) ) {
 							echo "
 									<li>
-										<a href= 'consultextern/index.php?uid=".$_SESSION['idUsuario']."'>Memoriales | Portal Web</a>
+										<a href= 'consultextern/index.php?uid=".$_SESSION['idUsuario']."'>Memoriales | Ventanilla virtual</a>
 									</li>
 								";
 					 		}
