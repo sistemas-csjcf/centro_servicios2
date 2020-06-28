@@ -150,8 +150,7 @@ $(document).ready(function() {
 						<th>RECIBE</th>
 						<!-- <th>REMITENTE</th> -->
 						<th>JUZGADO</th>
-						<!-- <th>RUTA ARCHIVO</th> -->
-						<th>
+						<th>ARCHIVO<th>
 							<!-- <input type="button" onclick="marcar(':checkbox')" value="Marcar todos"> -->
 							<a class="marcar" href="javascript:void(0);" title="Marcar todos"><img src="views/images/OK1.jpg" width="20" height="20" title="Marcar todos"/></a>
 						</th>
@@ -184,6 +183,9 @@ $(document).ready(function() {
 						<td><?php echo $row[hora];?></td>
 						<td><?php echo $row[empleado];?></td>
 						<td><?php echo $row[nombre];?></td>
+						<?php
+							echo "<td><a href='".$row[rutaarchivo]."' target='_blank'><img src='/centro_servicios2/consultextern/img/pdf.png' width='40'></a></td>";;
+						?>
 						<td><input type="checkbox" name="<?php echo "chk".$i;?>" id="<?php echo "chk".$i;?>" value="<?php echo "chk".$i;?>"/></td>
 						<td></td>
 						<td></td>

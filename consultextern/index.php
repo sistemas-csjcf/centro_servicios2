@@ -157,7 +157,7 @@ else
 										</div>
 										<div class="form-group form-inline">
 											<label style="width: 220px; justify-content: left;" for="folios">Nombre/Folios/Cuadernos</label>
-											<input style="width: 250px;" type="text" class="form-control" id="folios" name="folios">
+											<input style="width: 250px;" type="text" class="form-control" id="folios" name="folios" readonly>
 										</div>
 										<div class="form-group form-inline">
 											<label style="width: 220px; justify-content: left;" for="juzgado">Juzgado Destino</label>
