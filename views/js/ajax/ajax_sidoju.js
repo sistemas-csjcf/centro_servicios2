@@ -127,7 +127,7 @@ $(function(){
 
 	// PARA RECORRER LA TABLA FILA POR FILA
 	$(".aprobar2").click(function(evento){
-		var r = confirm("NOTA ACLARATORIA; Una vez aprobados los memoriales, se tendrán por recibidos a satisfacción por parte de su despacho. \n En caso de que un memorial no le corresponda o presente inconcistencias, se solicita NO aprobar el mismo y comunicarse \n de inmediato con el Centro de Servicios.");
+		var r = confirm("NOTA ACLARATORIA; Una vez aprobados los memoriales, se tendrán por recibidos a satisfacción por parte de su despacho. \nEn caso de que un memorial no le corresponda o presente inconcistencias, se solicita NO aprobar el mismo y comunicarse \nde inmediato con el Centro de Servicios.");
 		if (r){
 			$("#msgT").css({display: "none"});
 			$(".non").css({display: "none"});
