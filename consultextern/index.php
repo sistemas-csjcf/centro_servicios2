@@ -38,20 +38,20 @@ else
 
 						if ($user_id == 132){
 							$and = "and j.id between 20 and 22";
-						} else if($user_id == 145){
+						} else if($user_id == 16){
 							$and = "and j.id between 5 and 7";
 						} else if($user_id == 82){
 							$and = "and j.id between 14 and 16";
 						} else if($user_id == 24){
 							$and = "and j.id between 1 and 4";
-						} else if($user_id == 73){
+						} else if($user_id == 63){
 							$and = "and j.id between 23 and 25";
 						} else if($user_id == 29){
 							$and = "and j.id between 17 and 19";
 						} else if($user_id == 69){
 							$and = "and j.id between 8 and 10";
 						} else if($user_id == 118){
-							$and = "and j.id between 11 and 12";
+							$and = "and j.id between 11 and 13";
 						}
 
 						$consulta = "
